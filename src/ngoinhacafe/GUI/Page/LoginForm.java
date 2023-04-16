@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ngoinhacafe.GUI.FormChung;
+package ngoinhacafe.GUI.Page;
 
+import ngoinhacafe.GUI.Page.MainForm;
+import java.awt.Color;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.KeyAdapter;
@@ -13,6 +15,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import ngoinhacafe.GUI.ColorDesign;
 
 /**
  *
@@ -27,13 +30,13 @@ public class LoginForm extends javax.swing.JFrame {
         initComponents();
 
         this.setTitle("Đăng nhập");
-        ImageIcon logo = new ImageIcon(getClass().getResource("/assets/images/icons8_windows_phone_store_30px.png"));
+        ImageIcon logo = new ImageIcon(getClass().getResource("/assets/images/icons8-coffee-shop-65.png"));
         setIconImage(logo.getImage());
 
         this.setLocationRelativeTo(null);
 
         // add event Enter
-        KeyAdapter ka = new KeyAdapter() {
+        KeyAdapter enterLoginEvent = new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent ke) {
                 if (ke.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -41,12 +44,11 @@ public class LoginForm extends javax.swing.JFrame {
                 }
             }
         };
-        txTenDangNhap.addKeyListener(ka);
-        txMatKhau.addKeyListener(ka);
-
+        txTenDangNhap.addKeyListener(enterLoginEvent);
+        txTenDangNhap.addKeyListener(enterLoginEvent);
         // add auto select text on focus
         // https://stackoverflow.com/questions/7361291/select-all-on-focus-in-lots-of-jtextfield
-        FocusListener fl = new FocusListener() {
+        FocusListener autoSelectTextEvent = new FocusListener() {
             @Override
             public void focusGained(FocusEvent fe) {
                 if (fe.getSource() instanceof JTextField) {
@@ -72,12 +74,11 @@ public class LoginForm extends javax.swing.JFrame {
                 }
             }
         };
-        txTenDangNhap.addFocusListener(fl);
-        txMatKhau.addFocusListener(fl);
+        txTenDangNhap.addFocusListener(autoSelectTextEvent);
+        txTenDangNhap.addFocusListener(autoSelectTextEvent);
 
         // auto focus to tenDangNhap
         txTenDangNhap.requestFocus();
-
 
     }
 
@@ -89,46 +90,71 @@ public class LoginForm extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jScrollBar1 = new javax.swing.JScrollBar();
+        txMatKhau1 = new javax.swing.JPasswordField();
         plForm = new javax.swing.JPanel();
-        plDangNhap = new javax.swing.JPanel();
-        btnDangNhap = new javax.swing.JButton();
-        plInput = new javax.swing.JPanel();
-        rbNhoMatKhau = new javax.swing.JRadioButton();
-        txTenDangNhap = new javax.swing.JTextField();
-        lbImgPass = new javax.swing.JLabel();
-        lbImgUser = new javax.swing.JLabel();
-        txMatKhau = new javax.swing.JPasswordField();
-        plHeader = new javax.swing.JPanel();
         lbHeader = new javax.swing.JLabel();
-        lbAva = new javax.swing.JLabel();
+        plInput = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        txTenDangNhap = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txMatKhau = new javax.swing.JTextField();
+        rbNhoMatKhau = new javax.swing.JRadioButton();
+        btnDangNhap = new javax.swing.JButton();
+
+        txMatKhau1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setResizable(false);
 
-        plForm.setBackground(new java.awt.Color(51, 51, 51));
+        plForm.setBackground(new java.awt.Color(254, 252, 243));
+        plForm.setLayout(new java.awt.GridBagLayout());
 
-        btnDangNhap.setBackground(new java.awt.Color(0, 204, 102));
-        btnDangNhap.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
-        btnDangNhap.setForeground(new java.awt.Color(10, 10, 10));
-        btnDangNhap.setText("ĐĂNG NHẬP");
-        btnDangNhap.addActionListener(new java.awt.event.ActionListener() {
+        lbHeader.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lbHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbHeader.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/icons8-coffee-shop-65.png"))); // NOI18N
+        plForm.add(lbHeader, new java.awt.GridBagConstraints());
+
+        plInput.setBackground(plForm.getBackground());
+        plInput.setAlignmentX(2.0F);
+        plInput.setAlignmentY(2.0F);
+        plInput.setLayout(new java.awt.GridLayout(6, 1, 0, 10));
+
+        jLabel1.setBackground(plForm.getBackground());
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jLabel1.setText("Tài khoản:");
+        plInput.add(jLabel1);
+
+        txTenDangNhap.setBackground(plForm.getBackground());
+        txTenDangNhap.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txTenDangNhap.setToolTipText("Nhập tài khoản");
+        txTenDangNhap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDangNhapActionPerformed(evt);
+                txTenDangNhapActionPerformed(evt);
             }
         });
+        plInput.add(txTenDangNhap);
 
-        javax.swing.GroupLayout plDangNhapLayout = new javax.swing.GroupLayout(plDangNhap);
-        plDangNhap.setLayout(plDangNhapLayout);
-        plDangNhapLayout.setHorizontalGroup(
-            plDangNhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnDangNhap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        plDangNhapLayout.setVerticalGroup(
-            plDangNhapLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(btnDangNhap, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-        );
+        jLabel2.setBackground(plForm.getBackground());
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jLabel2.setText("Mật khẩu:");
+        plInput.add(jLabel2);
 
+        txMatKhau.setBackground(plForm.getBackground());
+        txMatKhau.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txMatKhau.setToolTipText("Nhập mật khẩu");
+        txMatKhau.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txMatKhauActionPerformed(evt);
+            }
+        });
+        plInput.add(txMatKhau);
+
+        rbNhoMatKhau.setBackground(plForm.getBackground());
         rbNhoMatKhau.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         rbNhoMatKhau.setText("Giữ đăng nhập");
         rbNhoMatKhau.addActionListener(new java.awt.event.ActionListener() {
@@ -136,129 +162,61 @@ public class LoginForm extends javax.swing.JFrame {
                 rbNhoMatKhauActionPerformed(evt);
             }
         });
+        plInput.add(rbNhoMatKhau);
 
-        txTenDangNhap.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnDangNhap.setBackground(new java.awt.Color(245, 235, 224));
+        btnDangNhap.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
+        btnDangNhap.setText("Đăng nhập");
+        btnDangNhap.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnDangNhap.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDangNhapActionPerformed(evt);
+            }
+        });
+        plInput.add(btnDangNhap);
 
-        lbImgPass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/icons8_password_40px.png"))); // NOI18N
-
-        lbImgUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/icons8_circled_user_male_skin_type_1_2_40px.png"))); // NOI18N
-
-        txMatKhau.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-
-        javax.swing.GroupLayout plInputLayout = new javax.swing.GroupLayout(plInput);
-        plInput.setLayout(plInputLayout);
-        plInputLayout.setHorizontalGroup(
-            plInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(plInputLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbImgPass)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(plInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(plInputLayout.createSequentialGroup()
-                        .addComponent(rbNhoMatKhau)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(txMatKhau))
-                .addContainerGap())
-            .addGroup(plInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(plInputLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(lbImgUser, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(txTenDangNhap)
-                    .addContainerGap()))
-        );
-        plInputLayout.setVerticalGroup(
-            plInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plInputLayout.createSequentialGroup()
-                .addContainerGap(70, Short.MAX_VALUE)
-                .addGroup(plInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lbImgPass, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txMatKhau, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
-                .addComponent(rbNhoMatKhau)
-                .addContainerGap())
-            .addGroup(plInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(plInputLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addGroup(plInputLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txTenDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lbImgUser, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(109, Short.MAX_VALUE)))
-        );
-
-        plHeader.setBackground(new java.awt.Color(0, 0, 0));
-
-        lbHeader.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        lbHeader.setForeground(new java.awt.Color(255, 255, 255));
-        lbHeader.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbHeader.setText("QUẢN LÝ ĐIỆN THOẠI");
-
-        javax.swing.GroupLayout plHeaderLayout = new javax.swing.GroupLayout(plHeader);
-        plHeader.setLayout(plHeaderLayout);
-        plHeaderLayout.setHorizontalGroup(
-            plHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(plHeaderLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbHeader, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        plHeaderLayout.setVerticalGroup(
-            plHeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(plHeaderLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbHeader, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        lbAva.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbAva.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/icons8_commercial_development_management_64px.png"))); // NOI18N
-
-        javax.swing.GroupLayout plFormLayout = new javax.swing.GroupLayout(plForm);
-        plForm.setLayout(plFormLayout);
-        plFormLayout.setHorizontalGroup(
-            plFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(plDangNhap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(plHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(plInput, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(lbAva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        plFormLayout.setVerticalGroup(
-            plFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, plFormLayout.createSequentialGroup()
-                .addComponent(plHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lbAva)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(plInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(plDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 1;
+        gridBagConstraints.ipadx = 101;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(10, 0, 58, 0);
+        plForm.add(plInput, gridBagConstraints);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(plForm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(plForm, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(plForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(plForm, javax.swing.GroupLayout.PREFERRED_SIZE, 404, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnDangNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangNhapActionPerformed
-        String tentk = txTenDangNhap.getText();
-        String mk = txMatKhau.getText();
-
-        new FormChinh().setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnDangNhapActionPerformed
-
     private void rbNhoMatKhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbNhoMatKhauActionPerformed
 
     }//GEN-LAST:event_rbNhoMatKhauActionPerformed
+
+    private void btnDangNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangNhapActionPerformed
+        String tentk = txTenDangNhap.getText();
+        String mk = txTenDangNhap.getText();
+        new MainForm().setVisible(true);
+        //new FormChinh().setVisible(true);
+        this.dispose();
+
+    }//GEN-LAST:event_btnDangNhapActionPerformed
+
+    private void txMatKhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txMatKhauActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txMatKhauActionPerformed
+
+    private void txTenDangNhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txTenDangNhapActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txTenDangNhapActionPerformed
 
     public static String saveFileName = "temp";
 //    public static Quyen quyenLogin;
@@ -266,17 +224,15 @@ public class LoginForm extends javax.swing.JFrame {
 //    public static TaiKhoan taiKhoanLogin;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDangNhap;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollBar jScrollBar1;
-    private javax.swing.JLabel lbAva;
     private javax.swing.JLabel lbHeader;
-    private javax.swing.JLabel lbImgPass;
-    private javax.swing.JLabel lbImgUser;
-    private javax.swing.JPanel plDangNhap;
     private javax.swing.JPanel plForm;
-    private javax.swing.JPanel plHeader;
     private javax.swing.JPanel plInput;
     private javax.swing.JRadioButton rbNhoMatKhau;
-    private javax.swing.JPasswordField txMatKhau;
+    private javax.swing.JTextField txMatKhau;
+    private javax.swing.JPasswordField txMatKhau1;
     private javax.swing.JTextField txTenDangNhap;
     // End of variables declaration//GEN-END:variables
 }

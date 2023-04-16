@@ -1,6 +1,6 @@
 package ngoinhacafe.GUI.FormHienThi;
 
-import ngoinhacafe.GUI.FormChung.LoginForm;
+import ngoinhacafe.GUI.Page.LoginForm;
 import ngoinhacafe.GUI.FormChung.MyTable;
 import java.awt.BorderLayout;
 import java.awt.Color;

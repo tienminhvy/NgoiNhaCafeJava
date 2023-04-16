@@ -1,5 +1,6 @@
 package ngoinhacafe.GUI.FormChung;
 
+import ngoinhacafe.GUI.Page.LoginForm;
 import ngoinhacafe.GUI.FormQuanLy.BanHangForm;
 import ngoinhacafe.GUI.FormQuanLy.BeginForm;
 import ngoinhacafe.GUI.FormQuanLy.EmptyPage;
@@ -67,7 +68,7 @@ public class FormChinh extends JFrame implements MouseListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setUndecorated(true);
         setLocationRelativeTo(null);
-
+        
         ImageIcon logo = new ImageIcon(getClass().getResource("/assets/images/icons8_windows_phone_store_30px.png"));
         setIconImage(logo.getImage());
 
@@ -115,7 +116,7 @@ public class FormChinh extends JFrame implements MouseListener {
                 }
             }
         }
-
+   
         //https://stackoverflow.com/questions/1385737/scrollable-jpanel
         //https://stackoverflow.com/questions/5590242/how-to-hide-the-jscrollbars-in-a-jscrollpane
         //https://stackoverflow.com/questions/5583495/how-do-i-speed-up-the-scroll-speed-in-a-jscrollpane-when-using-the-mouse-wheel
@@ -126,7 +127,19 @@ public class FormChinh extends JFrame implements MouseListener {
         scrollMenu.setBorder(BorderFactory.createEmptyBorder());
         scrollMenu.getVerticalScrollBar().setUnitIncrement(5);
 
+
+
+        plContent.setLayout(new BorderLayout());
+        plContent.add(new BeginForm("Chào " + "tennv" + " - " + "manv"), BorderLayout.CENTER);
+        createHeader();
+        addMouseListener(this);
+        add(scrollMenu, BorderLayout.WEST);
+        add(plContent, BorderLayout.CENTER);
+    }
+    public void createHeader(){
         // ================ Header ===================
+        int menuW = 250;
+        int menuH = 0;
         int headerBg = 30;
         int headerH = 55;
         header = new NavBarContainer(new Rectangle(0, 0, WIDTH, headerH));
@@ -220,16 +233,9 @@ public class FormChinh extends JFrame implements MouseListener {
                 setLocation(getLocation().x + me.getX() - px, getLocation().y + me.getY() - py);
             }
         });
-
-        plContent.setLayout(new BorderLayout());
-        plContent.add(new BeginForm("Chào " + "tennv" + " - " + "manv"), BorderLayout.CENTER);
-
-        addMouseListener(this);
-        add(scrollMenu, BorderLayout.WEST);
         add(header, BorderLayout.NORTH);
-        add(plContent, BorderLayout.CENTER);
-    }
 
+    }
     private void logout() {
         int reply = JOptionPane.showConfirmDialog(getRootPane(),
                 "Bạn có chắc muốn đăng xuất khỏi " + "tennv" + "?", "Chú ý",
