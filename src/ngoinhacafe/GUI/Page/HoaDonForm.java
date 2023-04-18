@@ -4,17 +4,76 @@
  */
 package ngoinhacafe.GUI.Page;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
+import ngoinhacafe.GUI.Page.Popup.ChiTietHoaDonPopup;
+import ngoinhacafe.GUI.Page.Popup.ThongBao;
+
 /**
  *
  * @author ODL
  */
-public class HoaDonForm extends javax.swing.JPanel {
+public class HoaDonForm extends javax.swing.JPanel implements ActionListener {
 
     /**
      * Creates new form HoaDonForm
      */
     public HoaDonForm() {
         initComponents();
+        
+        addActionPerform();
+        hdTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        
+        addRowToTable(new Object[] {
+            "HD1",
+            "NV1",
+            "KH1",
+            "KM1",
+            "2023-18-04",
+            "00:00:00",
+            "100.000đ"
+        });
+        addRowToTable(new Object[] {
+            "HD2",
+            "NV1",
+            "KH1",
+            "KM1",
+            "2023-18-04",
+            "00:00:00",
+            "100.000đ"
+        });
+        addRowToTable(new Object[] {
+            "HD3",
+            "NV1",
+            "KH1",
+            "KM1",
+            "2023-18-04",
+            "00:00:00",
+            "100.000đ"
+        });
+    }
+    
+    private void addActionPerform() {
+        xemChiTietBtn.addActionListener(this);
+        lamMoiBtn.addActionListener(this);
+    }
+    
+    private DefaultTableModel getTableModel() {
+        return (DefaultTableModel) hdTable.getModel();
+    }
+    
+    private void addRowToTable(Object[] data) {
+        DefaultTableModel model = (DefaultTableModel) hdTable.getModel();
+        
+        model.addRow(data);
+    }
+
+    private void removeAllRow() {
+        DefaultTableModel model = (DefaultTableModel) hdTable.getModel();
+        
+        model.setRowCount(0);
     }
 
     /**
@@ -26,19 +85,140 @@ public class HoaDonForm extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        hdTableContainer = new javax.swing.JScrollPane();
+        hdTable = new javax.swing.JTable();
+        timkiemContainer = new javax.swing.JPanel();
+        timKiemTheo = new javax.swing.JComboBox<>();
+        timKiem = new javax.swing.JTextField();
+        timKiemBtn = new javax.swing.JButton();
+        xemChiTietBtn = new javax.swing.JButton();
+        lamMoiBtn = new javax.swing.JButton();
+
+        hdTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Mã hoá đơn", "Mã nhân viên", "Mã khách hàng", "Mã khuyến mãi", "Ngày lập", "Giờ lập", "Tổng tiền"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        hdTableContainer.setViewportView(hdTable);
+
+        timkiemContainer.setBorder(javax.swing.BorderFactory.createTitledBorder("Tìm kiếm"));
+
+        timKiemTheo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tất cả", "Mã hoá đơn", "Mã nhân viên", "Mã khuyến mãi", "Mã khách hàng", "Ngày lập", "Giờ lập", "Tổng tiền" }));
+
+        timKiemBtn.setText("Tìm kiếm");
+
+        javax.swing.GroupLayout timkiemContainerLayout = new javax.swing.GroupLayout(timkiemContainer);
+        timkiemContainer.setLayout(timkiemContainerLayout);
+        timkiemContainerLayout.setHorizontalGroup(
+            timkiemContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(timkiemContainerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(timKiemTheo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(timKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(timKiemBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        timkiemContainerLayout.setVerticalGroup(
+            timkiemContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(timkiemContainerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(timkiemContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(timKiemTheo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(timKiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(timKiemBtn))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        xemChiTietBtn.setText("Xem chi tiết");
+        xemChiTietBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                xemChiTietBtnActionPerformed(evt);
+            }
+        });
+
+        lamMoiBtn.setText("Làm mới");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1150, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(341, 341, 341)
+                .addComponent(timkiemContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(xemChiTietBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(lamMoiBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(46, Short.MAX_VALUE))
+            .addComponent(hdTableContainer, javax.swing.GroupLayout.Alignment.TRAILING)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 745, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(timkiemContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(xemChiTietBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(lamMoiBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(hdTableContainer, javax.swing.GroupLayout.DEFAULT_SIZE, 681, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void xemChiTietBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xemChiTietBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_xemChiTietBtnActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable hdTable;
+    private javax.swing.JScrollPane hdTableContainer;
+    private javax.swing.JButton lamMoiBtn;
+    private javax.swing.JTextField timKiem;
+    private javax.swing.JButton timKiemBtn;
+    private javax.swing.JComboBox<String> timKiemTheo;
+    private javax.swing.JPanel timkiemContainer;
+    private javax.swing.JButton xemChiTietBtn;
     // End of variables declaration//GEN-END:variables
+
+    ChiTietHoaDonPopup fchitiet = null;
+    
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (fchitiet != null)
+            fchitiet.dispose();
+        
+        if (e.getSource() == lamMoiBtn) {
+            
+        } else if (hdTable.getSelectedRow() == -1) {
+            ThongBao.hienLoi("Vui lòng chọn khách hàng để thực hiện thao tác!");
+            return;
+        } else {
+            
+            if (e.getSource() == xemChiTietBtn) {
+                DefaultTableModel model = getTableModel();
+                int selectedRow = hdTable.getSelectedRow();
+
+                String maHD = (String) model.getValueAt(selectedRow, 0);
+
+                fchitiet = new ChiTietHoaDonPopup(maHD);
+            }
+            
+        }
+    }
 }

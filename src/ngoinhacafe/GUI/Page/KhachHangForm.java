@@ -12,6 +12,8 @@ import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import ngoinhacafe.GUI.FormThemSua.ThemSuaKhachHangForm;
+import ngoinhacafe.GUI.Page.Popup.ThemSuaKhachHangPopup;
+import ngoinhacafe.GUI.Page.Popup.ThongBao;
 /**
  *
  * @author ODL
@@ -50,23 +52,23 @@ public class KhachHangForm extends javax.swing.JPanel implements ActionListener 
         
     }
     
-    public void addActionPerform() {
+    private void addActionPerform() {
         themBtn.addActionListener(this);
         suaBtn.addActionListener(this);
         xoaBtn.addActionListener(this);
     }
     
-    public DefaultTableModel getTableModel() {
+    private DefaultTableModel getTableModel() {
         return (DefaultTableModel) khTable.getModel();
     }
     
-    public void addRowToTable(Object[] data) {
+    private void addRowToTable(Object[] data) {
         DefaultTableModel model = (DefaultTableModel) khTable.getModel();
         
         model.addRow(data);
     }
 
-    public void removeAllRow() {
+    private void removeAllRow() {
         DefaultTableModel model = (DefaultTableModel) khTable.getModel();
         
         model.setRowCount(0);
@@ -201,14 +203,14 @@ public class KhachHangForm extends javax.swing.JPanel implements ActionListener 
     private javax.swing.JButton xoaBtn;
     // End of variables declaration//GEN-END:variables
 
-    ThemSuaKhachHangForm fThemSua = null;
+    ThemSuaKhachHangPopup fThemSua = null;
     @Override
     public void actionPerformed(ActionEvent e) {
         if (fThemSua != null)
             fThemSua.dispose();
         
         if (e.getSource() == themBtn) {
-            fThemSua = new ThemSuaKhachHangForm("Thêm", "");
+            fThemSua = new ThemSuaKhachHangPopup("Thêm", "");
         } else if (e.getSource() == lamMoiBtn) {
             
         } else if (e.getSource() == timKiemBtn) {
@@ -229,7 +231,7 @@ public class KhachHangForm extends javax.swing.JPanel implements ActionListener 
                 
             }
         } else if (khTable.getSelectedRow() == -1) {
-            JOptionPane.showMessageDialog(this, "Vui lòng chọn khách hàng để thực hiện thao tác!");
+            ThongBao.hienLoi("Vui lòng chọn khách hàng để thực hiện thao tác!");
             return;
         } else {
             DefaultTableModel model = getTableModel();
@@ -239,7 +241,7 @@ public class KhachHangForm extends javax.swing.JPanel implements ActionListener 
             
             
             if (e.getSource() == suaBtn) {
-                fThemSua = new ThemSuaKhachHangForm("Sửa", maKH);
+                fThemSua = new ThemSuaKhachHangPopup("Sửa", maKH);
             }
             if (e.getSource() == xoaBtn) {
                 int cf = JOptionPane.showConfirmDialog(this, "Bạn có muốn xoá khách hàng này không?", "Xác nhận", JOptionPane.OK_CANCEL_OPTION);
