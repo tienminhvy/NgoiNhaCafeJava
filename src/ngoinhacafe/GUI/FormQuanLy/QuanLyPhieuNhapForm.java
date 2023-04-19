@@ -7,7 +7,7 @@ package ngoinhacafe.GUI.FormQuanLy;
 
 import ngoinhacafe.GUI.FormHienThi.HienThiPhieuNhap;
 import ngoinhacafe.GUI.FormThemSua.ThemSuaPhieuNhapForm;
-import ngoinhacafe.GUI.FormChung.LoginForm;
+import ngoinhacafe.GUI.Page.LoginForm;
 import ngoinhacafe.GUI.FormChung.MyTable;
 import ngoinhacafe.GUI.MyButton.ExportExcelButton;
 import ngoinhacafe.GUI.MyButton.ImportExcelButton;

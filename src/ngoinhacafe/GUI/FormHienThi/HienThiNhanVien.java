@@ -2,7 +2,7 @@ package ngoinhacafe.GUI.FormHienThi;
 
 import com.github.lgooddatepicker.components.DatePicker;
 import com.github.lgooddatepicker.components.DatePickerSettings;
-import ngoinhacafe.GUI.FormChung.LoginForm;
+import ngoinhacafe.GUI.Page.LoginForm;
 import ngoinhacafe.GUI.FormChung.MyTable;
 import ngoinhacafe.GUI.MyButton.DateButton;
 import java.awt.BorderLayout;

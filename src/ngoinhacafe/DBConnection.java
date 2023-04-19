@@ -1,38 +1,30 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package ngoinhacafe;
 import java.sql.*;
 import javax.sql.*;
 import java.util.*;
 
-/**
- *
- * @author Admin
- */
+
 public class DBConnection {
     
-    private static String DB_NAME = "db_cafe";
-    private static String DB_URL = "jdbc:mysql://localhost:3306/"+DB_NAME;
-    private static String USER_NAME = "root";
-    private static String PASSWORD = "";
-    private static Connection conn;
+ 
+
+    private static Connection connection;
     
     public static Connection getConnection() {
-        conn = null;
+        connection = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
+            connection = DriverManager.getConnection(Enviroment.DB_URL, Enviroment.DB_USERNAME, Enviroment.DB_PASSWORD);
         } catch (Exception ex) {
             printErrOnException("Xảy ra lỗi khi kết nối đến DB!", ex);
         }
-        return conn;
+        return connection;
     }
     
     public static void closeConnection() {
         try {
-            conn.close();
+            connection.close();
         } catch (Exception ex) {
             printErrOnException("Lỗi khi đóng kết nối DB!", ex);
         }
@@ -52,9 +44,9 @@ public class DBConnection {
         ResultSet rs = null;
         try {
             // connnect to database
-            conn = getConnection();
+            connection = getConnection();
             // crate statement - prevent SQL Injection
-            PreparedStatement stmt = conn.prepareStatement(query);
+            PreparedStatement stmt = connection.prepareStatement(query);
             // get data from table 'student'
             rs = stmt.executeQuery();
             return rs;
@@ -70,9 +62,9 @@ public class DBConnection {
         
         try {
             // connnect to database
-            conn = getConnection();
+            connection = getConnection();
             // crate statement - prevent SQL Injection
-            PreparedStatement stmt = conn.prepareStatement(query);
+            PreparedStatement stmt = connection.prepareStatement(query);
             // get data from table 'student'
             affected_rows = stmt.executeUpdate();
             return affected_rows;

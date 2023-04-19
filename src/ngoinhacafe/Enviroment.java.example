@@ -1,0 +1,14 @@
+
+package ngoinhacafe;
+
+
+public class Enviroment{
+    
+    public static final String APP_NAME="Quản lý nước giải khát";
+
+    public static final String DB_NAME="db_cafe";
+    public static String DB_URL = "jdbc:mysql://localhost:3306/"+DB_NAME;
+    public static final String DB_USERNAME="root";
+    public static final String DB_PASSWORD="";
+}
+

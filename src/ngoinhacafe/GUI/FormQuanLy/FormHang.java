@@ -10,7 +10,7 @@ import ngoinhacafe.GUI.FormChon.ChonKhachHangForm;
 import ngoinhacafe.GUI.FormChon.ChonKhuyenMaiForm;
 import ngoinhacafe.GUI.FormChon.ChonNhaCungCapForm;
 import ngoinhacafe.GUI.FormChon.ChonNhanVienForm;
-import ngoinhacafe.GUI.FormChung.LoginForm;
+import ngoinhacafe.GUI.Page.LoginForm;
 import ngoinhacafe.GUI.FormChung.MyTable;
 import ngoinhacafe.GUI.MyButton.MoreButton;
 import ngoinhacafe.GUI.MyButton.RefreshButton;
