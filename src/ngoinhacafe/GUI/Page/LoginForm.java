@@ -164,10 +164,9 @@ public class LoginForm extends javax.swing.JFrame {
         });
         plInput.add(rbNhoMatKhau);
 
-        btnDangNhap.setBackground(new java.awt.Color(245, 235, 224));
         btnDangNhap.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         btnDangNhap.setText("Đăng nhập");
-        btnDangNhap.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnDangNhap.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnDangNhap.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDangNhapActionPerformed(evt);

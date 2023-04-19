@@ -125,6 +125,9 @@ public class BanHangForm extends javax.swing.JPanel implements ActionListener, A
 
         setBackground(new java.awt.Color(254, 252, 243));
 
+        jPanel1.setBackground(getBackground());
+
+        timkiemContainer.setBackground(jPanel1.getBackground());
         timkiemContainer.setBorder(javax.swing.BorderFactory.createTitledBorder("Tìm kiếm"));
 
         timKiemTheo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tất cả", "Mã sản phẩm", "Loại sản phẩm", "Tên sản phẩm", "Đơn giá", "Số lượng" }));
@@ -155,6 +158,8 @@ public class BanHangForm extends javax.swing.JPanel implements ActionListener, A
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        spcTableContainer.setBackground(jPanel1.getBackground());
+
         spcTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -182,14 +187,19 @@ public class BanHangForm extends javax.swing.JPanel implements ActionListener, A
 
         themBtn.setText("Thêm");
 
+        txtLoaiSPC.setBackground(jPanel1.getBackground());
         txtLoaiSPC.setBorder(javax.swing.BorderFactory.createTitledBorder("Loại sản phẩm"));
 
+        txtDonGiaSPC.setBackground(jPanel1.getBackground());
         txtDonGiaSPC.setBorder(javax.swing.BorderFactory.createTitledBorder("Đơn giá"));
 
+        txtMaSPC.setBackground(jPanel1.getBackground());
         txtMaSPC.setBorder(javax.swing.BorderFactory.createTitledBorder("Mã sản phẩm"));
 
+        txtSLSPC.setBackground(jPanel1.getBackground());
         txtSLSPC.setBorder(javax.swing.BorderFactory.createTitledBorder("Số lượng"));
 
+        txtTenSPC.setBackground(jPanel1.getBackground());
         txtTenSPC.setBorder(javax.swing.BorderFactory.createTitledBorder("Tên sản phẩm"));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -247,14 +257,21 @@ public class BanHangForm extends javax.swing.JPanel implements ActionListener, A
                 .addContainerGap())
         );
 
+        jPanel2.setBackground(getBackground());
+
+        txtMaHD.setBackground(getBackground());
         txtMaHD.setBorder(javax.swing.BorderFactory.createTitledBorder("Mã hoá đơn"));
 
+        txtTongTien.setBackground(getBackground());
         txtTongTien.setBorder(javax.swing.BorderFactory.createTitledBorder("Tổng tiền"));
 
+        txtNV.setBackground(getBackground());
         txtNV.setBorder(javax.swing.BorderFactory.createTitledBorder("Nhân viên"));
 
+        txtKH.setBackground(getBackground());
         txtKH.setBorder(javax.swing.BorderFactory.createTitledBorder("Khách hàng"));
 
+        txtGioLap.setBackground(getBackground());
         txtGioLap.setBorder(javax.swing.BorderFactory.createTitledBorder("Giờ lập"));
 
         chonKHBtn.setText("Chọn");
@@ -263,8 +280,10 @@ public class BanHangForm extends javax.swing.JPanel implements ActionListener, A
 
         chonNVBtn.setText("Chọn");
 
+        txtKM.setBackground(getBackground());
         txtKM.setBorder(javax.swing.BorderFactory.createTitledBorder("Khuyến mãi"));
 
+        txtNgayLap.setBackground(getBackground());
         txtNgayLap.setBorder(javax.swing.BorderFactory.createTitledBorder("Ngày lập"));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -321,6 +340,8 @@ public class BanHangForm extends javax.swing.JPanel implements ActionListener, A
                     .addComponent(txtGioLap, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(68, 68, 68))
         );
+
+        jPanel3.setBackground(getBackground());
 
         spTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

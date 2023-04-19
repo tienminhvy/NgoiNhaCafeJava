@@ -23,33 +23,26 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
-          </Group>
           <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
-                      <Component id="themSuaBtn" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="thoatBtn" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtDKKM" alignment="0" pref="151" max="32767" attributes="0"/>
+                      <Component id="txtMaKM" alignment="0" pref="151" max="32767" attributes="0"/>
                   </Group>
+                  <Component id="thoatBtn" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="txtTenKM" pref="155" max="32767" attributes="0"/>
+                  <Component id="txtPTrKM" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtDKKM" min="-2" pref="151" max="-2" attributes="0"/>
-                          <Component id="txtMaKM" min="-2" pref="151" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="themSuaBtn" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtTenKM" pref="155" max="32767" attributes="0"/>
-                          <Component id="txtPTrKM" max="32767" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
@@ -69,16 +62,17 @@
                   <Component id="txtDKKM" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtPTrKM" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="themSuaBtn" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="thoatBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="18" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jPanel1" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="jPanel3" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="thoatBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="themSuaBtn" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -144,7 +138,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="txtNgayBatDau" pref="141" max="32767" attributes="0"/>
+                  <Component id="txtNgayBatDau" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="dpNgayBatDau" min="-2" pref="33" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -185,7 +179,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="txtNgayKetThuc" pref="142" max="32767" attributes="0"/>
+                  <Component id="txtNgayKetThuc" pref="91" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="dpNgayKetThuc" min="-2" pref="32" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>

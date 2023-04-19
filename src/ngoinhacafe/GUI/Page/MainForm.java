@@ -5,9 +5,10 @@
 package ngoinhacafe.GUI.Page;
 
 import java.awt.BorderLayout;
-import java.awt.Cursor;
 import java.awt.Dimension;
 import static java.awt.Frame.ICONIFIED;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -17,6 +18,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
+import ngoinhacafe.GUI.ColorDesign;
 
 
 /**
@@ -83,6 +85,7 @@ public class MainForm extends javax.swing.JFrame {
         int navHeight = 50;
         int totalHeight = 0;
         int gapVertical = 0;
+
         for (int i = 0; i < navItemInfo.length; i += 4) {
             String chitietquyen = "xemSanPham xemLoaiSanPham xemHoaDon qlNhanVien qlKhachHang xemPhieuNhap xemNCC qlTaiKhoan qlQuyen";
             //  if (chitietquyen.contains(navItemInfo[i + 2]) || chitietquyen.contains(navItemInfo[i + 3])) {
@@ -98,39 +101,48 @@ public class MainForm extends javax.swing.JFrame {
                 nav.setIcon(icon);
 
             }
-            nav.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+         //   nav.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
             nav.setBackground(scrollMenu.getBackground());
 
-            nav.addMouseListener(new MouseAdapter() {
-
-                public void mouseReleased(MouseEvent me) {
-                    if (me.getSource() instanceof JButton) {
+            nav.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent me) {
+                 if (me.getSource() instanceof JButton) {
 
                         JButton btn = (JButton) me.getSource();
                         if (currentTab != null) {
+                            currentTab.setBackground(scrollMenu.getBackground());
                             currentTab.setEnabled(true);
 
                         }
 
                         currentTab = btn;
+                        currentTab.setBackground(ColorDesign.LIGHT);
                         currentTab.setEnabled(false);
 
                         doAction(btn.getText());
                     }
                 }
+        
 
             });
-
+        
             menu.add(nav);
+            if(i==0) nav.doClick();
 
             // }
             //  }
             totalHeight += navHeight + gapVertical;
+     
         }
+
         totalHeight += gapVertical;
         menu.setPreferredSize(new Dimension(menu.getWidth(), totalHeight));
         menu.revalidate();
         menu.repaint();
+        //chạy click đầu tiên
+
+    
     }
 
     public void draggable() {
@@ -195,7 +207,7 @@ public class MainForm extends javax.swing.JFrame {
         logoutBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/header/icons8-logout-32.png"))); // NOI18N
         logoutBtn.setToolTipText("logout");
         logoutBtn.setBorder(null);
-        logoutBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        logoutBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         logoutBtn.setPreferredSize(new java.awt.Dimension(75, 55));
         logoutBtn.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -208,7 +220,7 @@ public class MainForm extends javax.swing.JFrame {
         minimalizeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/header/icons8-chevron-down-32.png"))); // NOI18N
         minimalizeBtn.setToolTipText("minimal");
         minimalizeBtn.setBorder(null);
-        minimalizeBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minimalizeBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         minimalizeBtn.setMaximumSize(new java.awt.Dimension(1000, 1000));
         minimalizeBtn.setMinimumSize(new java.awt.Dimension(0, 0));
         minimalizeBtn.setPreferredSize(new java.awt.Dimension(75, 55));
@@ -224,7 +236,7 @@ public class MainForm extends javax.swing.JFrame {
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/header/icons8-shutdown-32.png"))); // NOI18N
         btnExit.setToolTipText("exit");
         btnExit.setBorder(null);
-        btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnExit.setMaximumSize(new java.awt.Dimension(1000, 1000));
         btnExit.setMinimumSize(new java.awt.Dimension(0, 0));
         btnExit.setPreferredSize(new java.awt.Dimension(75, 55));

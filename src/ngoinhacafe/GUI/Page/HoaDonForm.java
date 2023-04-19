@@ -135,6 +135,11 @@ public class HoaDonForm extends javax.swing.JPanel implements ActionListener, Ac
         timkiemContainer.setBorder(javax.swing.BorderFactory.createTitledBorder("Tìm kiếm"));
 
         timKiemTheo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tất cả", "Mã hoá đơn", "Mã nhân viên", "Mã khuyến mãi", "Mã khách hàng", "Ngày lập", "Giờ lập", "Tổng tiền" }));
+        timKiemTheo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                timKiemTheoActionPerformed(evt);
+            }
+        });
 
         timKiem.setBorder(javax.swing.BorderFactory.createTitledBorder("Thanh nhập"));
 
@@ -300,6 +305,10 @@ public class HoaDonForm extends javax.swing.JPanel implements ActionListener, Ac
     private void xemChiTietBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_xemChiTietBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_xemChiTietBtnActionPerformed
+
+    private void timKiemTheoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timKiemTheoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_timKiemTheoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -162,15 +162,12 @@
             </Component>
             <Component class="javax.swing.JButton" name="btnDangNhap">
               <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="e0" green="eb" red="f5" type="rgb"/>
-                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="SansSerif" size="24" style="1"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="&#x110;&#x103;ng nh&#x1ead;p"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Hand Cursor"/>
+                  <Color id="Default Cursor"/>
                 </Property>
               </Properties>
               <Events>

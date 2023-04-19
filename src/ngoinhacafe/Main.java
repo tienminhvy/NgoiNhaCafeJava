@@ -4,41 +4,44 @@
  */
 package ngoinhacafe;
 
-import com.formdev.flatlaf.FlatIntelliJLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.Color;
-import static java.awt.SystemColor.window;
-import javax.swing.SwingUtilities;
-
-import ngoinhacafe.GUI.Page.LoginForm;
+import java.awt.Cursor;
 import javax.swing.UIManager;
-import javax.swing.UIManager.LookAndFeelInfo;
 import javax.swing.UnsupportedLookAndFeelException;
-import ngoinhacafe.GUI.FormChung.ChangePassForm;
-import ngoinhacafe.GUI.FormChung.FormChinh;
+import ngoinhacafe.GUI.ColorDesign;
 import ngoinhacafe.GUI.Page.MainForm;
-import ngoinhacafe.GUI.Page.Home;
-import ngoinhacafe.GUI.Page.HomePage;
 
 public class Main {
 
     public static void main(String[] args) {
         // set beatiful style compile
         try {
-             //  UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());               
-               UIManager.setLookAndFeel(new FlatLightLaf());
+            //  UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());               
+            UIManager.setLookAndFeel(new FlatLightLaf());
+
+            //  UIManager.put("Button.hoverBackground",Color.BLACK);
+            UIManager.put("Button.background", Color.WHITE);
+           // UIManager.put("JButton.cursor", Cursor.HAND_CURSOR);
+           UIManager.put("Panel.background", ColorDesign.FIRST_LIGHT);
+          Color panelColor=UIManager.getColor( "Panel.background" );
+        //   UIManager.put("TextField.background",panelColor);    
+           UIManager.put("TextField.background",panelColor);  
+
+           UIManager.put("ComboBox.background",Color.WHITE);
+            UIManager.put("ComboBox.arrowButton.background",panelColor);
 
 
         } catch (UnsupportedLookAndFeelException e) {
 
         }
 
-    //    new LoginForm().setVisible(true);
+        //    new LoginForm().setVisible(true);
         new MainForm().setVisible(true);
-   // new ChangePassForm().setVisible(true);
- new FormChinh().setVisible(true);     
-       //new Home().setVisible(true);
+        // new ChangePassForm().setVisible(true);
+        //new FormChinh().setVisible(true);     
+        //new Home().setVisible(true);
 
     }
 
- }
+}
