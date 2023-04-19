@@ -35,8 +35,8 @@ public class Main {
 
     //    new LoginForm().setVisible(true);
         new MainForm().setVisible(true);
-   // new ChangePassForm().setVisible(true);
- //new FormChinh().setVisible(true);     
+       // new ChangePassForm().setVisible(true);
+//          new FormChinh().setVisible(true);     
        //new Home().setVisible(true);
 
     }
