@@ -39,6 +39,21 @@ public class ThemSuaKhachHangPopup extends javax.swing.JFrame implements ActionL
         
     }
     
+    public ThemSuaKhachHangPopup(javax.swing.JTextField txtMaKH) {
+        initComponents();
+        this.setLocationRelativeTo(null);
+        setResizable(false);
+        WindowActions.WindowClosing(this);
+        updateInit();
+        
+        setTitle("Thêm khách hàng");
+        themSuaBtn.setText("Thêm");
+        
+        txtMaKHOutside = txtMaKH;
+    }
+    
+    javax.swing.JTextField txtMaKHOutside = null;
+    
     private void updateInit() {
         // Add action listener
         themSuaBtn.addActionListener(this);
@@ -94,6 +109,12 @@ public class ThemSuaKhachHangPopup extends javax.swing.JFrame implements ActionL
         if (check) {
             if (loai.equalsIgnoreCase("thêm")) {
                 themData();
+                
+                if (txtMaKHOutside != null) {
+                    txtMaKHOutside.setText(txtMaKH.getText());
+                    this.dispose();
+                }
+                
             } else {
                 capNhatData();
             }

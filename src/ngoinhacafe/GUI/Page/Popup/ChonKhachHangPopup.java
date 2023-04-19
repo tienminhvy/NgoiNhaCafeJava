@@ -1,31 +1,36 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package ngoinhacafe.GUI.Page;
+package ngoinhacafe.GUI.Page.Popup;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
-import ngoinhacafe.GUI.FormThemSua.ThemSuaKhachHangForm;
-import ngoinhacafe.GUI.Page.Popup.ThemSuaKhachHangPopup;
-import ngoinhacafe.GUI.Page.Popup.ThongBao;
+import ngoinhacafe.GUI.Page.Interface.ActionPerform;
+import ngoinhacafe.GUI.Page.TableHandler;
+
 /**
  *
- * @author ODL
+ * @author Admin
  */
-public class KhachHangForm extends javax.swing.JPanel implements ActionListener {
+public class ChonKhachHangPopup extends javax.swing.JFrame implements ActionListener, ActionPerform {
 
     /**
-     * Creates new form KhachHangForm
+     * Creates new form ChonKhachHangPopup
      */
-    public KhachHangForm() {
+    public ChonKhachHangPopup(javax.swing.JTextField txtKH) {
         initComponents();
         addActionPerform();
+        
+        setTitle("Chọn khách hàng");
+        setVisible(true);
+        WindowActions.WindowClosing(this);
+        
+        setResizable(false);
+        setLocationRelativeTo(null);
+        
         khTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         
         tbHandler.addRowToTable(new Object[] {
@@ -50,13 +55,17 @@ public class KhachHangForm extends javax.swing.JPanel implements ActionListener 
             "Đã kích hoạt"
         }, khTable);
         
+        this.txtKH = txtKH;
+    }
+
+    @Override
+    public void addActionPerform() {
+        chonBtn.addActionListener(this);
+        themBtn.addActionListener(this);
     }
     
-    private void addActionPerform() {
-        themBtn.addActionListener(this);
-        suaBtn.addActionListener(this);
-        xoaBtn.addActionListener(this);
-    }
+    javax.swing.JTextField txtKH;
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -66,25 +75,17 @@ public class KhachHangForm extends javax.swing.JPanel implements ActionListener 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        themBtn = new javax.swing.JButton();
-        xoaBtn = new javax.swing.JButton();
-        suaBtn = new javax.swing.JButton();
         khTableContainer = new javax.swing.JScrollPane();
         khTable = new javax.swing.JTable();
         timkiemContainer = new javax.swing.JPanel();
         timKiemTheo = new javax.swing.JComboBox<>();
         timKiem = new javax.swing.JTextField();
         timKiemBtn = new javax.swing.JButton();
-        lamMoiBtn = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        themBtn = new javax.swing.JButton();
+        chonBtn = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(254, 252, 243));
-        setFocusTraversalPolicyProvider(true);
-
-        themBtn.setText("Thêm");
-
-        xoaBtn.setText("Xoá");
-
-        suaBtn.setText("Sửa");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         khTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -141,107 +142,98 @@ public class KhachHangForm extends javax.swing.JPanel implements ActionListener 
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        lamMoiBtn.setText("Làm mới");
+        themBtn.setText("Thêm mới");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
+        chonBtn.setText("Chọn");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(themBtn)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addComponent(chonBtn)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(themBtn)
+                    .addComponent(chonBtn))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(khTableContainer)
             .addGroup(layout.createSequentialGroup()
-                .addGap(335, 335, 335)
-                .addComponent(timkiemContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(344, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(themBtn)
-                .addGap(18, 18, 18)
-                .addComponent(xoaBtn)
-                .addGap(18, 18, 18)
-                .addComponent(suaBtn)
-                .addGap(18, 18, 18)
-                .addComponent(lamMoiBtn)
-                .addGap(399, 399, 399))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(khTableContainer)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(180, 180, 180)
+                        .addComponent(timkiemContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 155, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(319, 319, 319)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(themBtn)
-                    .addComponent(xoaBtn)
-                    .addComponent(suaBtn)
-                    .addComponent(lamMoiBtn))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(timkiemContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(khTableContainer, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE))
+                .addComponent(khTableContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        pack();
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton chonBtn;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTable khTable;
     private javax.swing.JScrollPane khTableContainer;
-    private javax.swing.JButton lamMoiBtn;
-    private javax.swing.JButton suaBtn;
     private javax.swing.JButton themBtn;
     private javax.swing.JTextField timKiem;
     private javax.swing.JButton timKiemBtn;
     private javax.swing.JComboBox<String> timKiemTheo;
     private javax.swing.JPanel timkiemContainer;
-    private javax.swing.JButton xoaBtn;
     // End of variables declaration//GEN-END:variables
-
     TableHandler tbHandler = new TableHandler();
-    
-    ThemSuaKhachHangPopup fThemSua = null;
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (fThemSua != null)
-            fThemSua.dispose();
-        
-        if (e.getSource() == themBtn) {
-            fThemSua = new ThemSuaKhachHangPopup("Thêm", "");
-        } else if (e.getSource() == lamMoiBtn) {
-            
-        } else if (e.getSource() == timKiemBtn) {
-            String timKiemTheoTxt = (String) timKiemTheo.getSelectedItem();
-            if (timKiemTheoTxt.equals("Tất cả")) {
-                
-            }
-            if (timKiemTheoTxt.equals("Mã khách hàng")) {
-                
-            }
-            if (timKiemTheoTxt.equals("Tên khách hàng")) {
-                
-            }
-            if (timKiemTheoTxt.equals("Địa chỉ")) {
-                
-            }
-            if (timKiemTheoTxt.equals("Số điện thoại")) {
-                
-            }
-        } else if (khTable.getSelectedRow() == -1) {
-            ThongBao.hienLoi("Vui lòng chọn khách hàng để thực hiện thao tác!");
-            return;
-        } else {
+        if (e.getSource() == chonBtn) {
             DefaultTableModel model = tbHandler.getTableModel(khTable);
             int selectedRow = khTable.getSelectedRow();
             
-            String maKH = (String) model.getValueAt(selectedRow, 0);
+            if (khTable.getSelectedRow() == -1) {
+                ThongBao.hienLoi("Vui lòng chọn khách hàng để thực hiện thao tác!");
+            } else {
+                String maKH = (String) model.getValueAt(selectedRow, 0);
             
-            
-            if (e.getSource() == suaBtn) {
-                fThemSua = new ThemSuaKhachHangPopup("Sửa", maKH);
+                txtKH.setText(maKH);
+
+                this.dispose();
             }
-            if (e.getSource() == xoaBtn) {
-                int cf = JOptionPane.showConfirmDialog(this, "Bạn có muốn xoá khách hàng này không?", "Xác nhận", JOptionPane.OK_CANCEL_OPTION);
-                
-                if (cf == JOptionPane.OK_OPTION) {
-                    // Xác nhận xoá
-                }
-            }
+        }
+        
+        if (e.getSource() == themBtn) {
+            new ThemSuaKhachHangPopup(txtKH);
+            this.dispose();
         }
     }
 }

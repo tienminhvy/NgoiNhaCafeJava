@@ -107,7 +107,7 @@ public class FormChinh extends JFrame implements MouseListener {
 
             } else {
 
-                String chitietquyen = "qlBanHang qlNhapHang qlHoaDon qlKhachHang qlKhuyenMai";
+                String chitietquyen = "qlBanHang qlNhapHang qlHoaDon qlKhachHang qlKhuyenMai qlSanPham qlLoaiSanPham";
                 if (chitietquyen.contains(navItemInfo[i + 2]) || chitietquyen.contains(navItemInfo[i + 3])) {
                     NavBarButton nb = new NavBarButton(new Rectangle(0, 0, 0, 60), navItemInfo[i], navItemInfo[i + 1]);
                     nb.addMouseListener(this);

@@ -8,60 +8,51 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
-import ngoinhacafe.GUI.Page.Interface.*;
+import ngoinhacafe.GUI.Page.Interface.ActionPerform;
 import ngoinhacafe.GUI.Page.TableHandler;
 
 /**
  *
  * @author Admin
  */
-public class ChiTietHoaDonPopup extends javax.swing.JFrame implements ActionListener, ActionPerform {
+public class ChonKhuyenMaiPopup extends javax.swing.JFrame implements ActionPerform, ActionListener {
 
     /**
-     * Creates new form ChiTietHoaDonPopup
+     * Creates new form ChonKhuyenMaiPopup
      */
-    public ChiTietHoaDonPopup(String mahd) {
+    public ChonKhuyenMaiPopup(javax.swing.JTextField txtKM) {
         initComponents();
+        addActionPerform();
         
-        setTitle("Chi tiết hoá đơn "+mahd);
+        setTitle("Chọn khuyến mãi");
         setVisible(true);
-        
         WindowActions.WindowClosing(this);
         
         setResizable(false);
         setLocationRelativeTo(null);
-        addActionPerform();
-        spTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        
+        kmTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         
         tbHandler.addRowToTable(new Object[] {
-            "SP1",
-            "Cà phê sữa đá",
-            "1",
-            "22.000đ",
-            "22.000đ"
-        }, spTable);
-        tbHandler.addRowToTable(new Object[] {
-            "SP2",
-            "Cà phê đen đá",
-            "1",
-            "22.000đ",
-            "22.000đ"
-        }, spTable);
-        tbHandler.addRowToTable(new Object[] {
-            "SP1",
-            "Cà phê sữa nóng",
-            "1",
-            "22.000đ",
-            "22.000đ"
-        }, spTable);
+            "KM1",
+            "Không khuyến mãi",
+            "<= 0đ",
+            "0%",
+            "2023-4-1",
+            "2023-4-30",
+            "Đang hoạt động"
+        }, kmTable);
+        
+        this.txtKM = txtKM;
     }
     
     @Override
     public void addActionPerform() {
-        timKiemBtn.addActionListener(this);
+        chonBtn.addActionListener(this);
     }
-    
 
+    javax.swing.JTextField txtKM;
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -75,14 +66,16 @@ public class ChiTietHoaDonPopup extends javax.swing.JFrame implements ActionList
         timKiemTheo = new javax.swing.JComboBox<>();
         timKiem = new javax.swing.JTextField();
         timKiemBtn = new javax.swing.JButton();
-        spTableContainer = new javax.swing.JScrollPane();
-        spTable = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        chonBtn = new javax.swing.JButton();
+        kmTableContainer = new javax.swing.JScrollPane();
+        kmTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         timkiemContainer.setBorder(javax.swing.BorderFactory.createTitledBorder("Tìm kiếm"));
 
-        timKiemTheo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tất cả", "Mã sản phẩm", "Số lượng", "Đơn giá" }));
+        timKiemTheo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tất cả", "Mã khách hàng", "Tên khách hàng", "Địa chỉ", "Số điện thoại" }));
 
         timKiemBtn.setText("Tìm kiếm");
 
@@ -92,12 +85,12 @@ public class ChiTietHoaDonPopup extends javax.swing.JFrame implements ActionList
             timkiemContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(timkiemContainerLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(timKiemTheo, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(timKiemTheo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(timKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(timKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(timKiemBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(86, 86, 86))
+                .addComponent(timKiemBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                .addContainerGap())
         );
         timkiemContainerLayout.setVerticalGroup(
             timkiemContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,19 +103,38 @@ public class ChiTietHoaDonPopup extends javax.swing.JFrame implements ActionList
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        spTable.setModel(new javax.swing.table.DefaultTableModel(
+        chonBtn.setText("Chọn");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(54, Short.MAX_VALUE)
+                .addComponent(chonBtn)
+                .addGap(53, 53, 53))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(chonBtn)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        kmTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Mã sản phẩm", "Tên sản phẩm", "Số lượng", "Đơn giá", "Thành tiền"
+                "Mã khuyến mãi", "Tên khuyến mãi", "Điều kiện", "Giảm giá", "Ngày bắt đầu", "Ngày kết thúc", "Trạng thái"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -133,28 +145,34 @@ public class ChiTietHoaDonPopup extends javax.swing.JFrame implements ActionList
                 return canEdit [columnIndex];
             }
         });
-        spTableContainer.setViewportView(spTable);
+        kmTableContainer.setViewportView(kmTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(110, Short.MAX_VALUE)
+                .addComponent(timkiemContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(95, 95, 95))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(spTableContainer, javax.swing.GroupLayout.DEFAULT_SIZE, 474, Short.MAX_VALUE)
+                .addComponent(kmTableContainer)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(timkiemContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(248, 248, 248)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(timkiemContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(spTableContainer, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(kmTableContainer, javax.swing.GroupLayout.DEFAULT_SIZE, 265, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -162,17 +180,32 @@ public class ChiTietHoaDonPopup extends javax.swing.JFrame implements ActionList
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable spTable;
-    private javax.swing.JScrollPane spTableContainer;
+    private javax.swing.JButton chonBtn;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JTable kmTable;
+    private javax.swing.JScrollPane kmTableContainer;
     private javax.swing.JTextField timKiem;
     private javax.swing.JButton timKiemBtn;
     private javax.swing.JComboBox<String> timKiemTheo;
     private javax.swing.JPanel timkiemContainer;
     // End of variables declaration//GEN-END:variables
     TableHandler tbHandler = new TableHandler();
-    
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+        if (e.getSource() == chonBtn) {
+            DefaultTableModel model = tbHandler.getTableModel(kmTable);
+            int selectedRow = kmTable.getSelectedRow();
+            
+            if (kmTable.getSelectedRow() == -1) {
+                ThongBao.hienLoi("Vui lòng chọn khuyến mãi để thực hiện thao tác!");
+            } else {
+                String maKM = (String) model.getValueAt(selectedRow, 0);
+            
+                txtKM.setText(maKM);
+
+                this.dispose();
+            }
+        }
     }
 }

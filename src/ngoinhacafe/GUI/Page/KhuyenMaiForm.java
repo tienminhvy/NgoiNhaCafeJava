@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 import ngoinhacafe.GUI.FormThemSua.ThemSuaKhuyenMaiForm;
+import ngoinhacafe.GUI.Page.Popup.ThemSuaKhuyenMaiPopup;
 
 /**
  *
@@ -24,28 +25,22 @@ public class KhuyenMaiForm extends javax.swing.JPanel implements ActionListener 
         initComponents();
         addActionPerform();
         kmTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        
+        tbHandler.addRowToTable(new Object[] {
+            "KM1",
+            "Không khuyến mãi",
+            "<= 0đ",
+            "0%",
+            "2023-4-1",
+            "2023-4-30",
+            "Đang hoạt động"
+        }, kmTable);
     }
     
     public void addActionPerform() {
         themBtn.addActionListener(this);
         suaBtn.addActionListener(this);
         xoaBtn.addActionListener(this);
-    }
-    
-    public DefaultTableModel getTableModel() {
-        return (DefaultTableModel) kmTable.getModel();
-    }
-    
-    public void addRowToTable(Object[] data) {
-        DefaultTableModel model = (DefaultTableModel) kmTable.getModel();
-        
-        model.addRow(data);
-    }
-
-    public void removeAllRow() {
-        DefaultTableModel model = (DefaultTableModel) kmTable.getModel();
-        
-        model.setRowCount(0);
     }
 
     /**
@@ -87,9 +82,16 @@ public class KhuyenMaiForm extends javax.swing.JPanel implements ActionListener 
             Class[] types = new Class [] {
                 java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         kmTableContainer.setViewportView(kmTable);
@@ -176,14 +178,15 @@ public class KhuyenMaiForm extends javax.swing.JPanel implements ActionListener 
     private javax.swing.JButton xoaBtn;
     // End of variables declaration//GEN-END:variables
 
-    ThemSuaKhuyenMaiForm fThemSua = null;
+    TableHandler tbHandler = new TableHandler();
+    ThemSuaKhuyenMaiPopup fThemSua = null;
     @Override
     public void actionPerformed(ActionEvent e) {
         if (fThemSua != null)
             fThemSua.dispose();
         
         if (e.getSource() == themBtn) {
-            fThemSua = new ThemSuaKhuyenMaiForm("Thêm", "");
+            fThemSua = new ThemSuaKhuyenMaiPopup("Thêm", "");
         } else if (e.getSource() == lamMoiBtn) {
             
         } else if (e.getSource() == timKiemBtn) {
@@ -193,16 +196,15 @@ public class KhuyenMaiForm extends javax.swing.JPanel implements ActionListener 
             }
         } else if (kmTable.getSelectedRow() == -1) {
             JOptionPane.showMessageDialog(this, "Vui lòng chọn khuyến mãi để thực hiện thao tác!");
-            return;
         } else {
-            DefaultTableModel model = getTableModel();
+            DefaultTableModel model = tbHandler.getTableModel(kmTable);
             int selectedRow = kmTable.getSelectedRow();
             
             String maKM = (String) model.getValueAt(selectedRow, 0);
             
             
             if (e.getSource() == suaBtn) {
-                fThemSua = new ThemSuaKhuyenMaiForm("Sửa", maKM);
+                fThemSua = new ThemSuaKhuyenMaiPopup("Sửa", maKM);
             }
             if (e.getSource() == xoaBtn) {
                 int cf = JOptionPane.showConfirmDialog(this, "Bạn có muốn xoá khuyến mãi này không?", "Xác nhận", JOptionPane.OK_CANCEL_OPTION);

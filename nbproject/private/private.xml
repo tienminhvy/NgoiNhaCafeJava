@@ -3,10 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/_Development/Java/NgoiNhaCafe/src/ngoinhacafe/GUI/FormChung/FormChinh.java</file>
+            <file>file:/D:/_Development/Java/NgoiNhaCafe/src/ngoinhacafe/GUI/Page/Popup/Regex.java</file>
+            <file>file:/D:/_Development/Java/NgoiNhaCafe/src/ngoinhacafe/GUI/FormThemSua/ThemSuaKhuyenMaiForm.java</file>
+            <file>file:/D:/_Development/Java/NgoiNhaCafe/src/ngoinhacafe/GUI/Page/Popup/ThemSuaKhuyenMaiPopup.java</file>
             <file>file:/D:/_Development/Java/NgoiNhaCafe/src/ngoinhacafe/Main.java</file>
             <file>file:/D:/_Development/Java/NgoiNhaCafe/src/ngoinhacafe/GUI/Page/KhuyenMaiForm.java</file>
-            <file>file:/D:/_Development/Java/NgoiNhaCafe/src/ngoinhacafe/GUI/Page/KhachHangForm.java</file>
         </group>
     </open-files>
 </project-private>

@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
+import ngoinhacafe.GUI.Page.Interface.ActionPerform;
 import ngoinhacafe.GUI.Page.Popup.ChiTietHoaDonPopup;
 import ngoinhacafe.GUI.Page.Popup.ThongBao;
 
@@ -15,7 +16,7 @@ import ngoinhacafe.GUI.Page.Popup.ThongBao;
  *
  * @author ODL
  */
-public class HoaDonForm extends javax.swing.JPanel implements ActionListener {
+public class HoaDonForm extends javax.swing.JPanel implements ActionListener, ActionPerform {
 
     /**
      * Creates new form HoaDonForm
@@ -55,22 +56,23 @@ public class HoaDonForm extends javax.swing.JPanel implements ActionListener {
         });
     }
     
-    private void addActionPerform() {
+    @Override
+    public void addActionPerform() {
         xemChiTietBtn.addActionListener(this);
         lamMoiBtn.addActionListener(this);
     }
     
-    private DefaultTableModel getTableModel() {
+    public DefaultTableModel getTableModel() {
         return (DefaultTableModel) hdTable.getModel();
     }
     
-    private void addRowToTable(Object[] data) {
+    public void addRowToTable(Object[] data) {
         DefaultTableModel model = (DefaultTableModel) hdTable.getModel();
         
         model.addRow(data);
     }
 
-    private void removeAllRow() {
+    public void removeAllRow() {
         DefaultTableModel model = (DefaultTableModel) hdTable.getModel();
         
         model.setRowCount(0);
@@ -196,6 +198,8 @@ public class HoaDonForm extends javax.swing.JPanel implements ActionListener {
     private javax.swing.JButton xemChiTietBtn;
     // End of variables declaration//GEN-END:variables
 
+    TableHandler tbHandler = new TableHandler();
+    
     ChiTietHoaDonPopup fchitiet = null;
     
     @Override
@@ -206,12 +210,11 @@ public class HoaDonForm extends javax.swing.JPanel implements ActionListener {
         if (e.getSource() == lamMoiBtn) {
             
         } else if (hdTable.getSelectedRow() == -1) {
-            ThongBao.hienLoi("Vui lòng chọn khách hàng để thực hiện thao tác!");
-            return;
+            ThongBao.hienLoi("Vui lòng chọn hoá đơn để thực hiện thao tác!");
         } else {
             
             if (e.getSource() == xemChiTietBtn) {
-                DefaultTableModel model = getTableModel();
+                DefaultTableModel model = tbHandler.getTableModel(hdTable);
                 int selectedRow = hdTable.getSelectedRow();
 
                 String maHD = (String) model.getValueAt(selectedRow, 0);
