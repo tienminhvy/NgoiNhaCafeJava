@@ -30,7 +30,6 @@ public class ThemSuaKhachHangForm extends JFrame {
         this.setLayout(new BorderLayout());
         this.setSize(450, 300);
         this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         this.type = _type;
 
         // inputs
@@ -69,9 +68,9 @@ public class ThemSuaKhachHangForm extends JFrame {
 
         } else {
             this.setTitle("Sửa khách hàng");
-            
 
             txMakh.setEditable(false);
+            txMakh.setText(_makh);
 
             btnSua.setIcon(new ImageIcon(this.getClass().getResource("/assets/images/icons8_support_30px.png")));
             plButton.add(btnSua);

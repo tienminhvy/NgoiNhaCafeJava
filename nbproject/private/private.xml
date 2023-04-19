@@ -3,16 +3,55 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/FormThemSua/ThemSuaSanPhamForm.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/ThongKe/ThongKeForm.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/FormThemSua/ThemSuaChiTietHoaDonForm.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/ThongKe/ThongKeNhapVaoForm.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/FormChung/ChangePassForm.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/BanHangForm.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/FormThemSua/ThemSuaKhuyenMaiForm.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/Popup/ChonLoaiSanPhamPopup.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/KhachHangForm.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/Popup/ChiTietHoaDonPopup.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/KhuyenMaiForm.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/MainForm.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/FormThemSua/ThemSuaHoaDonForm.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/HoaDonForm.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/NhaCungCapForm.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/DashBoardForm.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/Popup/ThongBao.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/NhapHangForm.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/Popup/ThemSuaSanPhamPopup.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/Popup/WindowActions.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/ThongKe/ThongKeBanRaForm.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/NavBar/NavBarContainer.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/Popup/ThemSuaQuyenPopup.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/FormThemSua/ThemSuaNhanVienForm.java</file>
             <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/Main.java</file>
-            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/FormHienThi/HienThiChiTietPN.java</file>
-            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/FormHienThi/HienThiKhachHang.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/Popup/ThemSuaKhuyenMaiPopup.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/Popup/ThemSuaKhachHangPopup.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/FormThemSua/ThemSuaLoaiSanPhamForm.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/QuyenForm.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/PhieuNhapForm.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/TableHandler.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/ColorDesign.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/LoginForm.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/LoaiSanPhamForm.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/ThongKe/ThongKeTongForm.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/FormThemSua/ThemSuaPhieuNhapForm.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/Popup/ThemSuaLoaiSanPhamPopup.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/Popup/ChonKhachHangPopup.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/NhanVienForm.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/FormThemSua/ThemSuaTaiKhoanForm.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/ThongKeForm.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/Popup/ThemSuaTaiKhoanPopup.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/Popup/Regex.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/TaiKhoanForm.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/FormThemSua/ThemSuaNhaCungCapForm.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/FormThemSua/ThemSuaQuyenForm.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/ChiTietPhieuNhapForm.java</file>
             <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/FormChung/FormChinh.java</file>
-            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/FormHienThi/HienThiQuyen.java</file>
-            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/FormChung/LoginForm.java</file>
-            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/FormChung/DoiMatKhauForm.java</file>
-            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/FormHienThi/FormHienThi.java</file>
-            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/FormChung/MyTable.java</file>
-            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/FormHienThi/HienThiChiTietHoaDon.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/SanPhamForm.java</file>
         </group>
     </open-files>
 </project-private>

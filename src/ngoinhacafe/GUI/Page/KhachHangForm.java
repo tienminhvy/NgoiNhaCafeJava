@@ -3,20 +3,60 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package ngoinhacafe.GUI.Page;
-
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.ListSelectionModel;
+import javax.swing.table.DefaultTableModel;
+import ngoinhacafe.GUI.FormThemSua.ThemSuaKhachHangForm;
+import ngoinhacafe.GUI.Page.Popup.ThemSuaKhachHangPopup;
+import ngoinhacafe.GUI.Page.Popup.ThongBao;
 /**
  *
  * @author ODL
  */
-public class KhachHangForm extends javax.swing.JPanel {
+public class KhachHangForm extends javax.swing.JPanel implements ActionListener {
 
     /**
      * Creates new form KhachHangForm
      */
     public KhachHangForm() {
         initComponents();
+        addActionPerform();
+        khTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        
+        tbHandler.addRowToTable(new Object[] {
+            "KH001",
+            "Nguyễn Văn A",
+            "273 An Dương Vương, phường 3, quận 5, TP.HCM",
+            "0123456789",
+            "Đã kích hoạt"
+        }, khTable);
+        tbHandler.addRowToTable(new Object[] {
+            "KH001",
+            "Nguyễn Văn A",
+            "273 An Dương Vương, phường 3, quận 5, TP.HCM",
+            "0123456789",
+            "Đã kích hoạt"
+        }, khTable);
+        tbHandler.addRowToTable(new Object[] {
+            "KH001",
+            "Nguyễn Văn A",
+            "273 An Dương Vương, phường 3, quận 5, TP.HCM",
+            "0123456789",
+            "Đã kích hoạt"
+        }, khTable);
+        
     }
-
+    
+    private void addActionPerform() {
+        themBtn.addActionListener(this);
+        suaBtn.addActionListener(this);
+        xoaBtn.addActionListener(this);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,22 +66,182 @@ public class KhachHangForm extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        themBtn = new javax.swing.JButton();
+        xoaBtn = new javax.swing.JButton();
+        suaBtn = new javax.swing.JButton();
+        khTableContainer = new javax.swing.JScrollPane();
+        khTable = new javax.swing.JTable();
+        timkiemContainer = new javax.swing.JPanel();
+        timKiemTheo = new javax.swing.JComboBox<>();
+        timKiem = new javax.swing.JTextField();
+        timKiemBtn = new javax.swing.JButton();
+        lamMoiBtn = new javax.swing.JButton();
+
         setBackground(new java.awt.Color(254, 252, 243));
         setFocusTraversalPolicyProvider(true);
+
+        themBtn.setText("Thêm");
+
+        xoaBtn.setText("Xoá");
+
+        suaBtn.setText("Sửa");
+
+        khTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Mã khách hàng", "Tên khách hàng", "Địa chỉ", "Số điện thoại", "Trạng thái"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        khTableContainer.setViewportView(khTable);
+
+        timkiemContainer.setBorder(javax.swing.BorderFactory.createTitledBorder("Tìm kiếm"));
+
+        timKiemTheo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tất cả", "Mã khách hàng", "Tên khách hàng", "Địa chỉ", "Số điện thoại" }));
+
+        timKiemBtn.setText("Tìm kiếm");
+
+        javax.swing.GroupLayout timkiemContainerLayout = new javax.swing.GroupLayout(timkiemContainer);
+        timkiemContainer.setLayout(timkiemContainerLayout);
+        timkiemContainerLayout.setHorizontalGroup(
+            timkiemContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(timkiemContainerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(timKiemTheo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(timKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(timKiemBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        timkiemContainerLayout.setVerticalGroup(
+            timkiemContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(timkiemContainerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(timkiemContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(timKiemTheo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(timKiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(timKiemBtn))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        lamMoiBtn.setText("Làm mới");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1150, Short.MAX_VALUE)
+            .addComponent(khTableContainer)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(335, 335, 335)
+                .addComponent(timkiemContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(344, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(themBtn)
+                .addGap(18, 18, 18)
+                .addComponent(xoaBtn)
+                .addGap(18, 18, 18)
+                .addComponent(suaBtn)
+                .addGap(18, 18, 18)
+                .addComponent(lamMoiBtn)
+                .addGap(399, 399, 399))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 745, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(themBtn)
+                    .addComponent(xoaBtn)
+                    .addComponent(suaBtn)
+                    .addComponent(lamMoiBtn))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(timkiemContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(khTableContainer, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable khTable;
+    private javax.swing.JScrollPane khTableContainer;
+    private javax.swing.JButton lamMoiBtn;
+    private javax.swing.JButton suaBtn;
+    private javax.swing.JButton themBtn;
+    private javax.swing.JTextField timKiem;
+    private javax.swing.JButton timKiemBtn;
+    private javax.swing.JComboBox<String> timKiemTheo;
+    private javax.swing.JPanel timkiemContainer;
+    private javax.swing.JButton xoaBtn;
     // End of variables declaration//GEN-END:variables
+
+    TableHandler tbHandler = new TableHandler();
+    
+    ThemSuaKhachHangPopup fThemSua = null;
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (fThemSua != null)
+            fThemSua.dispose();
+        
+        if (e.getSource() == themBtn) {
+            fThemSua = new ThemSuaKhachHangPopup("Thêm", "");
+        } else if (e.getSource() == lamMoiBtn) {
+            
+        } else if (e.getSource() == timKiemBtn) {
+            String timKiemTheoTxt = (String) timKiemTheo.getSelectedItem();
+            if (timKiemTheoTxt.equals("Tất cả")) {
+                
+            }
+            if (timKiemTheoTxt.equals("Mã khách hàng")) {
+                
+            }
+            if (timKiemTheoTxt.equals("Tên khách hàng")) {
+                
+            }
+            if (timKiemTheoTxt.equals("Địa chỉ")) {
+                
+            }
+            if (timKiemTheoTxt.equals("Số điện thoại")) {
+                
+            }
+        } else if (khTable.getSelectedRow() == -1) {
+            ThongBao.hienLoi("Vui lòng chọn khách hàng để thực hiện thao tác!");
+            return;
+        } else {
+            DefaultTableModel model = tbHandler.getTableModel(khTable);
+            int selectedRow = khTable.getSelectedRow();
+            
+            String maKH = (String) model.getValueAt(selectedRow, 0);
+            
+            
+            if (e.getSource() == suaBtn) {
+                fThemSua = new ThemSuaKhachHangPopup("Sửa", maKH);
+            }
+            if (e.getSource() == xoaBtn) {
+                int cf = JOptionPane.showConfirmDialog(this, "Bạn có muốn xoá khách hàng này không?", "Xác nhận", JOptionPane.OK_CANCEL_OPTION);
+                
+                if (cf == JOptionPane.OK_OPTION) {
+                    // Xác nhận xoá
+                }
+            }
+        }
+    }
 }

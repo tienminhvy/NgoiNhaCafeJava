@@ -46,7 +46,6 @@ public class ThemSuaKhuyenMaiForm extends JFrame {
         this.setLayout(new BorderLayout());
         this.setSize(450, 450);
         this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         this.type = _type;
 
         // date picker
@@ -97,7 +96,8 @@ public class ThemSuaKhuyenMaiForm extends JFrame {
 
             btnThem.setIcon(new ImageIcon(this.getClass().getResource("/assets/images/icons8_add_30px.png")));
             plButton.add(btnThem);
-
+            
+            txMaKM.setText(_makm);
         } else {
             this.setTitle("Sửa khuyến mãi");
             
