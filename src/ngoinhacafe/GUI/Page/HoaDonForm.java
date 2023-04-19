@@ -4,6 +4,7 @@
  */
 package ngoinhacafe.GUI.Page;
 
+import com.github.lgooddatepicker.components.DatePickerSettings;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.ListSelectionModel;
@@ -23,11 +24,12 @@ public class HoaDonForm extends javax.swing.JPanel implements ActionListener, Ac
      */
     public HoaDonForm() {
         initComponents();
+        updateInit();
         
         addActionPerform();
         hdTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         
-        addRowToTable(new Object[] {
+        tbHandler.addRowToTable(new Object[] {
             "HD1",
             "NV1",
             "KH1",
@@ -35,8 +37,8 @@ public class HoaDonForm extends javax.swing.JPanel implements ActionListener, Ac
             "2023-18-04",
             "00:00:00",
             "100.000đ"
-        });
-        addRowToTable(new Object[] {
+        }, hdTable);
+        tbHandler.addRowToTable(new Object[] {
             "HD2",
             "NV1",
             "KH1",
@@ -44,8 +46,8 @@ public class HoaDonForm extends javax.swing.JPanel implements ActionListener, Ac
             "2023-18-04",
             "00:00:00",
             "100.000đ"
-        });
-        addRowToTable(new Object[] {
+        }, hdTable);
+        tbHandler.addRowToTable(new Object[] {
             "HD3",
             "NV1",
             "KH1",
@@ -53,29 +55,35 @@ public class HoaDonForm extends javax.swing.JPanel implements ActionListener, Ac
             "2023-18-04",
             "00:00:00",
             "100.000đ"
-        });
+        }, hdTable);
+    }
+    
+    private void updateInit() {
+        DatePickerSettings dpSetting1 = new DatePickerSettings();
+        dpSetting1.setVisibleDateTextField(false);
+        dpNgayBatDau.setSettings(dpSetting1);
+        
+        DatePickerSettings dpSetting2 = new DatePickerSettings();
+        dpSetting2.setVisibleDateTextField(false);
+        dpNgayKetThuc.setSettings(dpSetting2);
+        
+        txtNgayBatDau.setEditable(false);
+        txtNgayKetThuc.setEditable(false);
     }
     
     @Override
     public void addActionPerform() {
         xemChiTietBtn.addActionListener(this);
         lamMoiBtn.addActionListener(this);
-    }
-    
-    public DefaultTableModel getTableModel() {
-        return (DefaultTableModel) hdTable.getModel();
-    }
-    
-    public void addRowToTable(Object[] data) {
-        DefaultTableModel model = (DefaultTableModel) hdTable.getModel();
+        locNgayLapBtn.addActionListener(this);
+        locTongTienBtn.addActionListener(this);
         
-        model.addRow(data);
-    }
-
-    public void removeAllRow() {
-        DefaultTableModel model = (DefaultTableModel) hdTable.getModel();
-        
-        model.setRowCount(0);
+        dpNgayBatDau.addDateChangeListener((dce) -> {
+            txtNgayBatDau.setText(dpNgayBatDau.getDateStringOrEmptyString());
+        });
+        dpNgayKetThuc.addDateChangeListener((dce) -> {
+            txtNgayKetThuc.setText(dpNgayKetThuc.getDateStringOrEmptyString());
+        });
     }
 
     /**
@@ -95,6 +103,16 @@ public class HoaDonForm extends javax.swing.JPanel implements ActionListener, Ac
         timKiemBtn = new javax.swing.JButton();
         xemChiTietBtn = new javax.swing.JButton();
         lamMoiBtn = new javax.swing.JButton();
+        timkiemContainer1 = new javax.swing.JPanel();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        locTongTienBtn = new javax.swing.JButton();
+        timkiemContainer2 = new javax.swing.JPanel();
+        txtNgayBatDau = new javax.swing.JTextField();
+        dpNgayBatDau = new com.github.lgooddatepicker.components.DatePicker();
+        txtNgayKetThuc = new javax.swing.JTextField();
+        dpNgayKetThuc = new com.github.lgooddatepicker.components.DatePicker();
+        locNgayLapBtn = new javax.swing.JButton();
 
         hdTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -118,6 +136,8 @@ public class HoaDonForm extends javax.swing.JPanel implements ActionListener, Ac
 
         timKiemTheo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Tất cả", "Mã hoá đơn", "Mã nhân viên", "Mã khuyến mãi", "Mã khách hàng", "Ngày lập", "Giờ lập", "Tổng tiền" }));
 
+        timKiem.setBorder(javax.swing.BorderFactory.createTitledBorder("Thanh nhập"));
+
         timKiemBtn.setText("Tìm kiếm");
 
         javax.swing.GroupLayout timkiemContainerLayout = new javax.swing.GroupLayout(timkiemContainer);
@@ -126,22 +146,26 @@ public class HoaDonForm extends javax.swing.JPanel implements ActionListener, Ac
             timkiemContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(timkiemContainerLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(timKiemTheo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(timKiemTheo, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(timKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(timKiem, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(timKiemBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(timKiemBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         timkiemContainerLayout.setVerticalGroup(
             timkiemContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(timkiemContainerLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, timkiemContainerLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(timkiemContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(timKiemTheo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(timKiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(timKiemBtn))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(timkiemContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, timkiemContainerLayout.createSequentialGroup()
+                        .addComponent(timKiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(timkiemContainerLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(timkiemContainerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(timKiemTheo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(timKiemBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap())
         );
 
         xemChiTietBtn.setText("Xem chi tiết");
@@ -153,32 +177,123 @@ public class HoaDonForm extends javax.swing.JPanel implements ActionListener, Ac
 
         lamMoiBtn.setText("Làm mới");
 
+        timkiemContainer1.setBorder(javax.swing.BorderFactory.createTitledBorder("Tổng tiền"));
+
+        jTextField3.setBorder(javax.swing.BorderFactory.createTitledBorder("Từ"));
+
+        jTextField4.setBorder(javax.swing.BorderFactory.createTitledBorder("Đến"));
+
+        locTongTienBtn.setText("Lọc");
+
+        javax.swing.GroupLayout timkiemContainer1Layout = new javax.swing.GroupLayout(timkiemContainer1);
+        timkiemContainer1.setLayout(timkiemContainer1Layout);
+        timkiemContainer1Layout.setHorizontalGroup(
+            timkiemContainer1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(timkiemContainer1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(locTongTienBtn)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        timkiemContainer1Layout.setVerticalGroup(
+            timkiemContainer1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(timkiemContainer1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(timkiemContainer1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(timkiemContainer1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(locTongTienBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        timkiemContainer2.setBorder(javax.swing.BorderFactory.createTitledBorder("Ngày lập"));
+
+        txtNgayBatDau.setBorder(javax.swing.BorderFactory.createTitledBorder("Từ"));
+
+        txtNgayKetThuc.setBorder(javax.swing.BorderFactory.createTitledBorder("Đến"));
+
+        locNgayLapBtn.setText("Lọc");
+
+        javax.swing.GroupLayout timkiemContainer2Layout = new javax.swing.GroupLayout(timkiemContainer2);
+        timkiemContainer2.setLayout(timkiemContainer2Layout);
+        timkiemContainer2Layout.setHorizontalGroup(
+            timkiemContainer2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(timkiemContainer2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(txtNgayBatDau, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(dpNgayBatDau, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNgayKetThuc, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(dpNgayKetThuc, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(locNgayLapBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        timkiemContainer2Layout.setVerticalGroup(
+            timkiemContainer2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(timkiemContainer2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(timkiemContainer2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNgayBatDau)
+                    .addGroup(timkiemContainer2Layout.createSequentialGroup()
+                        .addComponent(txtNgayKetThuc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, timkiemContainer2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(dpNgayBatDau, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(timkiemContainer2Layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addGroup(timkiemContainer2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(timkiemContainer2Layout.createSequentialGroup()
+                                .addComponent(locNgayLapBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(dpNgayKetThuc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(341, 341, 341)
-                .addComponent(timkiemContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(xemChiTietBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lamMoiBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
-            .addComponent(hdTableContainer, javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(hdTableContainer, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addComponent(timkiemContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(timkiemContainer2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(timkiemContainer1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(xemChiTietBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lamMoiBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(timkiemContainer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(xemChiTietBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(lamMoiBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(timkiemContainer2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(timkiemContainer1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(timkiemContainer, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(xemChiTietBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lamMoiBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(hdTableContainer, javax.swing.GroupLayout.DEFAULT_SIZE, 681, Short.MAX_VALUE))
+                .addComponent(hdTableContainer, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -188,13 +303,23 @@ public class HoaDonForm extends javax.swing.JPanel implements ActionListener, Ac
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.github.lgooddatepicker.components.DatePicker dpNgayBatDau;
+    private com.github.lgooddatepicker.components.DatePicker dpNgayKetThuc;
     private javax.swing.JTable hdTable;
     private javax.swing.JScrollPane hdTableContainer;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     private javax.swing.JButton lamMoiBtn;
+    private javax.swing.JButton locNgayLapBtn;
+    private javax.swing.JButton locTongTienBtn;
     private javax.swing.JTextField timKiem;
     private javax.swing.JButton timKiemBtn;
     private javax.swing.JComboBox<String> timKiemTheo;
     private javax.swing.JPanel timkiemContainer;
+    private javax.swing.JPanel timkiemContainer1;
+    private javax.swing.JPanel timkiemContainer2;
+    private javax.swing.JTextField txtNgayBatDau;
+    private javax.swing.JTextField txtNgayKetThuc;
     private javax.swing.JButton xemChiTietBtn;
     // End of variables declaration//GEN-END:variables
 
@@ -208,6 +333,16 @@ public class HoaDonForm extends javax.swing.JPanel implements ActionListener, Ac
             fchitiet.dispose();
         
         if (e.getSource() == lamMoiBtn) {
+            
+        } else if (e.getSource() == locNgayLapBtn) {
+            
+            if (txtNgayBatDau.getText().length() == 0 || txtNgayKetThuc.getText().length() == 0) {
+                ThongBao.hienLoi("Ngày bắt đầu và ngày kết thúc không được trống!");
+            } else {
+                
+            }
+            
+        } else if (e.getSource() == locTongTienBtn) {
             
         } else if (hdTable.getSelectedRow() == -1) {
             ThongBao.hienLoi("Vui lòng chọn hoá đơn để thực hiện thao tác!");
