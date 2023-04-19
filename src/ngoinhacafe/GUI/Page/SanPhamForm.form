@@ -50,7 +50,7 @@
                               <Component id="jButton1" min="-2" pref="92" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="156" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="152" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
@@ -65,7 +65,12 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                      <Component id="jButton1" min="-2" pref="35" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
@@ -76,14 +81,10 @@
                           <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" pref="35" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                  </Group>
               </Group>
-              <Component id="jScrollPane1" min="-2" pref="195" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="186" max="-2" attributes="0"/>
+              <EmptySpace pref="12" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jPanel2" max="32767" attributes="0"/>
                   <Component id="jPanel6" max="32767" attributes="0"/>
@@ -161,7 +162,7 @@
       <Properties>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder title="ti&#x300;m ki&#xea;&#x301;m"/>
+            <TitledBorder title="Ti&#x300;m ki&#xea;&#x301;m"/>
           </Border>
         </Property>
       </Properties>
@@ -242,7 +243,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="jButton2" min="-2" pref="84" max="-2" attributes="0"/>
+                  <Component id="themBtn" min="-2" pref="84" max="-2" attributes="0"/>
                   <EmptySpace pref="34" max="32767" attributes="0"/>
                   <Component id="jButton3" min="-2" pref="84" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
@@ -254,14 +255,14 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButton3" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
-                  <Component id="jButton2" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                  <Component id="themBtn" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
                   <Component id="jButton4" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="themBtn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Th&#xea;m"/>
           </Properties>
@@ -452,7 +453,7 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jTextField15" min="-2" pref="37" max="-2" attributes="0"/>
-                  <EmptySpace pref="236" max="32767" attributes="0"/>
+                  <EmptySpace pref="227" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
