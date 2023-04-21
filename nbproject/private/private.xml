@@ -3,8 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/HUY%20LE/OneDrive/Tổng%20hợp/OneDrive/Documents/NetBeansProjects/NgoiNhaCafeJava/src/ngoinhacafe/GUI/Page/SanPhamForm.java</file>
-            <file>file:/C:/Users/HUY%20LE/OneDrive/Tổng%20hợp/OneDrive/Documents/NetBeansProjects/NgoiNhaCafeJava/src/ngoinhacafe/Main.java</file>
+            <file>file:/C:/Users/HUY%20LE/OneDrive/Tổng%20hợp/OneDrive/Documents/NetBeansProjects/NgoiNhaCafeJava/src/ngoinhacafe/Logic/QuanLyChiTietHoaDon/QuanLyChiTietHoaDonBUS.java</file>
+            <file>file:/C:/Users/HUY%20LE/OneDrive/Tổng%20hợp/OneDrive/Documents/NetBeansProjects/NgoiNhaCafeJava/src/ngoinhacafe/Logic/QuanLyChiTietHoaDon/QuanLyChiTietHoaDonDAO.java</file>
+            <file>file:/C:/Users/HUY%20LE/OneDrive/Tổng%20hợp/OneDrive/Documents/NetBeansProjects/NgoiNhaCafeJava/src/ngoinhacafe/Logic/QuanLyChiTietHoaDon/ChiTietHoaDon.java</file>
         </group>
     </open-files>
 </project-private>
