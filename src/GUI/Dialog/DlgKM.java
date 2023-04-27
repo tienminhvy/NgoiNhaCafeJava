@@ -1,4 +1,4 @@
-package GUI;
+package GUI.Dialog;
 
 import BUS.KhuyenMaiBUS;
 import DTO.KhuyenMai;

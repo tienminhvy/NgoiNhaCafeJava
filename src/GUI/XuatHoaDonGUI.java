@@ -1,5 +1,7 @@
 package GUI;
 
+import GUI.Dialog.DlgKM;
+import GUI.Dialog.DlgTimKhach;
 import BUS.CTHoaDonBUS;
 import BUS.HoaDonBUS;
 import MyCustom.MyDialog;

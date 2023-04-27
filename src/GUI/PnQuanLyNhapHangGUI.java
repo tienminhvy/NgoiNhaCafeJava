@@ -1,5 +1,6 @@
 package GUI;
 
+import GUI.Dialog.DlgChonNhaCungCap;
 import BUS.DangNhapBUS;
 import BUS.NhanVienBUS;
 import BUS.SanPhamBUS;

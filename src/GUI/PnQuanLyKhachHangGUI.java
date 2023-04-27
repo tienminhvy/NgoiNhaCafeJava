@@ -32,7 +32,6 @@ public class PnQuanLyKhachHangGUI extends JPanel {
 
     private KhachHangBUS khachHangBUS = new KhachHangBUS();
 
-    final Color colorPanel = new Color(247, 247, 247);
     JButton btnReset;
     JTextField txtMa, txtTen, txtDiaChi, txtSDT, txtTukhoa;
     JButton btnThem, btnSua, btnXoa;
@@ -43,7 +42,6 @@ public class PnQuanLyKhachHangGUI extends JPanel {
         Font font = new Font("Tahoma", Font.PLAIN, 20);
 
         this.setLayout(new BorderLayout());
-        this.setBackground(colorPanel);
         int w = 1030;
         int h = 844;
 

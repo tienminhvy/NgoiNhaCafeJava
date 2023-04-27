@@ -1,5 +1,7 @@
 package GUI;
 
+import GUI.Dialog.DlgQuyen_MatKhau;
+import GUI.Dialog.DlgCapTaiKhoan;
 import MyCustom.XuLyFileExcel;
 import MyCustom.MyDialog;
 import MyCustom.TransparentPanel;
@@ -45,7 +47,6 @@ public class PnQuanLyNhanVienGUI extends JPanel {
     JLabel lblTabbedNhanVien, lblTabbedQuyen;
     final ImageIcon tabbedSelected = new ImageIcon("image/ManagerUI/tabbed-btn--selected.png");
     final ImageIcon tabbedDefault = new ImageIcon("image/ManagerUI/tabbed-btn.png");
-    final Color colorPanel = new Color(247, 247, 247);
     CardLayout cardNhanVienGroup = new CardLayout();
     JPanel pnCardTabNhanVien;
     JTextField txtMaNV, txtTen, txtNgaySinh, txtSDT, txtTimNV, txtDiaChi;
@@ -55,7 +56,6 @@ public class PnQuanLyNhanVienGUI extends JPanel {
 
     private void addControlsNhanVien() {
         this.setLayout(new BorderLayout());
-        this.setBackground(colorPanel);
         int w = 1030;
         int h = 844;
         /*

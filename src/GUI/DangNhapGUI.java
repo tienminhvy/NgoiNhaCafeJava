@@ -46,7 +46,6 @@ public class DangNhapGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        btnForgot = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         txtUser = new javax.swing.JTextField();
         txtPassword = new javax.swing.JPasswordField();
@@ -54,21 +53,21 @@ public class DangNhapGUI extends javax.swing.JFrame {
         ckbRemember = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(350, 350));
+        getContentPane().setLayout(new java.awt.BorderLayout(0, 10));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("ĐĂNG NHẬP");
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logo/icons8-coffee-shop-65.png"))); // NOI18N
         jLabel1.setPreferredSize(new java.awt.Dimension(146, 80));
         getContentPane().add(jLabel1, java.awt.BorderLayout.PAGE_START);
-
-        btnForgot.setText("Quên mật khẩu?");
-        getContentPane().add(btnForgot, java.awt.BorderLayout.PAGE_END);
 
         txtUser.setBorder(javax.swing.BorderFactory.createTitledBorder("Tên đăng nhập"));
 
         txtPassword.setBorder(javax.swing.BorderFactory.createTitledBorder("Mật khẩu"));
 
         btnLogin.setText("Xác nhận");
+        btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         ckbRemember.setText("Ghi nhớ đăng nhập");
 
@@ -82,7 +81,7 @@ public class DangNhapGUI extends javax.swing.JFrame {
                     .addComponent(txtUser)
                     .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ckbRemember, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE))
+                    .addComponent(ckbRemember, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -96,7 +95,7 @@ public class DangNhapGUI extends javax.swing.JFrame {
                 .addComponent(ckbRemember, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(14, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
@@ -133,30 +132,7 @@ public class DangNhapGUI extends javax.swing.JFrame {
                 xuLyDangNhap();
             }
         });
-        btnForgot.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                xuLyQuenMatKhau();
-            }
 
-            @Override
-            public void mousePressed(MouseEvent e) {
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                
-            }
-        });
         btnLogin.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -197,14 +173,15 @@ public class DangNhapGUI extends javax.swing.JFrame {
                 txtPassword.getText(), ckbRemember.isSelected());
         if (tk != null) {
             this.dispose();
-            MainQuanLyGUI gui = new MainQuanLyGUI();
+            //MainQuanLyGUI gui = new MainQuanLyGUI();           
+            MainForm gui = new MainForm();
+
             this.dispose();
-            gui.showWindow();
+           // gui.showWindow();
         }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnForgot;
     private javax.swing.JButton btnLogin;
     private javax.swing.JCheckBox ckbRemember;
     private javax.swing.JLabel jLabel1;

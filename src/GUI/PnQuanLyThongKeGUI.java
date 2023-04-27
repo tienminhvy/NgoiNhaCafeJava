@@ -1,5 +1,6 @@
 package GUI;
 
+import GUI.Dialog.DlgLocThongKe;
 import BUS.ThongKeBUS;
 import DTO.ThongKe;
 import MyCustom.TransparentPanel;
@@ -30,7 +31,6 @@ public class PnQuanLyThongKeGUI extends JPanel {
     }
 
     ThongKeBUS thongKeBUS = new ThongKeBUS();
-    final Color colorPanel = new Color(56, 56, 56);
     JLabel lblThongKeThucDon, lblThongKeKhachHang, lblThongKeNhanVien, lblThongKeDoanhThu;
     JLabel lblDoanhThuQuy1, lblDoanhThuQuy2, lblDoanhThuQuy3, lblDoanhThuQuy4, lblTongDoanhThu;
     JButton btnView, btnBack;
@@ -44,17 +44,15 @@ public class PnQuanLyThongKeGUI extends JPanel {
 
     private void addControls() {
         this.setLayout(new BorderLayout());
-        this.setBackground(colorPanel);
         int w = 1030;
         int h = 844;
 
         //========================================
         pnMain = new TransparentPanel();
         pnMain.setFont(new Font("Tahoma", Font.PLAIN, 18));
-        pnMain.setLayout(cardLayoutThongKe);
+       pnMain.setLayout(cardLayoutThongKe);
 
         JPanel pnThongKeTong = new JPanel(null);
-        pnThongKeTong.setBackground(colorPanel);
         JLabel lblTileThongKeTong, lblBackgroundThucDon, lblBackgroundKhachHang, lblBackgroundNhanVien, lblBackgroundDoanhThu;
 
         lblTileThongKeTong = new JLabel("THỐNG KÊ TỔNG QUÁT", JLabel.CENTER);
@@ -86,11 +84,11 @@ public class PnQuanLyThongKeGUI extends JPanel {
         lblThongKeNhanVien.setFont(font);
         lblThongKeDoanhThu.setFont(font);
 
-        lblTileThongKeTong.setForeground(Color.white);
-        lblThongKeThucDon.setForeground(Color.white);
-        lblThongKeKhachHang.setForeground(Color.white);
-        lblThongKeNhanVien.setForeground(Color.white);
-        lblThongKeDoanhThu.setForeground(Color.white);
+//        lblTileThongKeTong.setForeground(Color.white);
+//        lblThongKeThucDon.setForeground(Color.white);
+//        lblThongKeKhachHang.setForeground(Color.white);
+//        lblThongKeNhanVien.setForeground(Color.white);
+//        lblThongKeDoanhThu.setForeground(Color.white);
 
         lblThongKeThucDon.setBounds(98, 100, 232, 87);
         lblThongKeKhachHang.setBounds(563, 100, 232, 87);
@@ -236,17 +234,16 @@ public class PnQuanLyThongKeGUI extends JPanel {
         pnThongKeChiTiet.add(lblSoLuong5);
 
         //========BIỂU ĐỒ CỘT=============
-        pnChart = new TransparentPanel();
-        pnChart.setBounds(0, 398, 1030, 441);
-
-        chartPanel = new ChartPanel(createChart());
-        chartPanel.setPreferredSize(new Dimension(1030, 441));
-
-        pnChart.add(chartPanel);
+//        pnChart = new TransparentPanel();
+//        pnChart.setBounds(0, 398, 1030, 441);
+//
+//        chartPanel = new ChartPanel(createChart());
+//        chartPanel.setPreferredSize(new Dimension(1030, 441));
+//
+//        pnChart.add(chartPanel);
         //================================
-        pnThongKeChiTiet.add(pnChart);
+       // pnThongKeChiTiet.add(pnChart);
         pnMain.add(pnThongKeChiTiet, "2");
-
         this.add(pnMain, BorderLayout.CENTER);
         hienThiThongKe();
     }
@@ -285,17 +282,18 @@ public class PnQuanLyThongKeGUI extends JPanel {
     private void veLaiChart() {
         pnChart.removeAll();
 
-        chartPanel = new ChartPanel(createChart());
-        chartPanel.setPreferredSize(new Dimension(1030, 441));
-
-        pnChart.add(chartPanel);
+//        chartPanel = new ChartPanel(createChart());
+//        chartPanel.setPreferredSize(new Dimension(1030, 441));
+//
+//        pnChart.add(chartPanel);
     }
 
     private JFreeChart createChart() {
         JFreeChart barChart = ChartFactory.createBarChart(
                 "Doanh thu năm " + Calendar.getInstance().get(Calendar.YEAR),
                 "Tháng", "Doanh thu",
-                createDataset(), PlotOrientation.VERTICAL, false, false, false);
+                createDataset(), PlotOrientation.VERTICAL, false, false, false
+        );
         return barChart;
     }
 

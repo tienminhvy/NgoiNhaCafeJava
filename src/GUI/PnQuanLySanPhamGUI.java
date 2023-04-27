@@ -52,7 +52,6 @@ public class PnQuanLySanPhamGUI extends JPanel {
 
     SanPhamBUS spBUS = new SanPhamBUS();
     LoaiBUS loaiBUS = new LoaiBUS();
-    final Color colorPanel = new Color(247, 247, 247);
     MyTable tblSanPham;
     DefaultTableModel dtmSanPham;
     JTextField txtMa, txtTen, txtsoLuong, txtdonGia, txtTimKiem;
@@ -66,7 +65,6 @@ public class PnQuanLySanPhamGUI extends JPanel {
         centerRenderer.setHorizontalAlignment(JLabel.CENTER);
 
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-        this.setBackground(colorPanel);
 
         int w = 1030;
         int h = 844;

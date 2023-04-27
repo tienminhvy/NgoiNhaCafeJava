@@ -39,7 +39,6 @@ public class PnQuanLyBanHangGUI extends JPanel {
     JLabel lblTabbedBanHang, lblTabbedHoaDon;
     final ImageIcon tabbedSelected = new ImageIcon("image/ManagerUI/tabbed-btn--selected.png");
     final ImageIcon tabbedDefault = new ImageIcon("image/ManagerUI/tabbed-btn.png");
-    final Color colorPanel = new Color(247, 247, 247);
     CardLayout cardBanHangGroup = new CardLayout();
     JPanel pnCardTabBanHang;
     MyTable tblBanHang, tblGioHang;
@@ -67,7 +66,6 @@ public class PnQuanLyBanHangGUI extends JPanel {
         centerRenderer.setHorizontalAlignment(JLabel.CENTER);
 
         this.setLayout(new BorderLayout());
-        this.setBackground(colorPanel);
 
         int w = 1030;
         int h = 844;

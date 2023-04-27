@@ -31,7 +31,6 @@ public class PnQuanLyKhuyenMaiGUI extends JPanel {
     }
 
     private KhuyenMaiBUS KhuyenMaiBUS = new KhuyenMaiBUS();
-    final Color colorPanel = new Color(247, 247, 247);
 
     JButton btnReset, btnThem, btnSua;
     JTextField txtMa, txtTen, txtPhanTram, txtDieuKien;
@@ -42,7 +41,6 @@ public class PnQuanLyKhuyenMaiGUI extends JPanel {
     private void addControls() {
         Font font = new Font("Tahoma", Font.PLAIN, 16);
         this.setLayout(new BorderLayout());
-        this.setBackground(colorPanel);
 
         int w = 1030;
         int h = 844;
