@@ -2,7 +2,7 @@ package BUS;
 
 import DAO.HoaDonDAO;
 import DTO.HoaDon;
-import MyCustom.MyDialog;
+import CustomFunctions.Dialog;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -53,7 +53,7 @@ public class HoaDonBUS {
             }
             return dshd;
         } catch (Exception e) {
-            new MyDialog("Hãy nhập khoảng giá hợp lệ", MyDialog.ERROR_DIALOG);
+            new Dialog("Hãy nhập khoảng giá hợp lệ", Dialog.ERROR_DIALOG);
         }
         return null;
     }
@@ -72,7 +72,7 @@ public class HoaDonBUS {
             ArrayList<HoaDon> dshd = hoaDonDAO.getListHoaDon(min, max);
             return dshd;
         } catch (Exception e) {
-            new MyDialog("Hãy nhập khoảng ngày hợp lệ theo định dạng dd/MM/yyyy!", MyDialog.ERROR_DIALOG);
+            new Dialog("Hãy nhập khoảng ngày hợp lệ theo định dạng dd/MM/yyyy!", Dialog.ERROR_DIALOG);
         }
         return null;
     }

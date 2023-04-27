@@ -3,7 +3,7 @@ package BUS;
 import DAO.DangNhapDAO;
 import DTO.PhanQuyen;
 import DTO.TaiKhoan;
-import MyCustom.MyDialog;
+import CustomFunctions.Dialog;
 
 import java.io.*;
 
@@ -15,7 +15,7 @@ public class DangNhapBUS {
 
     public TaiKhoan getTaiKhoanDangNhap(String user, String password, boolean selected) {
         if (kiemTraDangNhap(user, password) == EMPTY_ERROR) {
-            new MyDialog("Không được để trống thông tin!", MyDialog.ERROR_DIALOG);
+            new Dialog("Không được để trống thông tin!", Dialog.ERROR_DIALOG);
             return null;
         }
         TaiKhoan tk = new TaiKhoan();
@@ -27,13 +27,13 @@ public class DangNhapBUS {
         taiKhoanLogin = account;
 
         if (account == null) {
-            new MyDialog("Sai thông tin đăng nhập hoặc tài khoản đã bị khoá!", MyDialog.ERROR_DIALOG);
+            new Dialog("Sai thông tin đăng nhập hoặc tài khoản đã bị khoá!", Dialog.ERROR_DIALOG);
         } else {
             PhanQuyenBUS phanQuyenBUS = new PhanQuyenBUS();
             phanQuyenBUS.kiemTraQuyen(account.getQuyen());
             xuLyGhiNhoDangNhap(user, password, selected);
-            new MyDialog("Đăng nhập thành công!", MyDialog.SUCCESS_DIALOG);
-//            new MyDialog("Vì tình hình dịch Covid phức tạp, cửa hàng chỉ thực hiện bán mang về!", MyDialog.INFO_DIALOG);
+            new Dialog("Đăng nhập thành công!", Dialog.SUCCESS_DIALOG);
+//            new Dialog("Vì tình hình dịch Covid phức tạp, cửa hàng chỉ thực hiện bán mang về!", Dialog.INFO_DIALOG);
         }
         return account;
     }

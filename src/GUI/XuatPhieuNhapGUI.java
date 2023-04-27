@@ -5,7 +5,7 @@ import BUS.PhieuNhapBUS;
 import BUS.SanPhamBUS;
 import DTO.CTPhieuNhap;
 import DTO.SanPham;
-import MyCustom.MyDialog;
+import CustomFunctions.Dialog;
 import java.awt.print.PrinterException;
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
@@ -190,7 +190,7 @@ public class XuatPhieuNhapGUI extends javax.swing.JDialog {
 
         txtChiTiet.setText(hd);
         
-        new MyDialog("Xác nhận thành công!", MyDialog.SUCCESS_DIALOG);
+        new Dialog("Xác nhận thành công!", Dialog.SUCCESS_DIALOG);
     }//GEN-LAST:event_btnXacNhanActionPerformed
 
     private void btnInPhieuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInPhieuActionPerformed

@@ -2,7 +2,7 @@ package GUI;
 
 import BUS.ThongKeBUS;
 import DTO.ThongKe;
-import MyCustom.TransparentPanel;
+import CustomFunctions.TransparentPanel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;

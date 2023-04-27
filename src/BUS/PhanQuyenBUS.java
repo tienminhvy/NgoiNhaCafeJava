@@ -2,7 +2,7 @@ package BUS;
 
 import DAO.PhanQuyenDAO;
 import DTO.PhanQuyen;
-import MyCustom.MyDialog;
+import CustomFunctions.Dialog;
 
 import java.util.ArrayList;
 
@@ -30,9 +30,9 @@ public class PhanQuyenBUS {
         PhanQuyen phanQuyen = new PhanQuyen(maQuyen, tenQuyen, nhapHang, sanPham, nhanVien, khachHang, thongKe);
         boolean flag = phanQuyenDAO.suaQuyen(phanQuyen);
         if (flag) {
-            new MyDialog("Sửa thành công!", MyDialog.SUCCESS_DIALOG);
+            new Dialog("Sửa thành công!", Dialog.SUCCESS_DIALOG);
         } else {
-            new MyDialog("Sửa thất bại!", MyDialog.ERROR_DIALOG);
+            new Dialog("Sửa thất bại!", Dialog.ERROR_DIALOG);
         }
         return flag;
     }
@@ -43,16 +43,16 @@ public class PhanQuyenBUS {
         }
         
         if (kiemTonTaiTraQuyen(tenQuyen)) {
-            new MyDialog("Thêm thất bại! Quyền đã tồn tại", MyDialog.ERROR_DIALOG);
+            new Dialog("Thêm thất bại! Quyền đã tồn tại", Dialog.ERROR_DIALOG);
             return false;
         }
 
         PhanQuyen phanQuyen = new PhanQuyen(0, tenQuyen, 0, 0, 0, 0, 0);
         boolean flag = phanQuyenDAO.themQuyen(phanQuyen);
         if (flag) {
-            new MyDialog("Thêm thành công! Hãy hiệu chỉnh quyền", MyDialog.SUCCESS_DIALOG);
+            new Dialog("Thêm thành công! Hãy hiệu chỉnh quyền", Dialog.SUCCESS_DIALOG);
         } else {
-            new MyDialog("Thêm thất bại! Quyền đã tồn tại", MyDialog.ERROR_DIALOG);
+            new Dialog("Thêm thất bại! Quyền đã tồn tại", Dialog.ERROR_DIALOG);
         }
         return flag;
     }
@@ -72,9 +72,9 @@ public class PhanQuyenBUS {
     public boolean xoaQuyen(String tenQuyen) {
         boolean flag = phanQuyenDAO.xoaQuyen(tenQuyen);
         if (flag) {
-            new MyDialog("Xoá thành công!", MyDialog.SUCCESS_DIALOG);
+            new Dialog("Xoá thành công!", Dialog.SUCCESS_DIALOG);
         } else {
-            new MyDialog("Xoá thất bại!", MyDialog.ERROR_DIALOG);
+            new Dialog("Xoá thất bại!", Dialog.ERROR_DIALOG);
         }
         return flag;
     }

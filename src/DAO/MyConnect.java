@@ -1,6 +1,6 @@
 package DAO;
 
-import MyCustom.MyDialog;
+import CustomFunctions.Dialog;
 import com.mysql.jdbc.Driver;
 
 import java.io.BufferedReader;
@@ -29,7 +29,7 @@ public class MyConnect {
             com.mysql.jdbc.Driver driver = new Driver();
             conn = driver.connect(strConnect, pro);
         } catch (SQLException ex) {
-            new MyDialog("Không kết nối được tới CSDL!", MyDialog.ERROR_DIALOG);
+            new Dialog("Không kết nối được tới CSDL!", Dialog.ERROR_DIALOG);
             System.exit(0);
         }
 

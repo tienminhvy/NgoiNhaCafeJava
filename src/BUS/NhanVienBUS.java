@@ -2,7 +2,7 @@ package BUS;
 
 import DAO.NhanVienDAO;
 import DTO.NhanVien;
-import MyCustom.MyDialog;
+import CustomFunctions.Dialog;
 import java.text.SimpleDateFormat;
 
 import java.util.ArrayList;
@@ -34,11 +34,11 @@ public class NhanVienBUS {
         ngaySinh = ngaySinh.trim();
         sdt = sdt.trim();
         if (ten.equals("")) {
-            new MyDialog("Tên không được để trống!", MyDialog.ERROR_DIALOG);
+            new Dialog("Tên không được để trống!", Dialog.ERROR_DIALOG);
             return false;
         }
         if (sdt.equals("")) {
-            new MyDialog("Số điện thoại không được để trống!", MyDialog.ERROR_DIALOG);
+            new Dialog("Số điện thoại không được để trống!", Dialog.ERROR_DIALOG);
             return false;
         }
         
@@ -59,9 +59,9 @@ public class NhanVienBUS {
         nv.setSdt(sdt);
         boolean flag = nvDAO.themNhanVien(nv);
         if (!flag) {
-            new MyDialog("Thêm thất bại!", MyDialog.ERROR_DIALOG);
+            new Dialog("Thêm thất bại!", Dialog.ERROR_DIALOG);
         } else {
-            new MyDialog("Thêm thành công!", MyDialog.SUCCESS_DIALOG);
+            new Dialog("Thêm thành công!", Dialog.SUCCESS_DIALOG);
         }
         return flag;
     }
@@ -72,15 +72,15 @@ public class NhanVienBUS {
         ngaySinh = ngaySinh.trim();
         diaChi = diaChi.trim();
         if (ten.equals("")) {
-            new MyDialog("Tên không được để trống!", MyDialog.ERROR_DIALOG);
+            new Dialog("Tên không được để trống!", Dialog.ERROR_DIALOG);
             return false;
         }
         if (diaChi.equals("")) {
-            new MyDialog("Địa chỉ không được để trống!", MyDialog.ERROR_DIALOG);
+            new Dialog("Địa chỉ không được để trống!", Dialog.ERROR_DIALOG);
             return false;
         }
         if (sdt.equals("")) {
-            new MyDialog("Số điện thoại không được để trống!", MyDialog.ERROR_DIALOG);
+            new Dialog("Số điện thoại không được để trống!", Dialog.ERROR_DIALOG);
             return false;
         }
         NhanVien nv = new NhanVien();
@@ -103,9 +103,9 @@ public class NhanVienBUS {
         nv.setSdt(sdt);
         boolean flag = nvDAO.updateNhanVien(nv);
         if (!flag) {
-            new MyDialog("Cập nhập thất bại!", MyDialog.ERROR_DIALOG);
+            new Dialog("Cập nhập thất bại!", Dialog.ERROR_DIALOG);
         } else {
-            new MyDialog("Cập nhập thành công!", MyDialog.SUCCESS_DIALOG);
+            new Dialog("Cập nhập thành công!", Dialog.SUCCESS_DIALOG);
         }
         return flag;
     }
@@ -125,19 +125,19 @@ public class NhanVienBUS {
     public boolean xoaNhanVien(String ma) {
         try {
             int maNV = Integer.parseInt(ma);
-            MyDialog dlg = new MyDialog("Bạn có chắc chắn muốn xoá?", MyDialog.WARNING_DIALOG);
+            Dialog dlg = new Dialog("Bạn có chắc chắn muốn xoá?", Dialog.WARNING_DIALOG);
             boolean flag = false;
-            if (dlg.getAction() == MyDialog.OK_OPTION) {
+            if (dlg.getAction() == Dialog.OK_OPTION) {
                 flag = nvDAO.deleteNhanVien(maNV);
                 if (flag) {
-                    new MyDialog("Xoá thành công!", MyDialog.SUCCESS_DIALOG);
+                    new Dialog("Xoá thành công!", Dialog.SUCCESS_DIALOG);
                 } else {
-                    new MyDialog("Xoá thất bại!", MyDialog.ERROR_DIALOG);
+                    new Dialog("Xoá thất bại!", Dialog.ERROR_DIALOG);
                 }
             }
             return flag;
         } catch (Exception e) {
-            new MyDialog("Chưa chọn nhân viên!", MyDialog.ERROR_DIALOG);
+            new Dialog("Chưa chọn nhân viên!", Dialog.ERROR_DIALOG);
         }
         return false;
     }

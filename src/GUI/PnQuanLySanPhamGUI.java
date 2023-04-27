@@ -7,11 +7,11 @@ import DTO.SanPham;
 
 import static Main.Main.changLNF;
 
-import MyCustom.XuLyFileExcel;
-import MyCustom.MyDialog;
-import MyCustom.MyFileChooser;
-import MyCustom.MyTable;
-import MyCustom.TransparentPanel;
+import CustomFunctions.XuLyFileExcel;
+import CustomFunctions.Dialog;
+import CustomFunctions.FileChooser;
+import CustomFunctions.Table;
+import CustomFunctions.TransparentPanel;
 import DAO.SanPhamDAO;
 
 import java.awt.*;
@@ -53,7 +53,7 @@ public class PnQuanLySanPhamGUI extends JPanel {
     SanPhamBUS spBUS = new SanPhamBUS();
     LoaiBUS loaiBUS = new LoaiBUS();
     final Color colorPanel = new Color(247, 247, 247);
-    MyTable tblSanPham;
+    Table tblSanPham;
     DefaultTableModel dtmSanPham;
     JTextField txtMa, txtTen, txtsoLuong, txtdonGia, txtTimKiem;
     JComboBox<String> cmbLoai;
@@ -231,7 +231,7 @@ public class PnQuanLySanPhamGUI extends JPanel {
         dtmSanPham.addColumn("Số lượng");
         dtmSanPham.addColumn("");
         
-        tblSanPham = new MyTable(dtmSanPham);
+        tblSanPham = new Table(dtmSanPham);
         tblSanPham.setDefaultEditor(Object.class, null);
         tblSanPham.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
@@ -359,8 +359,8 @@ public class PnQuanLySanPhamGUI extends JPanel {
     }
 
     private void xuLyNhapFileExcel() {
-        MyDialog dlg = new MyDialog("Dữ liệu cũ sẽ bị xoá, tiếp tục?", MyDialog.WARNING_DIALOG);
-        if (dlg.getAction() != MyDialog.OK_OPTION) {
+        Dialog dlg = new Dialog("Dữ liệu cũ sẽ bị xoá, tiếp tục?", Dialog.WARNING_DIALOG);
+        if (dlg.getAction() != Dialog.OK_OPTION) {
             return;
         }
 
@@ -489,7 +489,7 @@ public class PnQuanLySanPhamGUI extends JPanel {
     }
 
     private void xuLyXoaSanPham() {
-        MyDialog dlg = new MyDialog("Bạn có chắc chắn muốn xoá?", MyDialog.WARNING_DIALOG);
+        Dialog dlg = new Dialog("Bạn có chắc chắn muốn xoá?", Dialog.WARNING_DIALOG);
         if (dlg.OK_OPTION == dlg.getAction()) {
             boolean flag = spBUS.xoaSanPham(txtMa.getText());
             if (flag) {
@@ -512,7 +512,7 @@ public class PnQuanLySanPhamGUI extends JPanel {
     }
 
     private void xuLyChonAnh() {
-        JFileChooser fileChooser = new MyFileChooser("image/SanPham/");
+        JFileChooser fileChooser = new FileChooser("image/SanPham/");
         FileNameExtensionFilter filter = new FileNameExtensionFilter(
                 "Tệp hình ảnh", "jpg", "png", "jpeg");
         fileChooser.setFileFilter(filter);
@@ -567,6 +567,6 @@ public class PnQuanLySanPhamGUI extends JPanel {
             vec.add(sp.getHinhAnh());
             dtmSanPham.addRow(vec);
         }
-        MyDialog dlg = new MyDialog("Số kết quả tìm được: " + dssp.size(), MyDialog.INFO_DIALOG);
+        Dialog dlg = new Dialog("Số kết quả tìm được: " + dssp.size(), Dialog.INFO_DIALOG);
     }
 }

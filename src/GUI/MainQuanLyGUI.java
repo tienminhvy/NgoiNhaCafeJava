@@ -1,6 +1,7 @@
 package GUI;
 
 import BUS.PhanQuyenBUS;
+import CustomFunctions.LooknFeel;
 import DTO.PhanQuyen;
 
 
@@ -10,19 +11,19 @@ import java.util.ArrayList;
 import javax.swing.*;
 
 public class MainQuanLyGUI extends JFrame {
-
+    
     public MainQuanLyGUI() {
         this.setTitle("Phần mềm quản lý cửa hàng cà phê");
         this.setSize(1280, 900);
+        LooknFeel.init(this);
         addControls();
         addEvents();
     }
 
     public void showWindow() {
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        this.setUndecorated(true);
         this.setLocationRelativeTo(null);
-        this.setVisible(true);
+        setVisible(true);
     }
 
     JLabel btnDoiMatKhau;
@@ -35,7 +36,7 @@ public class MainQuanLyGUI extends JFrame {
     PnQuanLyKhachHangGUI khachHangPanel;
     PnQuanLyThongKeGUI thongKePanel;
 
-    JLabel btnClose, btnMinimize, lblBanHang, lblKhuyenMai, lblNhapHang, lblSanPham, lblNhanVien, lblKhachHang, lblThongKe;
+    JLabel lblBanHang, lblKhuyenMai, lblNhapHang, lblSanPham, lblNhanVien, lblKhachHang, lblThongKe;
     final Color clLeftItem = new Color(63, 74, 89);
     final Color clLeftItemHover = new Color(72, 88, 107);
     final Color clLeftItemSelected = new Color(51, 202, 187);
@@ -65,16 +66,6 @@ public class MainQuanLyGUI extends JFrame {
         btnDoiMatKhau.setBounds(0, 0, 46, 46);
         btnDoiMatKhau.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         pnTitle.add(btnDoiMatKhau);
-
-        btnMinimize = new JLabel(new ImageIcon("image/ManagerUI/btn-minimize.png"));
-        btnMinimize.setBounds(width - 85, 5, 38, 35);
-        btnMinimize.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        pnTitle.add(btnMinimize);
-
-        btnClose = new JLabel(new ImageIcon("image/ManagerUI/btn-close.png"));
-        btnClose.setBounds(width - 40, 5, 35, 35);
-        btnClose.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        pnTitle.add(btnClose);
 
         pnMain.add(pnTitle, BorderLayout.NORTH);
         /*
@@ -241,56 +232,6 @@ public class MainQuanLyGUI extends JFrame {
             public void mouseExited(MouseEvent e) {
                 btnDoiMatKhau.setOpaque(false);
                 btnDoiMatKhau.setBackground(new Color(0, 0, 0, 0));
-            }
-        });
-
-        btnMinimize.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                thuNhoFrame();
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                btnMinimize.setIcon(new ImageIcon("image/ManagerUI/btn-minimize--hover.png"));
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                btnMinimize.setIcon(new ImageIcon("image/ManagerUI/btn-minimize.png"));
-            }
-        });
-
-        btnClose.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                thoatChuongTrinh();
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                btnClose.setIcon(new ImageIcon("image/ManagerUI/btn-close--hover.png"));
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                btnClose.setIcon(new ImageIcon("image/ManagerUI/btn-close.png"));
             }
         });
 

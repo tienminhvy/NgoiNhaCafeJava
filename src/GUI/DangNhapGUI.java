@@ -6,7 +6,9 @@ package GUI;
 
 import BUS.DangNhapBUS;
 import DTO.TaiKhoan;
-import MyCustom.MyDialog;
+import CustomFunctions.Dialog;
+import CustomFunctions.LooknFeel;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -34,6 +36,8 @@ public class DangNhapGUI extends javax.swing.JFrame {
         xuLyTaiKhoanDaGhiNho();
         addEvents();
         setVisible(true);
+        setTitle("Đăng nhập");
+        LooknFeel.init(this);
     }
 
     /**
@@ -188,7 +192,7 @@ public class DangNhapGUI extends javax.swing.JFrame {
     }
 
     private void xuLyQuenMatKhau() {
-        new MyDialog("Xin liên hệ Admin để giải quyết!", MyDialog.INFO_DIALOG);
+        new Dialog("Xin liên hệ Admin để giải quyết!", Dialog.INFO_DIALOG);
     }
 
     private void xuLyDangNhap() {

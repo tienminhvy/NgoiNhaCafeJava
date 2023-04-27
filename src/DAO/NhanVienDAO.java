@@ -1,7 +1,7 @@
 package DAO;
 
 import DTO.NhanVien;
-import MyCustom.MyDialog;
+import CustomFunctions.Dialog;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
