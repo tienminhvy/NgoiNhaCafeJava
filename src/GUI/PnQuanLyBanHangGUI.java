@@ -14,9 +14,9 @@ import BUS.SanPhamBUS;
 
 import static Main.Main.changLNF;
 
-import MyCustom.MyDialog;
-import MyCustom.MyTable;
-import MyCustom.TransparentPanel;
+import CustomFuncs.CustomDialog;
+import CustomFuncs.Table;
+import CustomFuncs.TransparentPanel;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -41,7 +41,8 @@ public class PnQuanLyBanHangGUI extends JPanel {
     final ImageIcon tabbedDefault = new ImageIcon("image/ManagerUI/tabbed-btn.png");
     CardLayout cardBanHangGroup = new CardLayout();
     JPanel pnCardTabBanHang;
-    MyTable tblBanHang, tblGioHang;
+    Table tblBanHang;
+    Table tblGioHang;
     DefaultTableModel dtmSanPhamBan, dtmGioHang;
     JTextField txtMaSPBanHang, txtTenSPBanHang, txtDonGiaBanHang;
     JSpinner spnSoLuongBanHang;
@@ -51,7 +52,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
     JTextField txtMaHD, txtNgayLap, txtMaKH, txtMaNV, txtTongTien, txtMaKM, txtMaHDCT, txtMaSPCT, txtSoLuongCT, txtDonGiaCT, txtThanhTienCT;
     JTextField txtMinSearch, txtMaxSearch, txtMinNgayLap, txtMaxNgayLap;
     JList<String> listHoaDon;
-    MyTable tblCTHoaDon;
+    Table tblCTHoaDon;
     DefaultTableModel dtmCTHoaDon;
     JButton btnReset, btnResetCTHoaDon, btnResetHoaDon;
 
@@ -130,7 +131,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
         dtmSanPhamBan.addColumn("Đơn giá");
         dtmSanPhamBan.addColumn("Còn lại");
         dtmSanPhamBan.addColumn("Ảnh");
-        tblBanHang = new MyTable(dtmSanPhamBan);
+        tblBanHang = new Table(dtmSanPhamBan);
         tblBanHang.setDefaultEditor(Object.class, null);
         tblBanHang.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
@@ -169,7 +170,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
         dtmGioHang.addColumn("Đơn giá");
         dtmGioHang.addColumn("Thành tiền");
 
-        tblGioHang = new MyTable(dtmGioHang);
+        tblGioHang = new Table(dtmGioHang);
         
         tblGioHang.setDefaultEditor(Object.class, null);
         tblGioHang.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -596,7 +597,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
         dtmCTHoaDon.addColumn("Số lượng");
         dtmCTHoaDon.addColumn("Đơn giá");
         dtmCTHoaDon.addColumn("Thành tiền");
-        tblCTHoaDon = new MyTable(dtmCTHoaDon);
+        tblCTHoaDon = new Table(dtmCTHoaDon);
         tblCTHoaDon.setDefaultEditor(Object.class, null);
         tblCTHoaDon.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         
@@ -966,7 +967,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
             String anh = tblBanHang.getValueAt(row, 4) + "";
             int soLuong = Integer.parseInt(tblBanHang.getValueAt(row, 3) + "");
             if (soLuong < 1) {
-                MyDialog dlg = new MyDialog("Sản phẩm đã hết hàng", MyDialog.ERROR_DIALOG);
+                CustomDialog dlg = new CustomDialog("Sản phẩm đã hết hàng", CustomDialog.ERROR_DIALOG);
                 return;
             }
 
@@ -1029,7 +1030,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
         int soLuongConLai = Integer.parseInt(tblBanHang.getValueAt(tblBanHang.getSelectedRow(), 3) + "");
 
         if (soLuong > soLuongConLai || soLuongConLai <= 0) {
-            new MyDialog("Sản phẩm đã hết hàng", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Sản phẩm đã hết hàng", CustomDialog.ERROR_DIALOG);
             return;
         }
 

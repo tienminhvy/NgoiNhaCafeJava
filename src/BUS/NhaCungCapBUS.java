@@ -2,7 +2,7 @@ package BUS;
 
 import DAO.NhaCungCapDAO;
 import DTO.NhaCungCap;
-import MyCustom.MyDialog;
+import CustomFuncs.CustomDialog;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -29,24 +29,24 @@ public class NhaCungCapBUS {
 
     public boolean themNhaCungCap(String tenNCC, String diaChi, String dienThoai, String fax) {
         if (tenNCC.trim().equals("")) {
-            new MyDialog("Hãy nhập tên nhà cung cấp!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Hãy nhập tên nhà cung cấp!", CustomDialog.ERROR_DIALOG);
             return false;
         }
         if (diaChi.trim().equals("")) {
-            new MyDialog("Hãy nhập địa chỉ!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Hãy nhập địa chỉ!", CustomDialog.ERROR_DIALOG);
             return false;
         }
         if (dienThoai.trim().equals("")) {
-            new MyDialog("Hãy nhập số điện thoại!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Hãy nhập số điện thoại!", CustomDialog.ERROR_DIALOG);
             return false;
         }
         if (fax.trim().equals("")) {
-            new MyDialog("Hãy nhập fax!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Hãy nhập fax!", CustomDialog.ERROR_DIALOG);
             return false;
         }
         Pattern pattern = Pattern.compile("^\\d{10}$");
         if (!pattern.matcher(dienThoai).matches()) {
-            new MyDialog("Hãy nhập số điện thoại hợp lệ!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Hãy nhập số điện thoại hợp lệ!", CustomDialog.ERROR_DIALOG);
             return false;
         }
 
@@ -57,33 +57,33 @@ public class NhaCungCapBUS {
         ncc.setFax(fax);
         boolean flag = nhaCungCapDAO.addNCC(ncc);
         if (flag) {
-            new MyDialog("Thêm mới thành công!", MyDialog.SUCCESS_DIALOG);
+            new CustomDialog("Thêm mới thành công!", CustomDialog.SUCCESS_DIALOG);
         } else {
-            new MyDialog("Thêm mới thất bại!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Thêm mới thất bại!", CustomDialog.ERROR_DIALOG);
         }
         return flag;
     }
 
     public boolean suaNhaCungCap(String maNCC, String tenNCC, String diaChi, String dienThoai, String fax) {
         if (tenNCC.trim().equals("")) {
-            new MyDialog("Hãy nhập tên Nhà cung cấp này!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Hãy nhập tên Nhà cung cấp này!", CustomDialog.ERROR_DIALOG);
             return false;
         }
         if (diaChi.trim().equals("")) {
-            new MyDialog("Hãy nhập địa chỉ!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Hãy nhập địa chỉ!", CustomDialog.ERROR_DIALOG);
             return false;
         }
         if (dienThoai.trim().equals("")) {
-            new MyDialog("Hãy nhập số điện thoại!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Hãy nhập số điện thoại!", CustomDialog.ERROR_DIALOG);
             return false;
         }
         if (fax.trim().equals("")) {
-            new MyDialog("Hãy nhập fax!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Hãy nhập fax!", CustomDialog.ERROR_DIALOG);
             return false;
         }
         Pattern pattern = Pattern.compile("^\\d{10}$");
         if (!pattern.matcher(dienThoai).matches()) {
-            new MyDialog("Hãy nhập số điện thoại hợp lệ!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Hãy nhập số điện thoại hợp lệ!", CustomDialog.ERROR_DIALOG);
             return false;
         }
 
@@ -99,9 +99,9 @@ public class NhaCungCapBUS {
         boolean flag = nhaCungCapDAO.updateNCC(ncc);
 
         if (flag) {
-            new MyDialog("Sửa thành công!", MyDialog.SUCCESS_DIALOG);
+            new CustomDialog("Sửa thành công!", CustomDialog.SUCCESS_DIALOG);
         } else {
-            new MyDialog("Sửa thất bại!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Sửa thất bại!", CustomDialog.ERROR_DIALOG);
         }
         return flag;
     }

@@ -8,6 +8,8 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import static java.awt.Frame.ICONIFIED;
+import java.awt.Graphics;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -68,6 +70,10 @@ public class MainForm extends javax.swing.JFrame {
         //adjust scroll speed 
         scrollMenu.getVerticalScrollBar().setUnitIncrement(10);
         draggable();
+        this.pack();
+        setMinimumSize(new Dimension(1800, 800));
+        setExtendedState(MAXIMIZED_BOTH);
+        setLocationRelativeTo(null);
     }
 
     class MenuNav {
@@ -233,7 +239,6 @@ public class MainForm extends javax.swing.JFrame {
         setTitle("Quản lý cafe");
         setBackground(new java.awt.Color(0, 0, 0));
         setMinimumSize(new java.awt.Dimension(1400, 800));
-        setUndecorated(true);
         setSize(new java.awt.Dimension(1400, 800));
 
         headerPanel.setBackground(new java.awt.Color(245, 235, 224));

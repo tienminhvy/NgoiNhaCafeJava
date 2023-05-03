@@ -1,9 +1,8 @@
 package GUI;
 
-import GUI.Dialog.DlgLocThongKe;
 import BUS.ThongKeBUS;
 import DTO.ThongKe;
-import MyCustom.TransparentPanel;
+import CustomFuncs.TransparentPanel;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -280,7 +279,7 @@ public class PnQuanLyThongKeGUI extends JPanel {
     }
 
     private void veLaiChart() {
-        pnChart.removeAll();
+//        pnChart.removeAll();
 
 //        chartPanel = new ChartPanel(createChart());
 //        chartPanel.setPreferredSize(new Dimension(1030, 441));

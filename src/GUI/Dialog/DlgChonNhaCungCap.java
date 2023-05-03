@@ -1,9 +1,11 @@
-package GUI;
+package GUI.Dialog;
 
 import BUS.NhaCungCapBUS;
 import DTO.NhaCungCap;
-import MyCustom.MyDialog;
-import MyCustom.MyTable;
+import GUI.DlgSuaNhaCungCap;
+import GUI.DlgThemNhaCungCap;
+import CustomFuncs.CustomDialog;
+import CustomFuncs.Table;
 import java.util.ArrayList;
 import java.util.Vector;
 import javax.swing.ListSelectionModel;
@@ -72,7 +74,7 @@ public class DlgChonNhaCungCap extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblNhaCungCap = new MyTable();
+        tblNhaCungCap = new Table();
         jPanel2 = new javax.swing.JPanel();
         btnChonNCC = new javax.swing.JButton();
         btnThemNCC = new javax.swing.JButton();
@@ -168,7 +170,7 @@ public class DlgChonNhaCungCap extends javax.swing.JDialog {
     private void btnChonNCCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChonNCCActionPerformed
         int row = tblNhaCungCap.getSelectedRow();
         if (row < 0) {
-            new MyDialog("Chưa chọn nhà cung cấp!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Chưa chọn nhà cung cấp!", CustomDialog.ERROR_DIALOG);
             return;
         }
         int maNCC = Integer.parseInt(tblNhaCungCap.getValueAt(row, 0) + "");
@@ -191,7 +193,7 @@ public class DlgChonNhaCungCap extends javax.swing.JDialog {
     private void btnSuaNCCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuaNCCActionPerformed
         int row = tblNhaCungCap.getSelectedRow();
         if (row < 0) {
-            new MyDialog("Hãy chọn nhà cung cấp!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Hãy chọn nhà cung cấp!", CustomDialog.ERROR_DIALOG);
             return;
         }
         

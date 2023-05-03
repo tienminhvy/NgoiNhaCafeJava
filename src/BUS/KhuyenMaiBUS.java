@@ -2,7 +2,7 @@ package BUS;
 
 import DAO.KhuyenMaiDAO;
 import DTO.KhuyenMai;
-import MyCustom.MyDialog;
+import CustomFuncs.CustomDialog;
 import java.text.SimpleDateFormat;
 
 import java.util.ArrayList;
@@ -34,7 +34,7 @@ public class KhuyenMaiBUS {
         phanTram = phanTram.replace("%", "");
         dieuKien = dieuKien.replace(",", "");
         if (ten.equals("")) {
-            new MyDialog("Hãy nhập tên chương trình khuyến mãi!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Hãy nhập tên chương trình khuyến mãi!", CustomDialog.ERROR_DIALOG);
             return false;
         }
         
@@ -45,7 +45,7 @@ public class KhuyenMaiBUS {
             Date ngayKTdt = sdf.parse(ngayKT);
             
             if (ngayBDdt.compareTo(ngayKTdt) > 0 || ngayBDdt.compareTo(ngayKTdt) == 0) {
-                new MyDialog("Ngày kết thúc không hợp lệ!", MyDialog.ERROR_DIALOG);
+                new CustomDialog("Ngày kết thúc không hợp lệ!", CustomDialog.ERROR_DIALOG);
                 return false;
             }
             int phanTramGiam = Integer.parseInt(phanTram);
@@ -60,13 +60,13 @@ public class KhuyenMaiBUS {
 
             flag = giamGiaDAO.themMaGiam(gg);
         } catch (Exception e) {
-            new MyDialog("Hãy nhập số nguyên hợp lệ!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Hãy nhập số nguyên hợp lệ!", CustomDialog.ERROR_DIALOG);
             return false;
         }
         if (flag) {
-            new MyDialog("Thêm mới thành công!", MyDialog.SUCCESS_DIALOG);
+            new CustomDialog("Thêm mới thành công!", CustomDialog.SUCCESS_DIALOG);
         } else {
-            new MyDialog("Thêm mới thất bại!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Thêm mới thất bại!", CustomDialog.ERROR_DIALOG);
         }
         return flag;
     }
@@ -77,11 +77,11 @@ public class KhuyenMaiBUS {
         dieuKien = dieuKien.replace(",", "");
         
         if (ma.equals("")) {
-            new MyDialog("Chưa chọn mã để sửa!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Chưa chọn mã để sửa!", CustomDialog.ERROR_DIALOG);
             return false;
         }
         if (ten.equals("")) {
-            new MyDialog("Hãy nhập tên chương trình khuyến mãi!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Hãy nhập tên chương trình khuyến mãi!", CustomDialog.ERROR_DIALOG);
             return false;
         }
         
@@ -92,7 +92,7 @@ public class KhuyenMaiBUS {
             Date ngayKTdt = sdf.parse(ngayKT);
             
             if (ngayBDdt.compareTo(ngayKTdt) > 0 || ngayBDdt.compareTo(ngayKTdt) == 0) {
-                new MyDialog("Ngày kết thúc không hợp lệ!", MyDialog.ERROR_DIALOG);
+                new CustomDialog("Ngày kết thúc không hợp lệ!", CustomDialog.ERROR_DIALOG);
                 return false;
             }
             
@@ -110,13 +110,13 @@ public class KhuyenMaiBUS {
 
             flag = giamGiaDAO.suaMaGiam(gg);
         } catch (Exception e) {
-            new MyDialog("Hãy nhập số nguyên hợp lệ!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Hãy nhập số nguyên hợp lệ!", CustomDialog.ERROR_DIALOG);
             return false;
         }
         if (flag) {
-            new MyDialog("Sửa thành công!", MyDialog.SUCCESS_DIALOG);
+            new CustomDialog("Sửa thành công!", CustomDialog.SUCCESS_DIALOG);
         } else {
-            new MyDialog("Sửa thất bại!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Sửa thất bại!", CustomDialog.ERROR_DIALOG);
         }
         return flag;
     }

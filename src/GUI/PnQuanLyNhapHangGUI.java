@@ -1,17 +1,17 @@
 package GUI;
 
-import GUI.Dialog.DlgChonNhaCungCap;
 import BUS.DangNhapBUS;
 import BUS.NhanVienBUS;
 import BUS.SanPhamBUS;
 import DTO.CTPhieuNhap;
 import DTO.NhanVien;
 import DTO.SanPham;
-import MyCustom.MyDialog;
-import MyCustom.MyTable;
+import CustomFuncs.CustomDialog;
+import CustomFuncs.Table;
 import BUS.CTPhieuNhapBUS;
 import BUS.PhieuNhapBUS;
 import DTO.PhieuNhap;
+import GUI.Dialog.DlgChonNhaCungCap;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -153,11 +153,11 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
         txtTimKiem = new javax.swing.JTextField();
         btnTimKiem = new javax.swing.JButton();
         scrTblKho = new javax.swing.JScrollPane();
-        tblKho = new MyTable();
+        tblKho = new Table();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         scrTblGioNhap = new javax.swing.JScrollPane();
-        tblGioNhap = new MyTable();
+        tblGioNhap = new Table();
         pnThongTin = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -200,7 +200,7 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
         txtNgayLap = new javax.swing.JTextField();
         txtTongTienPN = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblPhieuNhap = new MyTable();
+        tblPhieuNhap = new Table();
         jPanel24 = new javax.swing.JPanel();
         jPanel26 = new javax.swing.JPanel();
         txtGiaThap = new javax.swing.JTextField();
@@ -211,7 +211,7 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
         jPanel23 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tblCTPhieuNhap = new MyTable();
+        tblCTPhieuNhap = new Table();
         jPanel17 = new javax.swing.JPanel();
         jPanel20 = new javax.swing.JPanel();
         txtCTSanPham = new javax.swing.JTextField();
@@ -976,7 +976,7 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
             soLuong = Integer.parseInt(txtSoLuong.getText());
             donGia = Integer.parseInt(txtDonGia.getText());
         } catch (Exception e) {
-            new MyDialog("Phải có số lượng và đơn giá nhập!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Phải có số lượng và đơn giá nhập!", CustomDialog.ERROR_DIALOG);
             return;
         }
 
@@ -1004,7 +1004,7 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
             vec.add(thanhTien);
             dtmGioNhap.addRow(vec);
         } else {
-            new MyDialog("Chưa chọn sản phẩm để nhập!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Chưa chọn sản phẩm để nhập!", CustomDialog.ERROR_DIALOG);
         }
     }//GEN-LAST:event_btnThemVaoGioActionPerformed
 
@@ -1014,7 +1014,7 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
         if (row > -1) {
             dtmGioNhap.removeRow(row);
         } else {
-            new MyDialog("Chưa chọn sao xoá :)", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Chưa chọn sao xoá :)", CustomDialog.ERROR_DIALOG);
         }
     }//GEN-LAST:event_btnXoaKhoiGioActionPerformed
 
@@ -1040,7 +1040,7 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
     private void btnXacNhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXacNhanActionPerformed
         int row = tblGioNhap.getRowCount();
         if (row < 1) {
-            new MyDialog("Chưa có gì để nhập hết á!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Chưa có gì để nhập hết á!", CustomDialog.ERROR_DIALOG);
             return;
         }
 
@@ -1048,7 +1048,7 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
         String nhanVien = cmbNhanVien.getSelectedItem() + "";
 
         if (nhaCungCap.equals("")) {
-            new MyDialog("Hãy chọn nhà cung cấp!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Hãy chọn nhà cung cấp!", CustomDialog.ERROR_DIALOG);
             return;
         }
 

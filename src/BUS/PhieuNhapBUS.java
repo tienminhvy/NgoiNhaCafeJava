@@ -1,6 +1,6 @@
 package BUS;
 
-import MyCustom.MyDialog;
+import CustomFuncs.CustomDialog;
 import DAO.PhieuNhapDAO;
 import DTO.PhieuNhap;
 import java.text.SimpleDateFormat;
@@ -61,7 +61,7 @@ public class PhieuNhapBUS {
             int min = Integer.parseInt(giaThap);
             int max = Integer.parseInt(giaCao);
             if (max < min) {
-                new MyDialog("Hãy nhập khoảng giá phù hợp!", MyDialog.ERROR_DIALOG);
+                new CustomDialog("Hãy nhập khoảng giá phù hợp!", CustomDialog.ERROR_DIALOG);
                 return null;
             }
             ArrayList<PhieuNhap> result = new ArrayList<>();
@@ -73,7 +73,7 @@ public class PhieuNhapBUS {
             return result;
         } catch (Exception e) {
             System.out.println(e);
-            new MyDialog("Hãy nhập số nguyên cho khoảng giá!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Hãy nhập số nguyên cho khoảng giá!", CustomDialog.ERROR_DIALOG);
         }
         return null;
     }
@@ -98,7 +98,7 @@ public class PhieuNhapBUS {
             max = sdf.parse(maxSt + " 23:59:59");
             
             if (max.before(min)) {
-                new MyDialog("Hãy nhập khoảng ngày phù hợp theo định dạng dd/MM/yyyy!", MyDialog.ERROR_DIALOG);
+                new CustomDialog("Hãy nhập khoảng ngày phù hợp theo định dạng dd/MM/yyyy!", CustomDialog.ERROR_DIALOG);
                 return null;
             }
             ArrayList<PhieuNhap> result = new ArrayList<>();
@@ -110,7 +110,7 @@ public class PhieuNhapBUS {
             }
             return result;
         } catch (Exception e) {
-            new MyDialog("Hãy nhập ngày hợp lệ theo định dạng dd/MM/yyyy!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Hãy nhập ngày hợp lệ theo định dạng dd/MM/yyyy!", CustomDialog.ERROR_DIALOG);
         }
         return null;
     }

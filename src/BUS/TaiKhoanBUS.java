@@ -2,7 +2,7 @@ package BUS;
 
 import DAO.TaiKhoanDAO;
 import DTO.TaiKhoan;
-import MyCustom.MyDialog;
+import CustomFuncs.CustomDialog;
 import DAO.NhanVienDAO;
 import DAO.PhanQuyenDAO;
 
@@ -24,9 +24,9 @@ public class TaiKhoanBUS {
         int maNV = Integer.parseInt(ma);
         boolean flag = taiKhoanDAO.datLaiMatKhau(maNV, tenDangNhap);
         if (flag) {
-            new MyDialog("Đặt lại thành công! Mật khẩu mới là: " + tenDangNhap, MyDialog.SUCCESS_DIALOG);
+            new CustomDialog("Đặt lại thành công! Mật khẩu mới là: " + tenDangNhap, CustomDialog.SUCCESS_DIALOG);
         } else {
-            new MyDialog("Đặt lại thất bại!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Đặt lại thất bại!", CustomDialog.ERROR_DIALOG);
         }
     }
 
@@ -34,9 +34,9 @@ public class TaiKhoanBUS {
         int maNV = Integer.parseInt(ma);
         boolean flag = taiKhoanDAO.datLaiQuyen(maNV, new PhanQuyenDAO().getMaQuyen(quyen));
         if (flag) {
-            new MyDialog("Đặt lại thành công!", MyDialog.SUCCESS_DIALOG);
+            new CustomDialog("Đặt lại thành công!", CustomDialog.SUCCESS_DIALOG);
         } else {
-            new MyDialog("Đặt lại thất bại!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Đặt lại thất bại!", CustomDialog.ERROR_DIALOG);
         }
     }
 
@@ -47,12 +47,12 @@ public class TaiKhoanBUS {
     public boolean themTaiKhoan(String ma, String tenDangNhap, String quyen) {
         int maNV = Integer.parseInt(ma);
         if (tenDangNhap.trim().equals("")) {
-            new MyDialog("Không được để trống Tên đăng nhập!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Không được để trống Tên đăng nhập!", CustomDialog.ERROR_DIALOG);
             return false;
         }
         if (kiemTraTrungTenDangNhap(tenDangNhap)) {
-            MyDialog dlg = new MyDialog("Tên đăng nhập bị trùng! Có thể tài khoản bị khoá, thực hiện mở khoá?", MyDialog.WARNING_DIALOG);
-            if (dlg.getAction() == MyDialog.OK_OPTION) {
+            CustomDialog dlg = new CustomDialog("Tên đăng nhập bị trùng! Có thể tài khoản bị khoá, thực hiện mở khoá?", CustomDialog.WARNING_DIALOG);
+            if (dlg.getAction() == CustomDialog.OK_OPTION) {
                 moKhoaTaiKhoan(ma);
                 return true;
             }
@@ -64,9 +64,9 @@ public class TaiKhoanBUS {
             new NhanVienDAO().updateTaiKhoanNV(maNV, tenDangNhap);
             taiKhoanDAO.themQuyen(taiKhoanDAO.getMaTK(tenDangNhap), new PhanQuyenDAO().getMaQuyen(quyen));
             
-            new MyDialog("Cấp tài khoản thành công! Mật khẩu là " + tenDangNhap, MyDialog.SUCCESS_DIALOG);
+            new CustomDialog("Cấp tài khoản thành công! Mật khẩu là " + tenDangNhap, CustomDialog.SUCCESS_DIALOG);
         } else {
-            new MyDialog("Cấp tài khoản thất bại! Tài khoản đã tồn tại", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Cấp tài khoản thất bại! Tài khoản đã tồn tại", CustomDialog.ERROR_DIALOG);
         }
         return flag;
     }
@@ -75,9 +75,9 @@ public class TaiKhoanBUS {
         int maNV = Integer.parseInt(ma);
         boolean flag = taiKhoanDAO.khoaTaiKhoan(maNV);
         if (flag) {
-            new MyDialog("Khoá tài khoản thành công!", MyDialog.SUCCESS_DIALOG);
+            new CustomDialog("Khoá tài khoản thành công!", CustomDialog.SUCCESS_DIALOG);
         } else {
-            new MyDialog("Khoá tài khoản thất bại!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Khoá tài khoản thất bại!", CustomDialog.ERROR_DIALOG);
         }
     }
 
@@ -86,22 +86,22 @@ public class TaiKhoanBUS {
         
         boolean flag = taiKhoanDAO.moKhoaTaiKhoan(maNV);
         if (flag) {
-            new MyDialog("Mở khoá tài khoản thành công!", MyDialog.SUCCESS_DIALOG);
+            new CustomDialog("Mở khoá tài khoản thành công!", CustomDialog.SUCCESS_DIALOG);
         } else {
-            new MyDialog("Mở khoá tài khoản thất bại!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Mở khoá tài khoản thất bại!", CustomDialog.ERROR_DIALOG);
         }
     }
 
     public boolean doiMatKhau(String matKhauCu, String matKhauMoi, String nhapLaiMatKhau) {
         if(!matKhauMoi.equals(nhapLaiMatKhau)) {
-            new MyDialog("Mật khẩu mới không khớp!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Mật khẩu mới không khớp!", CustomDialog.ERROR_DIALOG);
             return false;
         }
         boolean flag = taiKhoanDAO.doiMatKhau(matKhauCu, matKhauMoi);
         if (flag) {
-            new MyDialog("Đổi thành công!", MyDialog.SUCCESS_DIALOG);
+            new CustomDialog("Đổi thành công!", CustomDialog.SUCCESS_DIALOG);
         } else {
-            new MyDialog("Mật khẩu cũ nhập sai!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Mật khẩu cũ nhập sai!", CustomDialog.ERROR_DIALOG);
         }
         return flag;
     }

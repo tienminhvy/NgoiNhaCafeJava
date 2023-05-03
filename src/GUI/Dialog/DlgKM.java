@@ -2,8 +2,8 @@ package GUI.Dialog;
 
 import BUS.KhuyenMaiBUS;
 import DTO.KhuyenMai;
-import MyCustom.MyDialog;
-import MyCustom.MyTable;
+import CustomFuncs.CustomDialog;
+import CustomFuncs.Table;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -74,7 +74,7 @@ public class DlgKM extends JDialog {
         dtmKM.addColumn("Bắt đầu");
         dtmKM.addColumn("Kết thúc");
         dtmKM.addColumn("Trạng thái");
-        tblMaGiam = new MyTable(dtmKM);
+        tblMaGiam = new Table(dtmKM);
         JScrollPane scrMaGiam = new JScrollPane(tblMaGiam);
         pnTable.add(scrMaGiam, BorderLayout.CENTER);
         con.add(pnTable, BorderLayout.CENTER);
@@ -133,7 +133,7 @@ public class DlgKM extends JDialog {
         int row = tblMaGiam.getSelectedRow();
         if (row > -1) {
             if (tblMaGiam.getValueAt(row, 6).equals("Không hiệu lực")) {
-                new MyDialog("Khuyến mãi này đã hết hiệu lực!", MyDialog.ERROR_DIALOG);
+                new CustomDialog("Khuyến mãi này đã hết hiệu lực!", CustomDialog.ERROR_DIALOG);
                 loadDataLenTable();
                 return;
             }
@@ -146,7 +146,7 @@ public class DlgKM extends JDialog {
             int dieuKien = Integer.parseInt(dieuKienst);
 
             if(dieuKien > tongTien) {
-                new MyDialog("Không đủ điều kiện áp dụng khuyến mãi này!", MyDialog.ERROR_DIALOG);
+                new CustomDialog("Không đủ điều kiện áp dụng khuyến mãi này!", CustomDialog.ERROR_DIALOG);
                 return;
             }
 

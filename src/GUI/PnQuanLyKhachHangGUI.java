@@ -2,9 +2,9 @@ package GUI;
 
 import BUS.KhachHangBUS;
 import DTO.KhachHang;
-import MyCustom.MyDialog;
-import MyCustom.MyTable;
-import MyCustom.TransparentPanel;
+import CustomFuncs.CustomDialog;
+import CustomFuncs.Table;
+import CustomFuncs.TransparentPanel;
 
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
@@ -35,7 +35,7 @@ public class PnQuanLyKhachHangGUI extends JPanel {
     JButton btnReset;
     JTextField txtMa, txtTen, txtDiaChi, txtSDT, txtTukhoa;
     JButton btnThem, btnSua, btnXoa;
-    MyTable tblKhachHang;
+    Table tblKhachHang;
     DefaultTableModel dtmKhachHang;
 
     private void addControls() {
@@ -164,7 +164,7 @@ public class PnQuanLyKhachHangGUI extends JPanel {
         dtmKhachHang.addColumn("Địa chỉ");
         dtmKhachHang.addColumn("SĐT");
 
-        tblKhachHang = new MyTable(dtmKhachHang);
+        tblKhachHang = new Table(dtmKhachHang);
         tblKhachHang.setDefaultEditor(Object.class, null);
         tblKhachHang.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 

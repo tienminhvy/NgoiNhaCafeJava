@@ -2,7 +2,7 @@ package BUS;
 
 import DAO.LoaiDAO;
 import DTO.LoaiSP;
-import MyCustom.MyDialog;
+import CustomFuncs.CustomDialog;
 import java.util.ArrayList;
 
 public class LoaiBUS {
@@ -36,46 +36,46 @@ public class LoaiBUS {
 
     public boolean themLoai(int maLoai, String tenLoai, String MoTa) {
         if (tenLoai.trim().equals("")) {
-            new MyDialog("Không được để trống tên loại!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Không được để trống tên loại!", CustomDialog.ERROR_DIALOG);
             return false;
         }
         maLoai += 1;
         LoaiSP loai = new LoaiSP(maLoai, tenLoai, MoTa);
         if (loaiDAO.themLoai(loai)) {
-            new MyDialog("Thêm thành công!", MyDialog.SUCCESS_DIALOG);
+            new CustomDialog("Thêm thành công!", CustomDialog.SUCCESS_DIALOG);
             return true;
         } else {
-            new MyDialog("Thêm thất bại!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Thêm thất bại!", CustomDialog.ERROR_DIALOG);
             return false;
         }
     }
 
     public boolean xoaLoai(String ma) {
         if (ma.trim().equals("")) {
-            new MyDialog("Chưa chọn loại để xoá!", MyDialog.SUCCESS_DIALOG);
+            new CustomDialog("Chưa chọn loại để xoá!", CustomDialog.SUCCESS_DIALOG);
             return false;
         }
         int maLoai = Integer.parseInt(ma);
         if (loaiDAO.xoaLoai(maLoai)) {
-            new MyDialog("Xoá thành công!", MyDialog.SUCCESS_DIALOG);
+            new CustomDialog("Xoá thành công!", CustomDialog.SUCCESS_DIALOG);
             return true;
         } else {
-            new MyDialog("Xoá thất bại! Loại có sản phẩm con", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Xoá thất bại! Loại có sản phẩm con", CustomDialog.ERROR_DIALOG);
             return false;
         }
     }
 
     public boolean suaLoai(String ma, String ten, String moTa) {
         if (ten.trim().equals("")) {
-            new MyDialog("Không được để trống tên loại!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Không được để trống tên loại!", CustomDialog.ERROR_DIALOG);
             return false;
         }
         int maLoai = Integer.parseInt(ma);
         if (loaiDAO.suaLoai(maLoai, ten, moTa)) {
-            new MyDialog("Sửa thành công!", MyDialog.SUCCESS_DIALOG);
+            new CustomDialog("Sửa thành công!", CustomDialog.SUCCESS_DIALOG);
             return true;
         } else {
-            new MyDialog("Sửa thất bại!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Sửa thất bại!", CustomDialog.ERROR_DIALOG);
             return false;
         }
     }

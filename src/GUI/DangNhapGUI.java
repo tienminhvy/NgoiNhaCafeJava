@@ -6,7 +6,7 @@ package GUI;
 
 import BUS.DangNhapBUS;
 import DTO.TaiKhoan;
-import MyCustom.MyDialog;
+import CustomFuncs.CustomDialog;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -164,7 +164,7 @@ public class DangNhapGUI extends javax.swing.JFrame {
     }
 
     private void xuLyQuenMatKhau() {
-        new MyDialog("Xin liên hệ Admin để giải quyết!", MyDialog.INFO_DIALOG);
+        new CustomDialog("Xin liên hệ Admin để giải quyết!", CustomDialog.INFO_DIALOG);
     }
 
     private void xuLyDangNhap() {

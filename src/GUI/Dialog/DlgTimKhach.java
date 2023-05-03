@@ -3,7 +3,7 @@ package GUI.Dialog;
 import BUS.KhachHangBUS;
 import DAO.MyConnect;
 import DTO.KhachHang;
-import MyCustom.MyTable;
+import CustomFuncs.Table;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -64,7 +64,7 @@ public class DlgTimKhach extends JDialog {
         dtmKhachHang.addColumn("Tên");
         dtmKhachHang.addColumn("Địa chỉ");
         dtmKhachHang.addColumn("SĐT");
-        tblKhachHang = new MyTable(dtmKhachHang);
+        tblKhachHang = new Table(dtmKhachHang);
         
         tblKhachHang.setDefaultEditor(Object.class, null);
         tblKhachHang.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);

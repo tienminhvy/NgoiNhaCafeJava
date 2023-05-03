@@ -3,8 +3,8 @@ package GUI;
 import BUS.KhuyenMaiBUS;
 import DTO.KhuyenMai;
 import Main.Main;
-import MyCustom.MyTable;
-import MyCustom.TransparentPanel;
+import CustomFuncs.Table;
+import CustomFuncs.TransparentPanel;
 import com.toedter.calendar.JDateChooser;
 
 import javax.swing.*;
@@ -34,7 +34,7 @@ public class PnQuanLyKhuyenMaiGUI extends JPanel {
 
     JButton btnReset, btnThem, btnSua;
     JTextField txtMa, txtTen, txtPhanTram, txtDieuKien;
-    MyTable tblKhuyenMai;
+    Table tblKhuyenMai;
     DefaultTableModel dtmKhuyenMai;
     JDateChooser dateBD, dateKT;
 
@@ -166,7 +166,7 @@ public class PnQuanLyKhuyenMaiGUI extends JPanel {
         dtmKhuyenMai.addColumn("Ngày kết thúc");
         dtmKhuyenMai.addColumn("Tình trạng");
 
-        tblKhuyenMai = new MyTable(dtmKhuyenMai);
+        tblKhuyenMai = new Table(dtmKhuyenMai);
         tblKhuyenMai.setDefaultEditor(Object.class, null);
         tblKhuyenMai.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         

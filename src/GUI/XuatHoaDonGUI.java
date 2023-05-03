@@ -4,7 +4,7 @@ import GUI.Dialog.DlgKM;
 import GUI.Dialog.DlgTimKhach;
 import BUS.CTHoaDonBUS;
 import BUS.HoaDonBUS;
-import MyCustom.MyDialog;
+import CustomFuncs.CustomDialog;
 
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -145,7 +145,7 @@ public class XuatHoaDonGUI extends JDialog {
             if (tongTien >= timMaUI.kmTimDuoc.getDieuKien()) {
                 tongTien = tongTien - (tongTien * percent / 100);
             } else {
-                new MyDialog("Không đủ điều kiện nhận ưu đãi!", MyDialog.ERROR_DIALOG);
+                new CustomDialog("Không đủ điều kiện nhận ưu đãi!", CustomDialog.ERROR_DIALOG);
                 btnTimKM.setEnabled(true);
                 return;
             }
@@ -323,11 +323,11 @@ public class XuatHoaDonGUI extends JDialog {
     private void btnThanhToanActionPerformed(java.awt.event.ActionEvent evt) {
         checkBanHang = false;
         if (txtTenKhach.getText().equals("")) {
-            new MyDialog("Xin chọn khách hàng", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Xin chọn khách hàng", CustomDialog.ERROR_DIALOG);
             return;
         }
         if (txtKM.getText().equals("")) {
-            new MyDialog("Xin chọn khuyến mãi", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Xin chọn khuyến mãi", CustomDialog.ERROR_DIALOG);
             return;
         }
         xuLyHienThiHoaDon();

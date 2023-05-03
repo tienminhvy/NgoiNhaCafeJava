@@ -2,7 +2,7 @@ package BUS;
 
 import DAO.SanPhamDAO;
 import DTO.SanPham;
-import MyCustom.MyDialog;
+import CustomFuncs.CustomDialog;
 
 import java.util.ArrayList;
 
@@ -85,7 +85,7 @@ public class SanPhamBUS {
             String donGia) {
 
         if (ten.trim().equals("")) {
-            new MyDialog("Tên SP không được để rỗng!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Tên SP không được để rỗng!", CustomDialog.ERROR_DIALOG);
             return false;
         }
 
@@ -96,7 +96,7 @@ public class SanPhamBUS {
             donGia = donGia.replace(",", "");
             int donGiaSP = Integer.parseInt(donGia);
             if (maLoai == 0) {
-                new MyDialog("Vui lòng chọn Loại sản phẩm!", MyDialog.ERROR_DIALOG);
+                new CustomDialog("Vui lòng chọn Loại sản phẩm!", CustomDialog.ERROR_DIALOG);
                 return false;
             }
             SanPham sp = new SanPham();
@@ -107,14 +107,14 @@ public class SanPhamBUS {
             sp.setDonGia(donGiaSP);
 
             if (spDAO.themSanPham(sp)) {
-                new MyDialog("Thêm thành công!", MyDialog.SUCCESS_DIALOG);
+                new CustomDialog("Thêm thành công!", CustomDialog.SUCCESS_DIALOG);
                 return true;
             } else {
-                new MyDialog("Thêm thất bại!", MyDialog.ERROR_DIALOG);
+                new CustomDialog("Thêm thất bại!", CustomDialog.ERROR_DIALOG);
                 return false;
             }
         } catch (Exception e) {
-            new MyDialog("Nhập số hợp lệ cho Đơn giá và Số lượng!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Nhập số hợp lệ cho Đơn giá và Số lượng!", CustomDialog.ERROR_DIALOG);
         }
         return false;
     }
@@ -147,17 +147,17 @@ public class SanPhamBUS {
 
     public boolean xoaSanPham(String ma) {
         if (ma.trim().equals("")) {
-            new MyDialog("Chưa chọn sản phẩm để xoá!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Chưa chọn sản phẩm để xoá!", CustomDialog.ERROR_DIALOG);
             return false;
         }
 
         int maSP = Integer.parseInt(ma);
         if (spDAO.xoaSanPham(maSP)) {
-            new MyDialog("Xoá thành công!", MyDialog.SUCCESS_DIALOG);
+            new CustomDialog("Xoá thành công!", CustomDialog.SUCCESS_DIALOG);
             return true;
         }
 
-        new MyDialog("Xoá thất bại!", MyDialog.ERROR_DIALOG);
+        new CustomDialog("Xoá thất bại!", CustomDialog.ERROR_DIALOG);
         return false;
     }
 
@@ -170,7 +170,7 @@ public class SanPhamBUS {
 
         try {
             if (ma.trim().equals("")) {
-                new MyDialog("Chưa chọn sản phẩm để sửa!", MyDialog.ERROR_DIALOG);
+                new CustomDialog("Chưa chọn sản phẩm để sửa!", CustomDialog.ERROR_DIALOG);
                 return false;
             }
             donGia = donGia.replace(",", "");
@@ -181,12 +181,12 @@ public class SanPhamBUS {
             int donGiaSP = Integer.parseInt(donGia);
 
             if (maLoai == 0) {
-                new MyDialog("Vui lòng chọn Loại sản phẩm!", MyDialog.ERROR_DIALOG);
+                new CustomDialog("Vui lòng chọn Loại sản phẩm!", CustomDialog.ERROR_DIALOG);
                 return false;
             }
 
             if (ten.trim().equals("")) {
-                new MyDialog("Tên SP không được để rỗng!", MyDialog.ERROR_DIALOG);
+                new CustomDialog("Tên SP không được để rỗng!", CustomDialog.ERROR_DIALOG);
                 return false;
             }
 
@@ -199,14 +199,14 @@ public class SanPhamBUS {
             sp.setDonGia(donGiaSP);
 
             if (spDAO.suaSanPham(sp)) {
-                new MyDialog("Sửa thành công!", MyDialog.SUCCESS_DIALOG);
+                new CustomDialog("Sửa thành công!", CustomDialog.SUCCESS_DIALOG);
                 return true;
             } else {
-                new MyDialog("Sửa thất bại!", MyDialog.ERROR_DIALOG);
+                new CustomDialog("Sửa thất bại!", CustomDialog.ERROR_DIALOG);
                 return false;
             }
         } catch (Exception e) {
-            new MyDialog("Nhập số hợp lệ cho Đơn giá và Số lượng!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Nhập số hợp lệ cho Đơn giá và Số lượng!", CustomDialog.ERROR_DIALOG);
         }
         return false;
     }

@@ -2,8 +2,8 @@ package GUI;
 
 import BUS.LoaiBUS;
 import DTO.LoaiSP;
-import MyCustom.MyDialog;
-import MyCustom.MyTable;
+import CustomFuncs.CustomDialog;
+import CustomFuncs.Table;
 import java.util.ArrayList;
 import java.util.Vector;
 import javax.swing.ListSelectionModel;
@@ -54,7 +54,7 @@ public class DlgQuanLyLoai extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         pnTable = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblLoai = new MyTable();
+        tblLoai = new Table();
         jPanel3 = new javax.swing.JPanel();
         pnMaLoai = new javax.swing.JPanel();
         lblMaLoai = new javax.swing.JLabel();
@@ -209,7 +209,7 @@ public class DlgQuanLyLoai extends javax.swing.JDialog {
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
-        MyDialog dlg = new MyDialog("Bạn có chắc chắn muốn xoá?", MyDialog.WARNING_DIALOG);
+        CustomDialog dlg = new CustomDialog("Bạn có chắc chắn muốn xoá?", CustomDialog.WARNING_DIALOG);
         if (dlg.OK_OPTION == dlg.getAction()) {
             String ma = txtMaLoai.getText();
             if (loaiBUS.xoaLoai(ma)) {

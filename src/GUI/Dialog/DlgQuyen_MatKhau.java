@@ -3,7 +3,7 @@ package GUI;
 import BUS.PhanQuyenBUS;
 import BUS.TaiKhoanBUS;
 import DTO.PhanQuyen;
-import MyCustom.MyDialog;
+import CustomFuncs.CustomDialog;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.util.ArrayList;
@@ -34,7 +34,7 @@ public class DlgQuyen_MatKhau extends javax.swing.JDialog {
 
         String tenDangNhap = taiKhoanBUS.getTenDangNhapTheoMa(maNV);
         if (tenDangNhap.equals("")) {
-            new MyDialog("Nhân viên này chưa có tài khoản!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Nhân viên này chưa có tài khoản!", CustomDialog.ERROR_DIALOG);
             btnCapMatKhau.setEnabled(false);
             btnLuuQuyen.setEnabled(false);
         }

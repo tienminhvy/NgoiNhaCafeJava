@@ -1,12 +1,11 @@
 package GUI;
 
-import GUI.Dialog.DlgQuyen_MatKhau;
 import GUI.Dialog.DlgCapTaiKhoan;
-import MyCustom.XuLyFileExcel;
-import MyCustom.MyDialog;
-import MyCustom.TransparentPanel;
-import MyCustom.MyTable;
-import MyCustom.ImagePanel;
+import CustomFuncs.XuLyFileExcel;
+import CustomFuncs.CustomDialog;
+import CustomFuncs.TransparentPanel;
+import CustomFuncs.Table;
+import CustomFuncs.ImagePanel;
 import static Main.Main.changLNF;
 
 import BUS.NhanVienBUS;
@@ -50,7 +49,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
     CardLayout cardNhanVienGroup = new CardLayout();
     JPanel pnCardTabNhanVien;
     JTextField txtMaNV, txtTen, txtNgaySinh, txtSDT, txtTimNV, txtDiaChi;
-    MyTable tblNhanVien;
+    Table tblNhanVien;
     DefaultTableModel dtmNhanVien;
     JButton btnReset, btnThemNV, btnSuaNV, btnXoaNV, btnTimNV, btnCapTaiKhoan, btnResetMatKhau, btnXoaTaiKhoan, btnXuatExcel, btnNhapExcel;
 
@@ -255,7 +254,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
         dtmNhanVien.addColumn("Địa chỉ");
         dtmNhanVien.addColumn("SĐT");
         dtmNhanVien.addColumn("Tài khoản");
-        tblNhanVien = new MyTable(dtmNhanVien);
+        tblNhanVien = new Table(dtmNhanVien);
         
         tblNhanVien.setDefaultEditor(Object.class, null);
         tblNhanVien.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -545,11 +544,11 @@ public class PnQuanLyNhanVienGUI extends JPanel {
 
     private void xuLyXoaQuyen() {
         if (cmbQuyen.getSelectedIndex() < 1) {
-            new MyDialog("Chưa chọn nhóm quyền để xoá!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Chưa chọn nhóm quyền để xoá!", CustomDialog.ERROR_DIALOG);
             return;
         }
-        MyDialog dlg = new MyDialog("Bạn có chắc chắn muốn xoá?", MyDialog.WARNING_DIALOG);
-        if (dlg.getAction() == MyDialog.CANCEL_OPTION) {
+        CustomDialog dlg = new CustomDialog("Bạn có chắc chắn muốn xoá?", CustomDialog.WARNING_DIALOG);
+        if (dlg.getAction() == CustomDialog.CANCEL_OPTION) {
             return;
         }
         String tenQuyen = cmbQuyen.getSelectedItem() + "";
@@ -570,7 +569,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
 
     private void xuLySuaQuyen() {
         if (cmbQuyen.getSelectedIndex() < 1) {
-            new MyDialog("Chưa chọn nhóm quyền để sửa!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Chưa chọn nhóm quyền để sửa!", CustomDialog.ERROR_DIALOG);
             return;
         }
         String tenQuyen = cmbQuyen.getSelectedItem() + "";
@@ -635,7 +634,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
     private void xuLyResetMatKhau() {
         String maNV = txtMaNV.getText();
         if (maNV.trim().equals("")) {
-            new MyDialog("Hãy chọn nhân viên!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Hãy chọn nhân viên!", CustomDialog.ERROR_DIALOG);
             return;
         }
         DlgQuyen_MatKhau dialog = new DlgQuyen_MatKhau(maNV);
@@ -644,7 +643,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
 
     private void xuLyCapTaiKhoan() {
         if (txtMaNV.getText().trim().equals("")) {
-            new MyDialog("Hãy chọn nhân viên!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Hãy chọn nhân viên!", CustomDialog.ERROR_DIALOG);
             return;
         }
         DlgCapTaiKhoan dialog = new DlgCapTaiKhoan(txtMaNV.getText());
@@ -659,8 +658,8 @@ public class PnQuanLyNhanVienGUI extends JPanel {
     }
 
     private void xuLyNhapExcel() {
-        MyDialog dlg = new MyDialog("Dữ liệu cũ sẽ bị xoá, tiếp tục?", MyDialog.WARNING_DIALOG);
-        if (dlg.getAction() != MyDialog.OK_OPTION) {
+        CustomDialog dlg = new CustomDialog("Dữ liệu cũ sẽ bị xoá, tiếp tục?", CustomDialog.WARNING_DIALOG);
+        if (dlg.getAction() != CustomDialog.OK_OPTION) {
             return;
         }
 
@@ -695,7 +694,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
 
     private void xuLySuaNhanVien() {
         if (txtDiaChi.getText().length() == 0) {
-            new MyDialog("Hãy nhập địa chỉ!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Hãy nhập địa chỉ!", CustomDialog.ERROR_DIALOG);
             return;
         }
         String ma = txtMaNV.getText();
@@ -711,7 +710,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
 
     private void xuLyThemNhanVien() {
         if (txtDiaChi.getText().length() == 0) {
-            new MyDialog("Hãy nhập địa chỉ!", MyDialog.ERROR_DIALOG);
+            new CustomDialog("Hãy nhập địa chỉ!", CustomDialog.ERROR_DIALOG);
             return;
         }
         String ten = txtTen.getText();
