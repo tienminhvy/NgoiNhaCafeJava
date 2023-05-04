@@ -2,8 +2,7 @@ package GUI.Dialog;
 
 import BUS.NhaCungCapBUS;
 import DTO.NhaCungCap;
-import GUI.DlgSuaNhaCungCap;
-import GUI.DlgThemNhaCungCap;
+import GUI.Dialog.*;
 import CustomFuncs.CustomDialog;
 import CustomFuncs.Table;
 import java.util.ArrayList;

@@ -1,5 +1,6 @@
 package GUI;
 
+import GUI.Dialog.*;
 import BUS.LoaiBUS;
 import BUS.SanPhamBUS;
 import DTO.LoaiSP;

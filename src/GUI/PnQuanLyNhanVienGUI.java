@@ -1,6 +1,6 @@
 package GUI;
 
-import GUI.Dialog.DlgCapTaiKhoan;
+import GUI.Dialog.*;
 import CustomFuncs.XuLyFileExcel;
 import CustomFuncs.CustomDialog;
 import CustomFuncs.TransparentPanel;

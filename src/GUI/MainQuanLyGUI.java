@@ -2,6 +2,7 @@ package GUI;
 
 import BUS.PhanQuyenBUS;
 import DTO.PhanQuyen;
+import GUI.Dialog.*;
 
 
 import java.awt.*;

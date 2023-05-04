@@ -1,4 +1,4 @@
-package GUI;
+package GUI.Dialog;
 
 import BUS.TaiKhoanBUS;
 
@@ -9,6 +9,7 @@ public class DlgDoiMatKhau extends javax.swing.JDialog {
         this.setTitle("Đổi mật khẩu");
         this.setLocationRelativeTo(null);
         this.setModal(true);
+        setVisible(true);
     }
 
     @SuppressWarnings("unchecked")

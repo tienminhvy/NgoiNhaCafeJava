@@ -3,6 +3,7 @@ package GUI;
 import BUS.PhanQuyenBUS;
 import DTO.PhanQuyen;
 import GUI.Color.ColorDesign;
+import GUI.Dialog.DlgDoiMatKhau;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
@@ -387,6 +388,8 @@ public class MainForm extends javax.swing.JFrame {
 
     private void changePasswordBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_changePasswordBtnMousePressed
         // TODO add your handling code here:
+        
+        new DlgDoiMatKhau();
     }//GEN-LAST:event_changePasswordBtnMousePressed
     public void doAction(String nameAction) {
         contentPanel.removeAll();
