@@ -73,7 +73,7 @@ public class MainForm extends javax.swing.JFrame {
         draggable();
         this.pack();
         setMinimumSize(new Dimension(1800, 800));
-        setExtendedState(MAXIMIZED_BOTH);
+        setExtendedState(getExtendedState()|MAXIMIZED_BOTH);
         setLocationRelativeTo(null);
     }
 
