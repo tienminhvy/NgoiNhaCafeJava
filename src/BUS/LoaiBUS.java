@@ -26,12 +26,10 @@ public class LoaiBUS {
     }
 
     public String getTenLoai(int ma) {
-        for (LoaiSP loai : listLoai) {
-            if (loai.getMaLoai() == ma) {
-                return loai.getMaLoai() + " - " + loai.getTenLoai();
-            }
-        }
-        return "";
+        LoaiSP loai = loaiDAO.getLoai(ma);
+        if (loai == null)
+            return "";
+        return loai.getMaLoai() + " - " + loai.getTenLoai();
     }
 
     public boolean themLoai(int maLoai, String tenLoai, String MoTa) {

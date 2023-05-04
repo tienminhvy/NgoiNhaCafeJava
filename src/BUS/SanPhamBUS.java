@@ -197,6 +197,7 @@ public class SanPhamBUS {
             sp.setSoLuong(soLuongSP);
             sp.setHinhAnh(anh);
             sp.setDonGia(donGiaSP);
+            sp.setTrangThai(1);
 
             if (spDAO.suaSanPham(sp)) {
                 new CustomDialog("Sửa thành công!", CustomDialog.SUCCESS_DIALOG);

@@ -192,10 +192,10 @@ public class SanPhamDAO {
             String sql = "UPDATE sanpham SET "
                     + "TenSP=?, "
                     + "SoLuong=?, "
-                    + "DonGia=? "
+                    + "DonGia=?, "
                     + "HinhAnh=?, "
                     + "TrangThai=?, "
-                    + "loaiSanPham_MaLSP=?, "
+                    + "loaisanpham_MaLSP=? "
                     + "WHERE MaSP=?";
             PreparedStatement pre = MyConnect.conn.prepareStatement(sql);
             

@@ -31,6 +31,25 @@ public class LoaiDAO {
         return null;
     }
 
+    public LoaiSP getLoai(int maLoai) {
+        try {
+            String sql = "SELECT * FROM loaisanpham WHERE MaLSP = "+maLoai;
+            PreparedStatement pre = MyConnect.conn.prepareStatement(sql);
+            ResultSet rs = pre.executeQuery();
+            ArrayList<LoaiSP> dsl = new ArrayList<>();
+            LoaiSP loai = new LoaiSP();
+            if (rs.next()) {
+                loai.setMaLoai(rs.getInt(1));
+                loai.setTenLoai(rs.getString(2));
+                loai.setMota(rs.getString(3));
+                loai.setTrangThai(rs.getInt(4));
+            }
+            return loai;
+        } catch (SQLException e) {
+        }
+        return null;
+    }
+    
     public boolean themLoai(LoaiSP loai) {
         try {
             String sql = "INSERT INTO loaisanpham(TenLSP, Mota, TrangThai) "
@@ -49,7 +68,8 @@ public class LoaiDAO {
 
     public boolean xoaLoai(int maLoai) {
         try {
-            String sql = "DELETE FROM loaisanpham "
+            String sql = "UPDATE loaisanpham "
+                    + "SET TrangThai = 0 "
                     + "WHERE MaLSP=" + maLoai;
             Statement st = MyConnect.conn.createStatement();
             int x = st.executeUpdate(sql);
