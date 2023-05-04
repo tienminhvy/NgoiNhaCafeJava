@@ -307,6 +307,20 @@ public class PnQuanLyThongKeGUI extends JPanel {
 
     private DecimalFormat dcf = new DecimalFormat("###,###");
 
+    private void initHienThiThongKe() {
+        lblMon1.setText("");
+        lblMon2.setText("");
+        lblMon3.setText("");
+        lblMon4.setText("");
+        lblMon5.setText("");
+        
+        lblSoLuong1.setText("");
+        lblSoLuong2.setText("");
+        lblSoLuong3.setText("");
+        lblSoLuong4.setText("");
+        lblSoLuong5.setText("");
+    }
+    
     private void hienThiThongKe() {
         ThongKe thongKe = thongKeBUS.thongKe(Integer.parseInt(cmbNam.getSelectedItem() + ""));
         lblThongKeThucDon.setText(dcf.format(thongKe.getSoLuongSP()));
@@ -319,17 +333,27 @@ public class PnQuanLyThongKeGUI extends JPanel {
         lblDoanhThuQuy4.setText(dcf.format(thongKe.getTongThuQuy(4)));
         lblTongDoanhThu.setText(dcf.format(thongKe.getTongDoanhThu()));
         
+        initHienThiThongKe();
         if (thongKe.getTopSanPhamBanChay().size() > 0) {
-            lblMon1.setText(thongKe.getTopSanPhamBanChay().get(0).getTenSP());
-            lblMon2.setText(thongKe.getTopSanPhamBanChay().get(1).getTenSP());
-            lblMon3.setText(thongKe.getTopSanPhamBanChay().get(2).getTenSP());
-            lblMon4.setText(thongKe.getTopSanPhamBanChay().get(3).getTenSP());
-            lblMon5.setText(thongKe.getTopSanPhamBanChay().get(4).getTenSP());
-            lblSoLuong1.setText("" + thongKe.getTopSanPhamBanChay().get(0).getSoLuong());
-            lblSoLuong2.setText("" + thongKe.getTopSanPhamBanChay().get(1).getSoLuong());
-            lblSoLuong3.setText("" + thongKe.getTopSanPhamBanChay().get(2).getSoLuong());
-            lblSoLuong4.setText("" + thongKe.getTopSanPhamBanChay().get(3).getSoLuong());
-            lblSoLuong5.setText("" + thongKe.getTopSanPhamBanChay().get(4).getSoLuong());
+            try {
+                lblMon1.setText(thongKe.getTopSanPhamBanChay().get(0).getTenSP());
+                lblMon2.setText(thongKe.getTopSanPhamBanChay().get(1).getTenSP());
+                lblMon3.setText(thongKe.getTopSanPhamBanChay().get(2).getTenSP());
+                lblMon4.setText(thongKe.getTopSanPhamBanChay().get(3).getTenSP());
+                lblMon5.setText(thongKe.getTopSanPhamBanChay().get(4).getTenSP());
+            } catch (Exception e) {
+                return;
+            }
+            
+            try {
+                lblSoLuong1.setText("" + thongKe.getTopSanPhamBanChay().get(0).getSoLuong());
+                lblSoLuong2.setText("" + thongKe.getTopSanPhamBanChay().get(1).getSoLuong());
+                lblSoLuong3.setText("" + thongKe.getTopSanPhamBanChay().get(2).getSoLuong());
+                lblSoLuong4.setText("" + thongKe.getTopSanPhamBanChay().get(3).getSoLuong());
+                lblSoLuong5.setText("" + thongKe.getTopSanPhamBanChay().get(4).getSoLuong());
+            } catch (Exception e) {
+                return;
+            }
         }
     }
 

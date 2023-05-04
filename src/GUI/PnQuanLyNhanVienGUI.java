@@ -776,7 +776,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
             vec.add(nv.getSdt());
             int trangThai = taiKhoanBUS.getTrangThai(nv.getMaTK() + "");
             
-            if (nv.getMaTK() == -1) {
+            if (nv.getMaTK() == 0) {
                 vec.add("Không khả dụng");
             } else if (trangThai == 0) {
                 vec.add("Bị khoá");

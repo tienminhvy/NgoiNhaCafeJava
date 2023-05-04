@@ -29,7 +29,7 @@ public class KhuyenMaiBUS {
     
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
-    public boolean themKhuyenMai(String ten, String phanTram, String dieuKien, String ngayBD, String ngayKT) {
+    public boolean themKhuyenMai(String ten, String phanTram, String dieuKien, Date ngayBD, Date ngayKT) {
         ten = ten.trim();
         phanTram = phanTram.replace("%", "");
         dieuKien = dieuKien.replace(",", "");
@@ -41,8 +41,8 @@ public class KhuyenMaiBUS {
         boolean flag = false;
         try {
             
-            Date ngayBDdt = sdf.parse(ngayBD);
-            Date ngayKTdt = sdf.parse(ngayKT);
+            Date ngayBDdt = ngayBD;
+            Date ngayKTdt = ngayKT;
             
             if (ngayBDdt.compareTo(ngayKTdt) > 0 || ngayBDdt.compareTo(ngayKTdt) == 0) {
                 new CustomDialog("Ngày kết thúc không hợp lệ!", CustomDialog.ERROR_DIALOG);
@@ -55,8 +55,9 @@ public class KhuyenMaiBUS {
             gg.setTenKM(ten);
             gg.setPhanTramKM(phanTramGiam);
             gg.setDieuKien(dieuKienGiam);
-            gg.setNgayBD(ngayBD);
-            gg.setNgayKT(ngayKT);
+            
+            gg.setNgayBD(sdf.format(ngayBD));
+            gg.setNgayKT(sdf.format(ngayKT));
 
             flag = giamGiaDAO.themMaGiam(gg);
         } catch (Exception e) {
@@ -71,7 +72,7 @@ public class KhuyenMaiBUS {
         return flag;
     }
 
-    public boolean suaKhuyenMai(String ma, String ten, String phanTram, String dieuKien, String ngayBD, String ngayKT) {
+    public boolean suaKhuyenMai(String ma, String ten, String phanTram, String dieuKien, Date ngayBD, Date ngayKT) {
         ten = ten.trim();
         phanTram = phanTram.replace("%", "");
         dieuKien = dieuKien.replace(",", "");
@@ -88,8 +89,8 @@ public class KhuyenMaiBUS {
         boolean flag = false;
         try {
             
-            Date ngayBDdt = sdf.parse(ngayBD);
-            Date ngayKTdt = sdf.parse(ngayKT);
+            Date ngayBDdt = ngayBD;
+            Date ngayKTdt = ngayKT;
             
             if (ngayBDdt.compareTo(ngayKTdt) > 0 || ngayBDdt.compareTo(ngayKTdt) == 0) {
                 new CustomDialog("Ngày kết thúc không hợp lệ!", CustomDialog.ERROR_DIALOG);
@@ -105,8 +106,8 @@ public class KhuyenMaiBUS {
             gg.setTenKM(ten);
             gg.setPhanTramKM(phanTramGiam);
             gg.setDieuKien(dieuKienGiam);
-            gg.setNgayBD(ngayBD);
-            gg.setNgayKT(ngayKT);
+            gg.setNgayBD(sdf.format(ngayBD));
+            gg.setNgayKT(sdf.format(ngayKT));
 
             flag = giamGiaDAO.suaMaGiam(gg);
         } catch (Exception e) {

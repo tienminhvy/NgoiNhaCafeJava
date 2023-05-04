@@ -1190,7 +1190,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
             txtNgayLap.setText("Không xác định");
         }
         txtTongTien.setText(dcf.format(hd.getTongTien()));
-        txtMaKM.setText(hd.getMaKH() + "");
+        txtMaKM.setText(hd.getMaKM() + "");
 
         // Gọi hiển thị data trên tblCTHoaDon
         loadDataTblCTHoaDon(stMaHD[0]);

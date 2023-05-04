@@ -87,22 +87,18 @@ public class CustomDialog extends JDialog {
 
         con.add(pnMain);
 
-        Color backgroundHeader = new Color(0);
+        Color backgroundHeader = new Color(255, 255, 255);
         switch (type) {
             case ERROR_DIALOG:
-                backgroundHeader = new Color(220, 53, 69);
                 lblIcon.setIcon(iconError);
                 break;
             case SUCCESS_DIALOG:
-                backgroundHeader = new Color(40, 167, 69);
                 lblIcon.setIcon(iconSuccess);
                 break;
             case INFO_DIALOG:
-                backgroundHeader = new Color(0, 123, 255);
                 lblIcon.setIcon(iconInfo);
                 break;
             case WARNING_DIALOG:
-                backgroundHeader = new Color(255, 193, 7);
                 lblIcon.setIcon(iconWarning);
                 pnButton.add(btnCancel);
                 break;

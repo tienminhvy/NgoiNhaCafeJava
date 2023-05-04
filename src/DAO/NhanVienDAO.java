@@ -38,9 +38,9 @@ public class NhanVienDAO {
     public NhanVien getNhanVien(int maNV) {
         NhanVien nv = null;
         try {
-            String sql = "SELECT * FROM NhanVien WHERE MaNV=?";
+            String sql = "SELECT * FROM nhanvien WHERE MaNV=?";
             PreparedStatement pre = MyConnect.conn.prepareStatement(sql);
-            pre.setInt(0, maNV);
+            pre.setInt(1, maNV);
             ResultSet rs = pre.executeQuery();
             while (rs.next()) {
                 nv = new NhanVien();
@@ -49,7 +49,7 @@ public class NhanVienDAO {
                 nv.setNgaySinh(rs.getString(3));
                 nv.setDiaChi(rs.getString(4));
                 nv.setSdt(rs.getString(5));
-                nv.setMaTK(rs.getInt(6));
+                nv.setMaTK(rs.getInt(7));
             }
         } catch (SQLException e) {
             return null;
@@ -100,6 +100,11 @@ public class NhanVienDAO {
             PreparedStatement pre = MyConnect.conn.prepareStatement(sql);
             pre.setInt(1, maNV);
             result = pre.executeUpdate() > 0;
+            
+            TaiKhoanDAO tkDAO = new TaiKhoanDAO();
+            NhanVien nv = getNhanVien(maNV);
+            if (getNhanVien(maNV).getMaTK() != 0) // nếu nhân viên có tài khoản
+                tkDAO.khoaTaiKhoan(nv.getMaTK());
         } catch (SQLException ex) {
             return false;
         }
@@ -110,7 +115,7 @@ public class NhanVienDAO {
         boolean result = false;
         try {
             String sql = "INSERT INTO nhanvien(TenNV, NgaySinh, DiaChi, SDT, MaTK, TrangThai) " +
-                    "VALUES(?, ?, ?, ?, -1, 1)";
+                    "VALUES(?, ?, ?, ?, 0, 1)";
             PreparedStatement pre = MyConnect.conn.prepareStatement(sql);
             pre.setString(1, nv.getTen());
             pre.setString(2, nv.getNgaySinh());

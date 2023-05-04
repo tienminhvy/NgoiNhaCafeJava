@@ -306,13 +306,13 @@ public class PnQuanLyKhuyenMaiGUI extends JPanel {
     }
 
     private void xuLyThemKhuyenMai() {
-        boolean flag = KhuyenMaiBUS.themKhuyenMai(txtTen.getText(), txtPhanTram.getText(), txtDieuKien.getText(), sdf.format(dateBD.getDate()), sdf.format(dateKT.getDate()));
+        boolean flag = KhuyenMaiBUS.themKhuyenMai(txtTen.getText(), txtPhanTram.getText(), txtDieuKien.getText(), dateBD.getDate(), dateKT.getDate());
         if (flag)
             loadDataTblKhuyenMai();
     }
 
     private void xuLySuaKhuyenMai() {
-        boolean flag = KhuyenMaiBUS.suaKhuyenMai(txtMa.getText(), txtTen.getText(), txtPhanTram.getText(), txtDieuKien.getText(), sdf.format(dateBD.getDate()), sdf.format(dateKT.getDate()));
+        boolean flag = KhuyenMaiBUS.suaKhuyenMai(txtMa.getText(), txtTen.getText(), txtPhanTram.getText(), txtDieuKien.getText(), dateBD.getDate(), dateKT.getDate());
         if (flag)
             loadDataTblKhuyenMai();
     }

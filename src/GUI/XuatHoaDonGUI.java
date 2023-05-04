@@ -10,9 +10,11 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.print.PrinterException;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Vector;
 import javax.swing.JDialog;
 import javax.swing.event.DocumentEvent;
@@ -330,10 +332,26 @@ public class XuatHoaDonGUI extends JDialog {
             new CustomDialog("Xin chọn khuyến mãi", CustomDialog.ERROR_DIALOG);
             return;
         }
+        
+        try {
+            Date currDate = new Date();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            Date ngayKT = sdf.parse(DlgKM.kmTimDuoc.getNgayKT());
+            
+            if (ngayKT.before(currDate)) {
+                new CustomDialog("Khuyến mãi đã hết hiệu lực!", CustomDialog.ERROR_DIALOG);
+                return;
+            }
+            
+        } catch (Exception ex) {
+            new CustomDialog("Lỗi SimpleDateFormat!", CustomDialog.ERROR_DIALOG);
+            return;
+        }
+        
         xuLyHienThiHoaDon();
         btnInHoaDon.setEnabled(true);
 
-        hoadonBUS.luuHoaDon(DlgTimKhach.khachHangTimDuoc.getMaKH(), nhanVien, tongTien);
+        hoadonBUS.luuHoaDon(DlgTimKhach.khachHangTimDuoc.getMaKH(), nhanVien, tongTien, DlgKM.kmTimDuoc.getMaKM());
 
         for (Vector vec : dsGioHang) {
             String maSP = vec.get(0) + "";

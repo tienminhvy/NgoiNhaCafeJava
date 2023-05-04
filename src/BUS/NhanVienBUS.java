@@ -22,8 +22,7 @@ public class NhanVienBUS {
     }
 
     public ArrayList<NhanVien> getDanhSachNhanVien() {
-        if (this.listNhanVien == null)
-            docDanhSach();
+        docDanhSach();
         return this.listNhanVien;
     }
 
@@ -137,6 +136,8 @@ public class NhanVienBUS {
             }
             return flag;
         } catch (Exception e) {
+            System.out.println(e);
+            e.printStackTrace();
             new CustomDialog("Chưa chọn nhân viên!", CustomDialog.ERROR_DIALOG);
         }
         return false;
