@@ -44,8 +44,8 @@ public class PnQuanLyNhanVienGUI extends JPanel {
     private NhanVienBUS nhanVienBUS = new NhanVienBUS();
 
     JLabel lblTabbedNhanVien, lblTabbedQuyen;
-    final ImageIcon tabbedSelected = new ImageIcon("image/ManagerUI/tabbed-btn--selected.png");
-    final ImageIcon tabbedDefault = new ImageIcon("image/ManagerUI/tabbed-btn.png");
+//    final ImageIcon tabbedSelected = new ImageIcon("image/ManagerUI/tabbed-btn--selected.png");
+//    final ImageIcon tabbedDefault = new ImageIcon("image/ManagerUI/tabbed-btn.png");
     CardLayout cardNhanVienGroup = new CardLayout();
     JPanel pnCardTabNhanVien;
     JTextField txtMaNV, txtTen, txtNgaySinh, txtSDT, txtTimNV, txtDiaChi;
@@ -67,24 +67,24 @@ public class PnQuanLyNhanVienGUI extends JPanel {
         Font font = new Font("", Font.PLAIN, 20);
         pnTop.setPreferredSize(new Dimension(w, 41));
         pnTop.setLayout(null);
-        pnTop.setBorder(BorderFactory.createMatteBorder(1, 0, 1, 0, Color.GRAY));
+        pnTop.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 0, Color.GRAY));
 
         lblTabbedNhanVien = new JLabel("Nhân viên");
         lblTabbedNhanVien.setHorizontalTextPosition(JLabel.CENTER);
         lblTabbedNhanVien.setVerticalTextPosition(JLabel.CENTER);
-        lblTabbedNhanVien.setIcon(tabbedSelected);
+//        lblTabbedNhanVien.setIcon(tabbedSelected);
         lblTabbedNhanVien.setBounds(2, 2, 140, 37);
         lblTabbedNhanVien.setFont(font);
-        lblTabbedNhanVien.setForeground(Color.white);
+//        lblTabbedNhanVien.setForeground(Color.white);
         lblTabbedNhanVien.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
         lblTabbedQuyen = new JLabel("Quyền");
         lblTabbedQuyen.setHorizontalTextPosition(JLabel.CENTER);
         lblTabbedQuyen.setVerticalTextPosition(JLabel.CENTER);
-        lblTabbedQuyen.setIcon(tabbedDefault);
+//        lblTabbedQuyen.setIcon(tabbedDefault);
         lblTabbedQuyen.setBounds(143, 2, 140, 37);
         lblTabbedQuyen.setFont(font);
-        lblTabbedQuyen.setForeground(Color.white);
+//        lblTabbedQuyen.setForeground(Color.white);
         lblTabbedQuyen.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
         pnTop.add(lblTabbedNhanVien);
@@ -357,8 +357,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
         lblTabbedNhanVien.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                lblTabbedNhanVien.setIcon(tabbedSelected);
-                lblTabbedQuyen.setIcon(tabbedDefault);
+//                lblTabbedQuyen.setIcon(tabbedDefault);
                 cardNhanVienGroup.show(pnCardTabNhanVien, "1");
             }
 
@@ -382,8 +381,8 @@ public class PnQuanLyNhanVienGUI extends JPanel {
         lblTabbedQuyen.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                lblTabbedQuyen.setIcon(tabbedSelected);
-                lblTabbedNhanVien.setIcon(tabbedDefault);
+//                lblTabbedQuyen.setIcon(tabbedSelected);
+//                lblTabbedNhanVien.setIcon(tabbedDefault);
                 cardNhanVienGroup.show(pnCardTabNhanVien, "2");
             }
 

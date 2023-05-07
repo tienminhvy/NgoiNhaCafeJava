@@ -21,7 +21,7 @@ public class MainQuanLyGUI extends JFrame {
 
     public void showWindow() {
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-//        this.setUndecorated(true);
+        this.setUndecorated(true);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
     }
