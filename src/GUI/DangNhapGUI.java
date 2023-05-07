@@ -29,7 +29,7 @@ public class DangNhapGUI extends javax.swing.JFrame {
     }
     
     private void setup() {
-        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         this.setLocationRelativeTo(null);
         this.setTitle("Quản lý cafe");
