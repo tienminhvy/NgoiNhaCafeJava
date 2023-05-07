@@ -78,7 +78,6 @@ public class PhanQuyenDAO {
                 phanQuyen.setThongKe(0);
 
                    for(String ctq: chitietquyen) {
-                    System.out.println(ctq);
                     if ("NhapHang".equals(ctq))
                         phanQuyen.setNhapHang(1);
                     

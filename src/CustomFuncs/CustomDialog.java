@@ -72,7 +72,7 @@ public class CustomDialog extends JDialog {
 
         JPanel pnHeader = new JPanel();
         pnHeader.setLayout(new FlowLayout(FlowLayout.RIGHT));
-        pnHeader.setPreferredSize(new Dimension(400, 25));
+        pnHeader.setPreferredSize(new Dimension(400, 30));
         lblClose = new JLabel(new ImageIcon("image/icons8-close-26.png"));
         lblClose.setCursor(new Cursor(Cursor.HAND_CURSOR));
         pnHeader.add(lblClose);
