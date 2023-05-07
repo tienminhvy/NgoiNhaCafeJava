@@ -79,12 +79,12 @@ public class PnThongKeGUI extends javax.swing.JPanel implements ActionListener {
         jLabel6 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        lb_quy1 = new javax.swing.JLabel();
+        lb_tongcong = new javax.swing.JLabel();
         lb_quy2 = new javax.swing.JLabel();
         lb_quy3 = new javax.swing.JLabel();
         lb_quy4 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        lb_tongcong = new javax.swing.JLabel();
+        lb_quy1 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tb_dsbanchay = new javax.swing.JTable();
@@ -128,8 +128,8 @@ public class PnThongKeGUI extends javax.swing.JPanel implements ActionListener {
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel11.setText("Doanh thu");
 
-        lb_quy1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lb_quy1.setText("0");
+        lb_tongcong.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_tongcong.setText("0");
 
         lb_quy2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb_quy2.setText("0");
@@ -143,8 +143,8 @@ public class PnThongKeGUI extends javax.swing.JPanel implements ActionListener {
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel12.setText("Tổng cộng");
 
-        lb_tongcong.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lb_tongcong.setText("0");
+        lb_quy1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_quy1.setText("0");
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -192,7 +192,7 @@ public class PnThongKeGUI extends javax.swing.JPanel implements ActionListener {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(lb_tongcong, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lb_quy1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(61, 61, 61)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -206,7 +206,7 @@ public class PnThongKeGUI extends javax.swing.JPanel implements ActionListener {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lb_quy4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(lb_quy1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lb_tongcong, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(91, 163, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
@@ -245,14 +245,14 @@ public class PnThongKeGUI extends javax.swing.JPanel implements ActionListener {
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(lb_tongcong)
+                    .addComponent(lb_quy1)
                     .addComponent(lb_quy3)
                     .addComponent(lb_quy4)
                     .addComponent(lb_quy2))
                 .addGap(25, 25, 25)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(lb_quy1))
+                    .addComponent(lb_tongcong))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(36, Short.MAX_VALUE))

@@ -558,27 +558,6 @@ public class PnQuanLyNhanVienGUI extends JPanel {
         loadDataTblNhanVien(null);
     }
 
-    private void xuLyNhapExcel() {
-        CustomDialog dlg = new CustomDialog("Dữ liệu cũ sẽ bị xoá, tiếp tục?", CustomDialog.WARNING_DIALOG);
-        if (dlg.getAction() != CustomDialog.OK_OPTION) {
-            return;
-        }
-
-  
-
-        int row = tblNhanVien.getRowCount();
-        for (int i = 0; i < row; i++) {
-            String ho = tblNhanVien.getValueAt(i, 1) + "";
-            String ten = tblNhanVien.getValueAt(i, 2) + "";
-            String gioiTinh = tblNhanVien.getValueAt(i, 3) + "";
-            String chucVu = tblNhanVien.getValueAt(i, 4) + "";
-
-            nhanVienBUS.nhapExcel(ho, ten, gioiTinh, chucVu);
-
-        }
-    }
-
-
     private void xuLyXoaNhanVien() {
         String ma = txtMaNV.getText();
         boolean flag = nhanVienBUS.xoaNhanVien(ma);

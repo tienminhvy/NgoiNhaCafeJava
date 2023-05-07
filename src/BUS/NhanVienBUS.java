@@ -167,14 +167,4 @@ public class NhanVienBUS {
         }
         return false;
     }
-
-    public boolean nhapExcel(String ho, String ten, String gioiTinh, String chucVu) {
-        NhanVien nv = new NhanVien();
-        nv.setTen(ho);
-        nv.setNgaySinh(ten);
-        nv.setDiaChi(gioiTinh);
-        nv.setSdt(chucVu);
-        boolean flag = nvDAO.nhapExcel(nv);
-        return flag;
-    }
 }

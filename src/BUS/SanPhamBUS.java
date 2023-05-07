@@ -119,32 +119,6 @@ public class SanPhamBUS {
         return false;
     }
 
-    public boolean nhapSanPhamTuExcel(String ten,
-            String loai,
-            String soLuong,
-            String anh,
-            String donGia) {
-
-        try {
-            String[] loaiTmp = loai.split(" - ");
-            int maLoai = Integer.parseInt(loaiTmp[0]);
-            int soLuongSP = Integer.parseInt(soLuong);
-            donGia = donGia.replace(",", "");
-            int donGiaSP = Integer.parseInt(donGia);
-
-            SanPham sp = new SanPham();
-            sp.setTenSP(ten);
-            sp.setMaLoai(maLoai);
-            sp.setSoLuong(soLuongSP);
-            sp.setHinhAnh(anh);
-            sp.setDonGia(donGiaSP);
-
-            spDAO.nhapSanPhamTuExcel(sp);
-        } catch (Exception e) {
-        }
-        return false;
-    }
-
     public boolean xoaSanPham(String ma) {
         if (ma.trim().equals("")) {
             new CustomDialog("Chưa chọn sản phẩm để xoá!", CustomDialog.ERROR_DIALOG);

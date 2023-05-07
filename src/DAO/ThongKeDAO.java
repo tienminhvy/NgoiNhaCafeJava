@@ -82,23 +82,31 @@ public class ThongKeDAO {
         switch (quy) {
             case 1:
                 thangBatDau = "01";
-                thangKetThuc = "04";
+                thangKetThuc = "03";
                 break;
             case 2:
-                thangBatDau = "03";
-                thangKetThuc = "07";
+                thangBatDau = "04";
+                thangKetThuc = "06";
                 break;
             case 3:
-                thangBatDau = "06";
-                thangKetThuc = "10";
+                thangBatDau = "07";
+                thangKetThuc = "09";
                 break;
             case 4:
-                thangBatDau = "09";
-                thangKetThuc = "01";
-                namKetThuc++;
+                thangBatDau = "10";
+                thangKetThuc = "12";
         }
-        String strBatDau = Integer.toString(namBatDau) + thangBatDau + "01";
-        String strKetThuc = Integer.toString(namKetThuc) + thangKetThuc + "01";
+        String strBatDau = Integer.toString(namBatDau) + "-" + thangBatDau + "-" + "01 00:00:00";
+        String strKetThuc = "";
+        switch (thangKetThuc) {
+            case "03":
+            case "12":
+                strKetThuc = Integer.toString(namKetThuc) + "-" + thangKetThuc + "-" + "31 23:59:59";
+                break;
+            default:
+                strKetThuc = Integer.toString(namKetThuc) + "-" + thangKetThuc + "-" + "30 23:59:59";
+                break;
+        }
         kq[0] = strBatDau;
         kq[1] = strKetThuc;
         return kq;
@@ -108,7 +116,7 @@ public class ThongKeDAO {
         String[] dateString = getDateString(nam, quy);
         try {
             PreparedStatement prep = MyConnect.conn.prepareStatement("SELECT SUM(TongTien) FROM hoadon "
-                    + "WHERE NgayLap >= ? AND NgayLap < ?");
+                    + "WHERE NgayLap BETWEEN ? AND ?");
             prep.setString(1, dateString[0]);
             prep.setString(2, dateString[1]);
             ResultSet rs = prep.executeQuery();
@@ -163,24 +171,5 @@ public class ThongKeDAO {
             e.printStackTrace();
         }
         return nam;
-    }
-
-    public double abc(int thang, int nam) {
-        try {
-            String d1 = nam + "-" + thang + "-01";
-            String d2 = nam + "-" + (thang + 1) + "-01";
-            String sql = "SELECT SUM(TongTien) FROM HoaDon WHERE NgayLap BETWEEN CAST(? AS DATE) AND CAST(? AS DATE)";
-
-            PreparedStatement pre = MyConnect.conn.prepareStatement(sql);
-            pre.setString(1, d1);
-            pre.setString(2, d2);
-            ResultSet rs = pre.executeQuery();
-
-            while (rs.next())
-                return rs.getDouble(1);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return 0.0f;
     }
 }

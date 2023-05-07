@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -65,7 +65,7 @@
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="lb_tongcong" max="32767" attributes="0"/>
+                              <Component id="lb_quy1" max="32767" attributes="0"/>
                               <Component id="jLabel8" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
@@ -84,7 +84,7 @@
                               <Component id="lb_quy4" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="lb_quy1" max="32767" attributes="0"/>
+                      <Component id="lb_tongcong" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="91" pref="163" max="32767" attributes="0"/>
               </Group>
@@ -129,7 +129,7 @@
                   <EmptySpace min="25" pref="25" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lb_tongcong" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lb_quy1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lb_quy3" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lb_quy4" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lb_quy2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -137,7 +137,7 @@
                   <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lb_quy1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lb_tongcong" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="129" max="-2" attributes="0"/>
@@ -229,7 +229,7 @@
             <Property name="text" type="java.lang.String" value="Doanh thu"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lb_quy1">
+        <Component class="javax.swing.JLabel" name="lb_tongcong">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="0"/>
@@ -261,7 +261,7 @@
             <Property name="text" type="java.lang.String" value="T&#x1ed5;ng c&#x1ed9;ng"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lb_tongcong">
+        <Component class="javax.swing.JLabel" name="lb_quy1">
           <Properties>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" value="0"/>
