@@ -177,12 +177,13 @@ public class SanPhamDAO {
     public boolean xoaSanPham(int maSP) {
         try {
             String sql = "UPDATE sanpham "
-                    + "SET TrangThai = 0"
+                    + "SET TrangThai = 0 "
                     + "WHERE MaSP=" + maSP;
             Statement st = MyConnect.conn.createStatement();
             st.execute(sql);
             return true;
         } catch (SQLException e) {
+            System.out.println(e);
         }
         return false;
     }
