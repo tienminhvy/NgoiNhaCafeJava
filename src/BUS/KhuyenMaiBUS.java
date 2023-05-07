@@ -10,21 +10,21 @@ import java.util.Date;
 
 public class KhuyenMaiBUS {
 
-    private ArrayList<KhuyenMai> listGiamGia = null;
-    private KhuyenMaiDAO giamGiaDAO = new KhuyenMaiDAO();
+    private ArrayList<KhuyenMai> listKhuyenMai = null;
+    private KhuyenMaiDAO khuyenMaiDAO = new KhuyenMaiDAO();
 
     public KhuyenMaiBUS() {
         docDanhSach();
     }
 
     public void docDanhSach() {
-        this.listGiamGia = giamGiaDAO.getDanhSachKhuyenMai();
+        this.listKhuyenMai = khuyenMaiDAO.getDanhSachKhuyenMai();
     }
 
     public ArrayList<KhuyenMai> getDanhSachKhuyenMai() {
-        if (this.listGiamGia == null)
+        if (this.listKhuyenMai == null)
             docDanhSach();
-        return this.listGiamGia;
+        return this.listKhuyenMai;
     }
     
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -59,7 +59,7 @@ public class KhuyenMaiBUS {
             gg.setNgayBD(sdf.format(ngayBD));
             gg.setNgayKT(sdf.format(ngayKT));
 
-            flag = giamGiaDAO.themMaGiam(gg);
+            flag = khuyenMaiDAO.themKM(gg);
         } catch (Exception e) {
             new CustomDialog("Hãy nhập số nguyên hợp lệ!", CustomDialog.ERROR_DIALOG);
             return false;
@@ -109,7 +109,7 @@ public class KhuyenMaiBUS {
             gg.setNgayBD(sdf.format(ngayBD));
             gg.setNgayKT(sdf.format(ngayKT));
 
-            flag = giamGiaDAO.suaMaGiam(gg);
+            flag = khuyenMaiDAO.suaKM(gg);
         } catch (Exception e) {
             new CustomDialog("Hãy nhập số nguyên hợp lệ!", CustomDialog.ERROR_DIALOG);
             return false;

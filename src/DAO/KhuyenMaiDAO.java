@@ -32,7 +32,7 @@ public class KhuyenMaiDAO {
         return null;
     }
 
-    public boolean themMaGiam(KhuyenMai km) {
+    public boolean themKM(KhuyenMai km) {
         try {
             String sql = "INSERT INTO khuyenmai(TenKM, PhanTramKM, DieuKienKM, NgayBD, NgayKT, TrangThai) " +
                     "VALUES (?, ?, ?, ?, ?, 1)";
@@ -50,7 +50,7 @@ public class KhuyenMaiDAO {
         return false;
     }
 
-    public boolean suaMaGiam(KhuyenMai km) {
+    public boolean suaKM(KhuyenMai km) {
         try {
             String sql = "UPDATE khuyenmai SET TenKM=?, PhanTramKM=?, DieuKienKM=?, NgayBD=?, NgayKT=? WHERE TrangThai = 1 AND MaKM=?";
             PreparedStatement pre = MyConnect.conn.prepareStatement(sql);

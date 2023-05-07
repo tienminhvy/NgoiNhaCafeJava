@@ -14,9 +14,9 @@ public class KhuyenMai {
     public KhuyenMai() {
     }
 
-    public KhuyenMai(int maGiam, String tenGiamGia, int phanTramGiam, int dieuKien, String ngayBD, String ngayKT) {
+    public KhuyenMai(int maGiam, String tenKM, int phanTramGiam, int dieuKien, String ngayBD, String ngayKT) {
         this.maKM = maGiam;
-        this.tenKM = tenGiamGia;
+        this.tenKM = tenKM;
         this.phanTramKM = phanTramGiam;
         this.dieuKien = dieuKien;
         this.ngayBD = ngayBD;
@@ -35,8 +35,8 @@ public class KhuyenMai {
         return tenKM;
     }
 
-    public void setTenKM(String tenGiamGia) {
-        this.tenKM = tenGiamGia;
+    public void setTenKM(String tenKM) {
+        this.tenKM = tenKM;
     }
 
     public int getPhanTramKM() {
