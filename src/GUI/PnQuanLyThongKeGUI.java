@@ -119,11 +119,11 @@ public class PnQuanLyThongKeGUI extends JPanel {
         font1 = new Font("Tahoma", Font.BOLD, 28);
         lblTongDoanhThu.setFont(font1);
 
-        lblDoanhThuQuy1.setForeground(Color.WHITE);
-        lblDoanhThuQuy2.setForeground(Color.WHITE);
-        lblDoanhThuQuy3.setForeground(Color.WHITE);
-        lblDoanhThuQuy4.setForeground(Color.WHITE);
-        lblTongDoanhThu.setForeground(Color.WHITE);
+        lblDoanhThuQuy1.setForeground(Color.BLACK);
+        lblDoanhThuQuy2.setForeground(Color.BLACK);
+        lblDoanhThuQuy3.setForeground(Color.BLACK);
+        lblDoanhThuQuy4.setForeground(Color.BLACK);
+        lblTongDoanhThu.setForeground(Color.BLACK);
 
         int x = 265;
         int y = 673;
@@ -333,6 +333,7 @@ public class PnQuanLyThongKeGUI extends JPanel {
         lblDoanhThuQuy4.setText(dcf.format(thongKe.getTongThuQuy(4)));
         lblTongDoanhThu.setText(dcf.format(thongKe.getTongDoanhThu()));
         
+        
         initHienThiThongKe();
         if (thongKe.getTopSanPhamBanChay().size() > 0) {
             try {
@@ -342,7 +343,6 @@ public class PnQuanLyThongKeGUI extends JPanel {
                 lblMon4.setText(thongKe.getTopSanPhamBanChay().get(3).getTenSP());
                 lblMon5.setText(thongKe.getTopSanPhamBanChay().get(4).getTenSP());
             } catch (Exception e) {
-                return;
             }
             
             try {
@@ -352,7 +352,6 @@ public class PnQuanLyThongKeGUI extends JPanel {
                 lblSoLuong4.setText("" + thongKe.getTopSanPhamBanChay().get(3).getSoLuong());
                 lblSoLuong5.setText("" + thongKe.getTopSanPhamBanChay().get(4).getSoLuong());
             } catch (Exception e) {
-                return;
             }
         }
     }

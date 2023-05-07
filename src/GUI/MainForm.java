@@ -1,5 +1,6 @@
 package GUI;
 
+import BUS.DangNhapBUS;
 import BUS.PhanQuyenBUS;
 import DTO.PhanQuyen;
 import GUI.Color.ColorDesign;
@@ -118,6 +119,7 @@ public class MainForm extends javax.swing.JFrame {
         navThongKe = new JButton();
 
         listMenuLeft = new ArrayList<>();
+        
         listMenuLeft.add(navBanHang);
         listMenuLeft.add(navKhuyenMai);
         listMenuLeft.add(navSanPham);
