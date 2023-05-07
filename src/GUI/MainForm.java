@@ -2,16 +2,13 @@ package GUI;
 
 import BUS.DangNhapBUS;
 import BUS.PhanQuyenBUS;
+import CustomFuncs.CustomDialog;
 import DTO.PhanQuyen;
 import GUI.Color.ColorDesign;
 import GUI.Dialog.DlgDoiMatKhau;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Cursor;
 import java.awt.Dimension;
-import static java.awt.Frame.ICONIFIED;
-import java.awt.Graphics;
-import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -22,7 +19,6 @@ import java.util.ArrayList;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
@@ -33,19 +29,7 @@ import javax.swing.SwingConstants;
 public class MainForm extends javax.swing.JFrame {
 
     int px, py;
-//    BanHangForm banhang;
-//    NhapHangForm nhaphang;
-//    SanPhamForm qlsp;
-//    LoaiSanPhamForm qllsp;
-//    TaiKhoanForm qltk;
-//    NhanVienForm qlnv;
-//    KhachHangForm qlkh;
-//    QuyenForm qlq;
-//    HoaDonForm qlhd;
-//    PhieuNhapForm qlpn;
-//    KhuyenMaiForm qlkm;
-//    NhaCungCapForm qlncc;
-//    ThongKeForm thongke;
+
     PnQuanLyBanHangGUI banHangPanel;
     PnQuanLyKhuyenMaiGUI khuyenMaiPanel;
     PnQuanLyNhapHangGUI nhapHangPanel;
@@ -57,14 +41,17 @@ public class MainForm extends javax.swing.JFrame {
     /**
      * Creates new form MainForm
      */
-    JButton currentTab;
+    
+    private JButton currentTab;
     ArrayList<JButton> listMenuLeft;
 
     public MainForm() {
+        new CustomDialog("Đăng nhập thành công!", CustomDialog.SUCCESS_DIALOG);
+
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("Phần mềm quản lý cửa hàng cà phê");
-        System.out.println("GUI.MainForm.<init>()");
+     
         ImageIcon logo = new ImageIcon(getClass().getResource("/image/logo/icons8-coffee-shop-65.png"));
         setIconImage(logo.getImage());
         this.setVisible(true);
@@ -76,14 +63,9 @@ public class MainForm extends javax.swing.JFrame {
         setMinimumSize(new Dimension(1800, 800));
         setExtendedState(getExtendedState()|MAXIMIZED_BOTH);
         setLocationRelativeTo(null);
+
     }
 
-    class MenuNav {
-
-        private String title;
-        private String icon;
-        private boolean isSeparate = false;
-    }
 
     public void createNavMenu() {
         String[] navItemInfo = {
@@ -119,44 +101,47 @@ public class MainForm extends javax.swing.JFrame {
         navThongKe = new JButton();
 
         listMenuLeft = new ArrayList<>();
-        
+        //==========ADD PANEL BÁN HÀNG + KHUYẾN MÃI (Ko phân quyền)==========
+
         listMenuLeft.add(navBanHang);
         listMenuLeft.add(navKhuyenMai);
-        listMenuLeft.add(navSanPham);
-        listMenuLeft.add(navNhanVien);
-        listMenuLeft.add(navKhachHang);
-        listMenuLeft.add(navNhapHang);
-        listMenuLeft.add(navThongKe);
+        //======XỬ LÝ PHÂN QUYỀN=======
 
-//        for (JButton lbl : listMenuLeft) {
-//            lbl.setVisible(false);
-//            lbl.setPreferredSize(new Dimension(250, 65));
-//            lbl.setOpaque(true);
-//            lbl.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-//          //  pnMenuLeft.add(lbl);
-//        }
-//        lblBanHang.setBackground(clLeftItemSelected);
-//        lblBanHang.setVisible(true);
-//        lblKhuyenMai.setVisible(true);
-        // pnMain.add(pnMenuLeft, BorderLayout.WEST);
+
+        PhanQuyen quyen = PhanQuyenBUS.quyenTK;
+       
+        if (quyen.getQlSanPham() == 1) {
+           listMenuLeft.add(navSanPham);
+        }
+        if (quyen.getQlNhanVien() == 1) {
+        listMenuLeft.add(navNhanVien);
+        }
+        
+        if (quyen.getQlKhachHang() == 1) {
+        listMenuLeft.add(navKhachHang);
+        }
+        if (quyen.getNhapHang() == 1) {
+            listMenuLeft.add(navNhapHang);
+        }
+        if (quyen.getThongKe() == 1) {
+        listMenuLeft.add(navThongKe);
+        }
+
+
+
         for (int i = 0; i < listMenuLeft.size(); i++) {
             JButton nav = listMenuLeft.get(i);
             nav.setText(navItemInfo[i]);
             ImageIcon icon = new ImageIcon(getClass().getResource("/" + navItemIcon[i]));
             nav.setIcon(icon);
             nav.setIconTextGap(18);
-//        for (JButton nav : listMenuLeft) {
 
+  
             nav.setPreferredSize(new Dimension(navWidth, navHeight));
             nav.setHorizontalAlignment(SwingConstants.LEFT);
             nav.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 0));
-//            if (!navItemInfo[i + 1].isEmpty()) {
-//                ImageIcon icon = new ImageIcon(getClass().getResource("/assets/images/menu/" + navItemInfo[i + 1]));
-//                nav.setIconTextGap(18);
-//                nav.setIcon(icon);
-//
-//            }
-            //   nav.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
+//            nav.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
             nav.setBackground(scrollMenu.getBackground());
             nav.setForeground(Color.BLACK);
             nav.addActionListener(new ActionListener() {
@@ -180,7 +165,11 @@ public class MainForm extends javax.swing.JFrame {
                 }
 
             });
-
+            if(this.currentTab ==null)
+            {
+                this.currentTab= nav;
+                nav.doClick();
+            }
             menu.add(nav);
             // }
             //  }
@@ -230,8 +219,6 @@ public class MainForm extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         changePasswordBtn = new javax.swing.JButton();
         logoutBtn = new javax.swing.JButton();
-        minimalizeBtn = new javax.swing.JButton();
-        btnExit = new javax.swing.JButton();
         scrollMenu = new javax.swing.JScrollPane();
         menu = new javax.swing.JPanel();
         contentPanel = new javax.swing.JPanel();
@@ -280,40 +267,6 @@ public class MainForm extends javax.swing.JFrame {
         });
         jPanel1.add(logoutBtn);
 
-        minimalizeBtn.setBackground(headerPanel.getBackground());
-        minimalizeBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/header/icons8-chevron-down-32.png"))); // NOI18N
-        minimalizeBtn.setToolTipText("minimal");
-        minimalizeBtn.setBorder(null);
-        minimalizeBtn.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        minimalizeBtn.setMaximumSize(new java.awt.Dimension(1000, 1000));
-        minimalizeBtn.setPreferredSize(new java.awt.Dimension(75, 55));
-        minimalizeBtn.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                minimalizeBtnMousePressed(evt);
-            }
-        });
-        jPanel1.add(minimalizeBtn);
-
-        btnExit.setBackground(headerPanel.getBackground());
-        btnExit.setForeground(new java.awt.Color(255, 255, 255));
-        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/header/icons8-shutdown-32.png"))); // NOI18N
-        btnExit.setToolTipText("exit");
-        btnExit.setBorder(null);
-        btnExit.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnExit.setMaximumSize(new java.awt.Dimension(1000, 1000));
-        btnExit.setPreferredSize(new java.awt.Dimension(75, 55));
-        btnExit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                btnExitMousePressed(evt);
-            }
-        });
-        btnExit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnExitActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnExit);
-
         javax.swing.GroupLayout headerPanelLayout = new javax.swing.GroupLayout(headerPanel);
         headerPanel.setLayout(headerPanelLayout);
         headerPanelLayout.setHorizontalGroup(
@@ -321,7 +274,7 @@ public class MainForm extends javax.swing.JFrame {
             .addGroup(headerPanelLayout.createSequentialGroup()
                 .addGap(217, 217, 217)
                 .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 763, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 913, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         headerPanelLayout.setVerticalGroup(
@@ -357,25 +310,6 @@ public class MainForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnExitActionPerformed
-
-    private void minimalizeBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_minimalizeBtnMousePressed
-        //hide program
-        setState(ICONIFIED);
-
-    }//GEN-LAST:event_minimalizeBtnMousePressed
-
-    private void btnExitMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExitMousePressed
-        int reply = JOptionPane.showConfirmDialog(getRootPane(),
-                "Bạn có chắc muốn thoát chương trình?", "Chú ý",
-                JOptionPane.YES_NO_OPTION);
-        if (reply == JOptionPane.YES_OPTION) {
-            System.exit(0);
-        }
-    }//GEN-LAST:event_btnExitMousePressed
-
     private void logoutBtnMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutBtnMousePressed
         int reply = JOptionPane.showConfirmDialog(getRootPane(),
                 "Bạn có chắc muốn đăng xuất ?", "Chú ý",
@@ -383,8 +317,12 @@ public class MainForm extends javax.swing.JFrame {
 
         if (reply == JOptionPane.YES_OPTION) {
 
-            // new LoginForm().setVisible(true);
             this.dispose();
+              DangNhapBUS dangNhapBUS = new DangNhapBUS();
+              dangNhapBUS.dangXuatTaiKhoan();
+            this.dispose();
+            new DangNhapGUI().setVisible(true);
+     
         }
     }//GEN-LAST:event_logoutBtnMousePressed
 
@@ -478,7 +416,6 @@ public class MainForm extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnExit;
     private java.awt.Button button5;
     private javax.swing.JButton changePasswordBtn;
     private javax.swing.JPanel contentPanel;
@@ -487,7 +424,6 @@ public class MainForm extends javax.swing.JFrame {
     private java.awt.Label label2;
     private javax.swing.JButton logoutBtn;
     private javax.swing.JPanel menu;
-    private javax.swing.JButton minimalizeBtn;
     private javax.swing.JScrollPane scrollMenu;
     // End of variables declaration//GEN-END:variables
 }

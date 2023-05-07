@@ -55,24 +55,30 @@ public class PhanQuyenDAO {
 
     public PhanQuyen getQuyen(String quyen) {
         try {
-            String sql = "SELECT * FROM PhanQuyen WHERE TenQuyen='" + quyen + "'";
-            Statement st = MyConnect.conn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
+            String sql = "SELECT * FROM phanquyen WHERE TenQuyen=?";
+
+            PreparedStatement pre = MyConnect.conn.prepareStatement(sql);
+            pre.setString(1, quyen);
+            ResultSet rs = pre.executeQuery();
+       
+
             if (rs.next()) {
+
                 PhanQuyen phanQuyen = new PhanQuyen();
                 
-                phanQuyen.setMaQuyen(rs.getInt(1));
-                phanQuyen.setQuyen(rs.getString(2));
+                phanQuyen.setMaQuyen(rs.getInt("MaQuyen"));
+                phanQuyen.setQuyen(rs.getString("TenQuyen"));
                 
-                chitietquyen = rs.getString(3).split(" ");
+                chitietquyen = rs.getString("ChiTietQuyen").split(" ");
                 
                 phanQuyen.setNhapHang(0);
                 phanQuyen.setQlSanPham(0);
                 phanQuyen.setQlNhanVien(0);
                 phanQuyen.setQlKhachHang(0);
                 phanQuyen.setThongKe(0);
-                
-                for(String ctq: chitietquyen) {
+
+                   for(String ctq: chitietquyen) {
+                    System.out.println(ctq);
                     if ("NhapHang".equals(ctq))
                         phanQuyen.setNhapHang(1);
                     
@@ -98,9 +104,12 @@ public class PhanQuyenDAO {
 
     public int getMaQuyen(String quyen) {
         try {
-            String sql = "SELECT * FROM PhanQuyen WHERE TenQuyen='" + quyen + "'";
-            Statement st = MyConnect.conn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
+
+            String sql = "SELECT * FROM phanquyen WHERE TenQuyen=?";
+
+            PreparedStatement pre = MyConnect.conn.prepareStatement(sql);
+            pre.setString(1, quyen);
+            ResultSet rs = pre.executeQuery();
             if (rs.next()) {
                 return rs.getInt("MaQuyen");
             }

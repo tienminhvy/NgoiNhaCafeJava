@@ -538,7 +538,7 @@ public class PnQuanLySanPhamGUI extends JPanel {
             img = ImageIO.read(fileImg);
             fileAnhSP = new File(src);
         } catch (IOException e) {
-            fileAnhSP = new File("imgs/anhthe/avatar.jpg");
+            fileAnhSP = new File("imgs/SanPham/default.png");
         }
 
         if (img != null) {

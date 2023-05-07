@@ -267,7 +267,7 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
         jLabel1.setText("Kho hàng");
         jPanel2.add(jLabel1);
 
-        btnResetKho.setText("Reset");
+        btnResetKho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Refresh-icon.png"))); // NOI18N
         btnResetKho.setPreferredSize(new java.awt.Dimension(80, 40));
         btnResetKho.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -634,7 +634,8 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
         jLabel17.setText("Phiếu nhập");
         jPanel22.add(jLabel17);
 
-        btnResetTabXemLai.setText("Reset");
+        btnResetTabXemLai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Refresh-icon.png"))); // NOI18N
+        btnResetTabXemLai.setToolTipText("");
         btnResetTabXemLai.setPreferredSize(new java.awt.Dimension(80, 40));
         btnResetTabXemLai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -839,7 +840,7 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
         pnThongTinCTLayout.setHorizontalGroup(
             pnThongTinCTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 674, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE)
             .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         pnThongTinCTLayout.setVerticalGroup(
@@ -849,7 +850,7 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 497, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 518, Short.MAX_VALUE))
         );
 
         pnCTPhieuNhap.add(pnThongTinCT, java.awt.BorderLayout.CENTER);

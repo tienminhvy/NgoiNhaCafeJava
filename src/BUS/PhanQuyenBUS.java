@@ -17,7 +17,8 @@ public class PhanQuyenBUS {
     }
 
     public void kiemTraQuyen(String quyen) {
-        quyenTK = phanQuyenDAO.getQuyen(quyen);
+        PhanQuyenBUS.quyenTK = phanQuyenDAO.getQuyen(quyen);
+
     }
 
     public ArrayList<PhanQuyen> getListQuyen() {

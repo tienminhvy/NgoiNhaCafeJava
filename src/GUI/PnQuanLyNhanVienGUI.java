@@ -19,6 +19,7 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -43,12 +44,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
     private PhanQuyenBUS phanQuyenBUS = new PhanQuyenBUS();
     private NhanVienBUS nhanVienBUS = new NhanVienBUS();
 
-    JLabel lblTabbedNhanVien, lblTabbedQuyen;
-    final ImageIcon tabbedSelected = new ImageIcon("image/ManagerUI/tabbed-btn--selected.png");
-    final ImageIcon tabbedDefault = new ImageIcon("image/ManagerUI/tabbed-btn.png");
-    CardLayout cardNhanVienGroup = new CardLayout();
-    JPanel pnCardTabNhanVien;
-    JTextField txtMaNV, txtTen, txtNgaySinh, txtSDT, txtTimNV, txtDiaChi;
+    JTextField txtMaNV, txtTen, txtNgayTao, txtSDT, txtTimNV, txtDiaChi;
     Table tblNhanVien;
     DefaultTableModel dtmNhanVien;
     JButton btnReset, btnThemNV, btnSuaNV, btnXoaNV, btnTimNV, btnCapTaiKhoan, btnResetMatKhau, btnXoaTaiKhoan, btnXuatExcel, btnNhapExcel;
@@ -57,40 +53,9 @@ public class PnQuanLyNhanVienGUI extends JPanel {
         this.setLayout(new BorderLayout());
         int w = 1030;
         int h = 844;
-        /*
-        =========================================================================
-                                    PANEL TABBED
-        =========================================================================
-         */
-        JPanel pnTop = new TransparentPanel();
-        //<editor-fold defaultstate="collapsed" desc="Panel Tab Nhân viên & Quyền">
         Font font = new Font("", Font.PLAIN, 20);
-        pnTop.setPreferredSize(new Dimension(w, 41));
-        pnTop.setLayout(null);
-        pnTop.setBorder(BorderFactory.createMatteBorder(1, 0, 1, 0, Color.GRAY));
 
-        lblTabbedNhanVien = new JLabel("Nhân viên");
-        lblTabbedNhanVien.setHorizontalTextPosition(JLabel.CENTER);
-        lblTabbedNhanVien.setVerticalTextPosition(JLabel.CENTER);
-        lblTabbedNhanVien.setIcon(tabbedSelected);
-        lblTabbedNhanVien.setBounds(2, 2, 140, 37);
-        lblTabbedNhanVien.setFont(font);
-        lblTabbedNhanVien.setForeground(Color.white);
-        lblTabbedNhanVien.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-        lblTabbedQuyen = new JLabel("Quyền");
-        lblTabbedQuyen.setHorizontalTextPosition(JLabel.CENTER);
-        lblTabbedQuyen.setVerticalTextPosition(JLabel.CENTER);
-        lblTabbedQuyen.setIcon(tabbedDefault);
-        lblTabbedQuyen.setBounds(143, 2, 140, 37);
-        lblTabbedQuyen.setFont(font);
-        lblTabbedQuyen.setForeground(Color.white);
-        lblTabbedQuyen.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-
-        pnTop.add(lblTabbedNhanVien);
-        pnTop.add(lblTabbedQuyen);
-        //</editor-fold>
-        this.add(pnTop, BorderLayout.NORTH);
 
         /*
         =========================================================================
@@ -110,35 +75,35 @@ public class PnQuanLyNhanVienGUI extends JPanel {
         pnTitle.add(lblTitle);
         pnTitle.add(btnReset);
         pnTopNV.add(pnTitle);
-        pnTopNV.setBackground(Color.DARK_GRAY);
         //==========
         JPanel pnText = new TransparentPanel();
         pnText.setLayout(new BoxLayout(pnText, BoxLayout.Y_AXIS));
-
+        
         txtMaNV = new JTextField(25);
         txtMaNV.setEditable(false);
         txtTen = new JTextField(25);
-        txtNgaySinh = new JTextField(25);
+        txtNgayTao = new JTextField(25);
+        txtNgayTao.setEditable(false);
         txtDiaChi = new JTextField(25);
         txtSDT = new JTextField(25);
 
         txtMaNV.setFont(font);
         txtTen.setFont(font);
-        txtNgaySinh.setFont(font);
+        txtNgayTao.setFont(font);
         txtDiaChi.setFont(font);
         txtSDT.setFont(font);
 
-        JLabel lblMa, lblHo, lblTen, lblDiaChi, lblChucVu;
+        JLabel lblMa, lblHo, lblNgayTao, lblDiaChi, lblChucVu;
 
         lblMa = new JLabel("Mã Nhân viên");
         lblHo = new JLabel("Tên");
-        lblTen = new JLabel("Ngày sinh");
+        lblNgayTao = new JLabel("Ngày tạo");
         lblDiaChi = new JLabel("Địa chỉ");
         lblChucVu = new JLabel("SĐT");
-
+        
         lblMa.setFont(font);
         lblHo.setFont(font);
-        lblTen.setFont(font);
+        lblNgayTao.setFont(font);
         lblDiaChi.setFont(font);
         lblChucVu.setFont(font);
 
@@ -153,8 +118,8 @@ public class PnQuanLyNhanVienGUI extends JPanel {
         pnText.add(pnHo);
 
         JPanel pnTen = new TransparentPanel();
-        pnTen.add(lblTen);
-        pnTen.add(txtNgaySinh);
+        pnTen.add(lblNgayTao);
+        pnTen.add(txtNgayTao);
         pnText.add(pnTen);
 
         JPanel pnGioiTinh = new TransparentPanel();
@@ -170,7 +135,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
         Dimension lblSize = lblMa.getPreferredSize();
         lblMa.setPreferredSize(lblSize);
         lblHo.setPreferredSize(lblSize);
-        lblTen.setPreferredSize(lblSize);
+        lblNgayTao.setPreferredSize(lblSize);
         lblDiaChi.setPreferredSize(lblSize);
         lblChucVu.setPreferredSize(lblSize);
         txtDiaChi.setPreferredSize(txtSDT.getPreferredSize());
@@ -250,7 +215,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
         dtmNhanVien = new DefaultTableModel();
         dtmNhanVien.addColumn("Mã NV");
         dtmNhanVien.addColumn("Tên");
-        dtmNhanVien.addColumn("Ngày sinh");
+        dtmNhanVien.addColumn("Ngày tạo");
         dtmNhanVien.addColumn("Địa chỉ");
         dtmNhanVien.addColumn("SĐT");
         dtmNhanVien.addColumn("Tài khoản");
@@ -339,14 +304,22 @@ public class PnQuanLyNhanVienGUI extends JPanel {
         btnXoaQuyen.setPreferredSize(btnThemQuyen.getPreferredSize());
         pnPhanQuyen.add(pnButtonQuyen);
 
-        //========================
-        pnCardTabNhanVien = new JPanel(cardNhanVienGroup);
-        pnCardTabNhanVien.add(pnNhanVien, "1");
-        pnCardTabNhanVien.add(pnPhanQuyen, "2");
-        this.add(pnCardTabNhanVien);
-
+        /*
+        =========================================================================
+                                    PANEL TABBED
+        =========================================================================
+         */
+        JTabbedPane tp=new JTabbedPane();  
+        tp.add("Nhân viên",pnNhanVien);
+        tp.add("Quyền",pnPhanQuyen);
+        tp.setFont(font);
+     
         loadDataTblNhanVien(null);
+        
         loadDataCmbQuyen();
+        this.add(tp);
+        this.repaint();
+
     }
 
     JComboBox<String> cmbQuyen;
@@ -354,56 +327,6 @@ public class PnQuanLyNhanVienGUI extends JPanel {
     JButton btnSuaQuyen, btnThemQuyen, btnXoaQuyen;
 
     private void addEventsNhanVien() {
-        lblTabbedNhanVien.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                lblTabbedNhanVien.setIcon(tabbedSelected);
-                lblTabbedQuyen.setIcon(tabbedDefault);
-                cardNhanVienGroup.show(pnCardTabNhanVien, "1");
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-            }
-        });
-
-        lblTabbedQuyen.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                lblTabbedQuyen.setIcon(tabbedSelected);
-                lblTabbedNhanVien.setIcon(tabbedDefault);
-                cardNhanVienGroup.show(pnCardTabNhanVien, "2");
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-            }
-        });
-
         tblNhanVien.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -507,7 +430,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
                 loadDataTblNhanVien(null);
                 txtMaNV.setText("");
                 txtTen.setText("");
-                txtNgaySinh.setText("");
+                txtNgayTao.setText("");
                 txtSDT.setText("");
                 txtTimNV.setText("");
                 txtDiaChi.setText("");
@@ -699,7 +622,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
         }
         String ma = txtMaNV.getText();
         String ten = txtTen.getText();
-        String ngaySinh = txtNgaySinh.getText();
+        String ngaySinh = txtNgayTao.getText();
         String diaChi = txtDiaChi.getText();
         String sdt = txtSDT.getText();
         if (nhanVienBUS.updateNhanVien(ma, ten, ngaySinh, diaChi, sdt)) {
@@ -714,7 +637,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
             return;
         }
         String ten = txtTen.getText();
-        String ngaySinh = txtNgaySinh.getText();
+        String ngaySinh = txtNgayTao.getText();
         String diaChi = txtDiaChi.getText();
         String sdt = txtSDT.getText();
         if (nhanVienBUS.themNhanVien(ten, ngaySinh, diaChi, sdt)) {
@@ -740,11 +663,11 @@ public class PnQuanLyNhanVienGUI extends JPanel {
             try {
                 d = sdf.parse(tblNhanVien.getValueAt(row, 2) + "");
                 sdf = new SimpleDateFormat("dd/MM/yyyy");
-                txtNgaySinh.setText(sdf.format(d));
+                txtNgayTao.setText(sdf.format(d));
             } catch (Exception ex) {
                 d = new Date();
                 sdf = new SimpleDateFormat("dd/MM/yyyy");
-                txtNgaySinh.setText(sdf.format(d));
+                txtNgayTao.setText(sdf.format(d));
             }
             txtSDT.setText(tblNhanVien.getValueAt(row, 4) + "");
 

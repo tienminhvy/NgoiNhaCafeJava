@@ -30,9 +30,9 @@ public class DangNhapBUS {
             new CustomDialog("Sai thông tin đăng nhập hoặc tài khoản đã bị khoá!", CustomDialog.ERROR_DIALOG);
         } else {
             PhanQuyenBUS phanQuyenBUS = new PhanQuyenBUS();
+
             phanQuyenBUS.kiemTraQuyen(account.getQuyen());
             xuLyGhiNhoDangNhap(user, password, selected);
-            new CustomDialog("Đăng nhập thành công!", CustomDialog.SUCCESS_DIALOG);
 //            new CustomDialog("Vì tình hình dịch Covid phức tạp, cửa hàng chỉ thực hiện bán mang về!", CustomDialog.INFO_DIALOG);
         }
         return account;
@@ -40,7 +40,7 @@ public class DangNhapBUS {
 
     public String getTaiKhoanGhiNho() {
         try {
-            FileInputStream fis = new FileInputStream("remember.dat");
+            FileInputStream fis = new FileInputStream("remember.me");
             BufferedReader br = new BufferedReader(new InputStreamReader(fis));
             String line = br.readLine();
             br.close();
@@ -49,20 +49,29 @@ public class DangNhapBUS {
         }
         return "";
     }
-
+    public void dangXuatTaiKhoan(){
+            try {
+            FileWriter fw = new FileWriter("remember.me");
+            fw.write("");
+            fw.close();
+        } catch (Exception e) {
+        }
+    
+    }
     private void xuLyGhiNhoDangNhap(String user, String password, boolean selected) {
         try {
+            FileWriter fw = new FileWriter("remember.me");
             if (!selected) {
-                user = "";
-                password = "";
-            }
-            FileWriter fw = new FileWriter("remember.dat");
-            fw.write(user + " | " + password);
+//                user = "";
+//                password = "";
+                fw.write("");
+            }   
+            else fw.write(user + "@" + password);
             fw.close();
         } catch (Exception e) {
         }
     }
-
+    
     private int kiemTraDangNhap(String user, String password) {
         user = user.replaceAll("\\s+", "");
         password = password.replaceAll("\\s+", "");
