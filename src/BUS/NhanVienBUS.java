@@ -139,8 +139,7 @@ public class NhanVienBUS {
         tuKhoa = tuKhoa.toLowerCase();
         ArrayList<NhanVien> dsnv = new ArrayList<>();
         for (NhanVien nv : listNhanVien) {
-            if (nv.getTen().toLowerCase().contains(tuKhoa) || nv.getNgaySinh().toLowerCase().contains(tuKhoa) ||
-                    nv.getDiaChi().toLowerCase().contains(tuKhoa) || nv.getSdt().toLowerCase().contains(tuKhoa)) {
+            if (nv.getTen().toLowerCase().contains(tuKhoa)) {
                 dsnv.add(nv);
             }
         }

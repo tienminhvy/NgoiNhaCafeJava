@@ -140,18 +140,4 @@ public class NhanVienDAO {
         return result;
     }
 
-    public boolean nhapExcel(NhanVien nv) {
-        try {
-            String sql = "INSERT INTO nhanvien(TenNV, NgaySinh, DiaChi, SDT, MaTK, TrangThai) " +
-                    "VALUES(?, ?, ?, ?, -1, 1)";
-            PreparedStatement pre = MyConnect.conn.prepareStatement(sql);
-            pre.setString(1, nv.getTen());
-            pre.setString(2, nv.getNgaySinh());
-            pre.setString(3, nv.getDiaChi());
-            pre.setString(4, nv.getSdt());
-            return true;
-        } catch (SQLException ex) {
-        }
-        return false;
-    }
 }
