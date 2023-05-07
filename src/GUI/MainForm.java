@@ -52,7 +52,7 @@ public class MainForm extends javax.swing.JFrame {
     PnQuanLySanPhamGUI sanPhamPanel;
     PnQuanLyNhanVienGUI nhanVienPanel;
     PnQuanLyKhachHangGUI khachHangPanel;
-    PnQuanLyThongKeGUI thongKePanel;
+    PnThongKeGUI thongKePanel;
     JButton btnClose, btnMinimize, navTrangChu, navBanHang, navKhuyenMai, navNhapHang, navSanPham, navNhanVien, navKhachHang, navThongKe;
     /**
      * Creates new form MainForm
@@ -460,9 +460,9 @@ public class MainForm extends javax.swing.JFrame {
                 break;
 
             case "Thống kê":
-                thongKePanel = new PnQuanLyThongKeGUI();
+                thongKePanel = new PnThongKeGUI();
                 if (thongKePanel == null) {
-                    thongKePanel = new PnQuanLyThongKeGUI();
+                    thongKePanel = new PnThongKeGUI();
                 }
                 contentPanel.add(thongKePanel, BorderLayout.CENTER);
                 break;
