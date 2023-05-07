@@ -3,7 +3,34 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/_Development/Java/NgoiNhaCafeNew/NgoiNhaCafeJava/src/GUI/PnQuanLyThongKeGUI.java</file>
+=======
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/DTO/TaiKhoan.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/BUS/LoaiBUS.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/CustomFuncs/ImagePanel.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/GUI/MainForm.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/GUI/XuatHoaDonGUI.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/GUI/PnQuanLyThongKeGUI.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/GUI/PnQuanLyKhuyenMaiGUI.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/GUI/PnQuanLySanPhamGUI.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/GUI/PnQuanLyKhachHangGUI.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/GUI/PnQuanLyBanHangGUI.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/Main/Main.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/BUS/DangNhapBUS.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/CustomFuncs/TransparentPanel.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/GUI/DangNhapGUI.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/BUS/KhuyenMaiBUS.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/BUS/PhanQuyenBUS.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/CustomFuncs/CustomDialog.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/GUI/PnQuanLyNhapHangGUI.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/GUI/Dialog/DlgDoiMatKhau.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/CustomFuncs/XuLyFileExcel.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/DAO/PhanQuyenDAO.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/CustomFuncs/FileChooser.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/GUI/PnQuanLyNhanVienGUI.java</file>
+            <file>file:/D:/workspace/java/NgoiNhaCafeJava/src/image/Pencil-icon.png</file>
+>>>>>>> 4784d102de0351f42af2edcdd06dac9203df2909
         </group>
     </open-files>
 </project-private>

@@ -105,12 +105,13 @@ public class TaiKhoanDAO {
 
     public String getQuyenTheoMa(int maTK) {
         try {
-            String sql = "SELECT TenQuyen FROM quyentaikhoan, phanquyen WHERE MaTK=" + maTK + " AND quyentaikhoan.MaQuyen = phanquyen.MaQuyen";
-            Statement st = MyConnect.conn.createStatement();
-            ResultSet rs = st.executeQuery(sql);
+            String sql = "SELECT TenQuyen,ChiTietQuyen FROM quyentaikhoan, phanquyen WHERE MaTK=? AND quyentaikhoan.MaQuyen = phanquyen.MaQuyen";
+            PreparedStatement pre = MyConnect.conn.prepareStatement(sql);
+            pre.setInt(1, maTK);
+            ResultSet rs = pre.executeQuery();
             
             if (rs.next()) {
-                return rs.getString(1);
+                return rs.getString("TenQuyen");
             }
             
         } catch (Exception e) {

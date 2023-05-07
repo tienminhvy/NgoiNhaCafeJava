@@ -35,12 +35,6 @@ public class PnQuanLyBanHangGUI extends JPanel {
     private NhanVienBUS nvBUS = new NhanVienBUS();
     private LoaiBUS loaiBUS = new LoaiBUS();
     private HoaDonBUS hoaDonBUS = new HoaDonBUS();
-
-    JLabel lblTabbedBanHang, lblTabbedHoaDon;
-    final ImageIcon tabbedSelected = new ImageIcon("image/ManagerUI/tabbed-btn--selected.png");
-    final ImageIcon tabbedDefault = new ImageIcon("image/ManagerUI/tabbed-btn.png");
-    CardLayout cardBanHangGroup = new CardLayout();
-    JPanel pnCardTabBanHang;
     Table tblBanHang;
     Table tblGioHang;
     DefaultTableModel dtmSanPhamBan, dtmGioHang;
@@ -70,41 +64,8 @@ public class PnQuanLyBanHangGUI extends JPanel {
 
         int w = 1030;
         int h = 844;
-
-        /*
-        =========================================================================
-                                    PANEL TABBED
-        =========================================================================
-         */
-        JPanel pnTop = new TransparentPanel();
-        //<editor-fold defaultstate="collapsed" desc="Panel Tab Bán hàng & Hoá đơn">
         Font font = new Font("", Font.PLAIN, 20);
-        pnTop.setPreferredSize(new Dimension(w, 41));
-        pnTop.setLayout(null);
-        pnTop.setBorder(BorderFactory.createMatteBorder(1, 0, 1, 0, Color.GRAY));
 
-        lblTabbedBanHang = new JLabel("Bán hàng");
-        lblTabbedBanHang.setHorizontalTextPosition(JLabel.CENTER);
-        lblTabbedBanHang.setVerticalTextPosition(JLabel.CENTER);
-        lblTabbedBanHang.setIcon(tabbedSelected);
-        lblTabbedBanHang.setBounds(2, 2, 140, 37);
-        lblTabbedBanHang.setFont(font);
-        lblTabbedBanHang.setForeground(Color.white);
-        lblTabbedBanHang.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-
-        lblTabbedHoaDon = new JLabel("Hoá đơn");
-        lblTabbedHoaDon.setHorizontalTextPosition(JLabel.CENTER);
-        lblTabbedHoaDon.setVerticalTextPosition(JLabel.CENTER);
-        lblTabbedHoaDon.setIcon(tabbedDefault);
-        lblTabbedHoaDon.setBounds(143, 2, 140, 37);
-        lblTabbedHoaDon.setFont(font);
-        lblTabbedHoaDon.setForeground(Color.white);
-        lblTabbedHoaDon.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-
-        pnTop.add(lblTabbedBanHang);
-        pnTop.add(lblTabbedHoaDon);
-        //</editor-fold>
-        this.add(pnTop, BorderLayout.NORTH);
         /*
         =========================================================================
                                     PANEL CT BÁN HÀNG
@@ -365,12 +326,10 @@ public class PnQuanLyBanHangGUI extends JPanel {
         pnRightBanHang.add(pnButtonBanHang);
         pnCenter.add(pnRightBanHang);
 
-        pnCardTabBanHang = new JPanel(cardBanHangGroup);
-        pnCardTabBanHang.setPreferredSize(new Dimension(w, (int) (h - pnTop.getPreferredSize().getHeight())));
         JPanel pnCTBanHang = new TransparentPanel();
         pnCTBanHang.setLayout(new BorderLayout());
         pnCTBanHang.add(pnCenter, BorderLayout.CENTER);
-        pnCardTabBanHang.add(pnCTBanHang, "1");
+
 
         /*
         =========================================================================
@@ -382,7 +341,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
 
         JPanel pnCTHoaDonLeft = new TransparentPanel();
         pnCTHoaDonLeft.setPreferredSize(new Dimension(420,
-                (int) pnCardTabBanHang.getPreferredSize().getHeight()));
+                (int) pnCTHoaDon.getPreferredSize().getHeight()));
         pnCTHoaDonLeft.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 1, Color.DARK_GRAY));
         pnCTHoaDonLeft.setLayout(new BoxLayout(pnCTHoaDonLeft, BoxLayout.Y_AXIS));
         pnCTHoaDon.add(pnCTHoaDonLeft, BorderLayout.WEST);
@@ -608,15 +567,20 @@ public class PnQuanLyBanHangGUI extends JPanel {
         pnCTHoaDon.add(pnCTHoaDonRight, BorderLayout.CENTER);
 
         //==========
-        pnCardTabBanHang.add(pnCTHoaDon, "2");
+
 
         //=======================================================
-        this.add(pnCardTabBanHang);
-        loadDataTableSanPhamBan();
-        txtTenSPBanHang.requestFocus();
-        lblAnhSP.setIcon(getAnhSP(""));
-
-        cmbNhanVienBan.setEnabled(false);
+        /*
+        =========================================================================
+                                    PANEL TABBED
+        =========================================================================
+         */
+        JTabbedPane tp=new JTabbedPane();  
+        tp.add("Bán hàng",pnCTBanHang);
+        tp.add("Hóa đơn",pnCTHoaDon);
+        tp.setFont(font);
+        this.add(tp);
+  
     }
 
     private void addEventsBanHang() {
@@ -624,56 +588,6 @@ public class PnQuanLyBanHangGUI extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 xuLyResetData();
-            }
-        });
-
-        lblTabbedBanHang.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                lblTabbedHoaDon.setIcon(tabbedDefault);
-                lblTabbedBanHang.setIcon(tabbedSelected);
-                cardBanHangGroup.show(pnCardTabBanHang, "1");
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-            }
-        });
-
-        lblTabbedHoaDon.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                lblTabbedHoaDon.setIcon(tabbedSelected);
-                lblTabbedBanHang.setIcon(tabbedDefault);
-                cardBanHangGroup.show(pnCardTabBanHang, "2");
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
             }
         });
 

@@ -1,5 +1,6 @@
 package CustomFuncs;
 
+import GUI.Color.ColorDesign;
 import Main.Main;
 
 import javax.swing.*;
@@ -34,25 +35,25 @@ public class CustomDialog extends JDialog {
 
     private void addControls() {
         Container con = getContentPane();
-
+        this.setForeground(Color.black);
         pnMain = new JPanel();
         pnTop = new JPanel();
         pnBottom = new JPanel();
         pnButton = new JPanel();
         lblIcon = new JLabel();
         lblContent = new JLabel(content);
-        btnOK = new JButton("OK");
-        btnCancel = new JButton("Cancel");
+        btnOK = new JButton("Đã rõ");
+        btnCancel = new JButton("Hủy");
 
         pnMain.setLayout(new BoxLayout(pnMain, BoxLayout.Y_AXIS));
         pnTop.setLayout(new FlowLayout());
         pnBottom.setLayout(new FlowLayout());
         pnButton.setLayout(new FlowLayout());
 
-        pnMain.setBackground(Color.WHITE);
-        pnTop.setBackground(Color.WHITE);
-        pnBottom.setBackground(Color.WHITE);
-        pnButton.setBackground(Color.WHITE);
+//        pnMain.setBackground(Color.WHITE);
+//        pnTop.setBackground(Color.WHITE);
+//        pnBottom.setBackground(Color.WHITE);
+//        pnButton.setBackground(Color.WHITE);
 
         lblContent.setFont(new Font("", Font.PLAIN, 18));
         lblContent.setHorizontalAlignment(JTextField.CENTER);
@@ -71,8 +72,8 @@ public class CustomDialog extends JDialog {
 
         JPanel pnHeader = new JPanel();
         pnHeader.setLayout(new FlowLayout(FlowLayout.RIGHT));
-        pnHeader.setPreferredSize(new Dimension(400, 25));
-        lblClose = new JLabel(new ImageIcon("image/icons8_x_24px.png"));
+        pnHeader.setPreferredSize(new Dimension(400, 30));
+        lblClose = new JLabel(new ImageIcon("image/icons8-close-26.png"));
         lblClose.setCursor(new Cursor(Cursor.HAND_CURSOR));
         pnHeader.add(lblClose);
 
@@ -87,7 +88,7 @@ public class CustomDialog extends JDialog {
 
         con.add(pnMain);
 
-        Color backgroundHeader = new Color(255, 255, 255);
+  
         switch (type) {
             case ERROR_DIALOG:
                 lblIcon.setIcon(iconError);
@@ -108,7 +109,6 @@ public class CustomDialog extends JDialog {
 
         btnOK.setPreferredSize(new Dimension(80, 30));
         btnCancel.setPreferredSize(btnOK.getPreferredSize());
-        pnHeader.setBackground(backgroundHeader);
     }
 
     private void addEvents() {
@@ -188,7 +188,7 @@ public class CustomDialog extends JDialog {
         this.setLocationRelativeTo(null);
         this.setAlwaysOnTop(true);
         this.setModal(true);
-        this.setBackground(Color.WHITE);
+//        this.setBackground(Color.WHITE);
         this.setVisible(true);
         getRootPane().setDefaultButton(btnOK);
     }

@@ -31,9 +31,14 @@ public class DangNhapGUI extends javax.swing.JFrame {
     private void setup() {
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
-        xuLyTaiKhoanDaGhiNho();
+        this.setLocationRelativeTo(null);
+        this.setTitle("Quản lý cafe");
+     
+        ImageIcon logo = new ImageIcon(getClass().getResource("/image/logo/icons8-coffee-shop-65.png"));
+        setIconImage(logo.getImage());
+        if(xuLyTaiKhoanDaGhiNho()==false)  setVisible(true);
         addEvents();
-        setVisible(true);
+     
     }
 
     /**
@@ -103,36 +108,36 @@ public class DangNhapGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void xuLyTaiKhoanDaGhiNho() {
+    private Boolean xuLyTaiKhoanDaGhiNho() {
         DangNhapBUS dangNhapBUS = new DangNhapBUS();
         String line = dangNhapBUS.getTaiKhoanGhiNho();
         try {
-            String[] arr = line.split(" | ");
-            ckbRemember.setSelected(true);
-            txtUser.setText(arr[0]);
-            txtPassword.setText(arr[2]);
-            txtUser.requestFocus();
+         
+            String[] arr = line.split("@");
+            if(arr.length>1)
+            {
+             
+           TaiKhoan tk = dangNhapBUS.getTaiKhoanDangNhap(arr[0],
+                arr[1], true);
+            if (tk != null) {
+            this.dispose();
+         
+            MainForm gui = new MainForm();
+
+            return true;
+            }
+            
+            }
         } catch (Exception e) {
             txtUser.setText("");
             txtPassword.setText("");
             txtUser.requestFocus();
+          
         }
+       return false;
     }
     
     private void addEvents() {
-        txtUser.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                txtPassword.requestFocus();
-            }
-        });
-        txtPassword.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                xuLyDangNhap();
-            }
-        });
-
         btnLogin.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -173,11 +178,10 @@ public class DangNhapGUI extends javax.swing.JFrame {
                 txtPassword.getText(), ckbRemember.isSelected());
         if (tk != null) {
             this.dispose();
-            //MainQuanLyGUI gui = new MainQuanLyGUI();           
+
             MainForm gui = new MainForm();
 
-            this.dispose();
-           // gui.showWindow();
+           
         }
     }
 
