@@ -3,6 +3,7 @@ package BUS;
 import DAO.KhachHangDAO;
 import DTO.KhachHang;
 import CustomFuncs.CustomDialog;
+import CustomFuncs.Regex;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -49,6 +50,15 @@ public class KhachHangBUS {
             new CustomDialog("Không được để trống số điện thoại!", CustomDialog.ERROR_DIALOG);
             return false;
         }
+        if (!Regex.ktraTen(ten)) {
+            new CustomDialog("Tên không hợp lệ!", CustomDialog.ERROR_DIALOG);
+            return false;
+        }
+        if (!Regex.ktraSoDienThoai(sdt)) {
+            new CustomDialog("Số điện thoại không hợp lệ!", CustomDialog.ERROR_DIALOG);
+            return false;
+        }
+        
         KhachHang kh = new KhachHang();
         kh.setTen(ten);
         kh.setDiaChi(diaChi);
@@ -75,6 +85,15 @@ public class KhachHangBUS {
             new CustomDialog("Không được để trống số điện thoại!", CustomDialog.ERROR_DIALOG);
             return false;
         }
+        if (!Regex.ktraTen(ten)) {
+            new CustomDialog("Tên không hợp lệ!", CustomDialog.ERROR_DIALOG);
+            return false;
+        }
+        if (!Regex.ktraSoDienThoai(sdt)) {
+            new CustomDialog("Số điện thoại không hợp lệ!", CustomDialog.ERROR_DIALOG);
+            return false;
+        }
+        
         KhachHang kh = new KhachHang();
         kh.setTen(ten);
         kh.setDiaChi(diaChi);

@@ -3,6 +3,7 @@ package BUS;
 import DAO.NhanVienDAO;
 import DTO.NhanVien;
 import CustomFuncs.CustomDialog;
+import CustomFuncs.Regex;
 import java.text.SimpleDateFormat;
 
 import java.util.ArrayList;
@@ -36,8 +37,20 @@ public class NhanVienBUS {
             new CustomDialog("Tên không được để trống!", CustomDialog.ERROR_DIALOG);
             return false;
         }
+        if (diaChi.equals("")) {
+            new CustomDialog("Địa chỉ không được để trống!", CustomDialog.ERROR_DIALOG);
+            return false;
+        }
         if (sdt.equals("")) {
             new CustomDialog("Số điện thoại không được để trống!", CustomDialog.ERROR_DIALOG);
+            return false;
+        }
+        if (!Regex.ktraTen(ten)) {
+            new CustomDialog("Tên không hợp lệ!", CustomDialog.ERROR_DIALOG);
+            return false;
+        }
+        if (!Regex.ktraSoDienThoai(sdt)) {
+            new CustomDialog("Số điện thoại không hợp lệ!", CustomDialog.ERROR_DIALOG);
             return false;
         }
         
@@ -82,6 +95,15 @@ public class NhanVienBUS {
             new CustomDialog("Số điện thoại không được để trống!", CustomDialog.ERROR_DIALOG);
             return false;
         }
+        if (!Regex.ktraTen(ten)) {
+            new CustomDialog("Tên không hợp lệ!", CustomDialog.ERROR_DIALOG);
+            return false;
+        }
+        if (!Regex.ktraSoDienThoai(sdt)) {
+            new CustomDialog("Số điện thoại không hợp lệ!", CustomDialog.ERROR_DIALOG);
+            return false;
+        }
+        
         NhanVien nv = new NhanVien();
         nv.setMaNV(maNV);
         nv.setTen(ten);
