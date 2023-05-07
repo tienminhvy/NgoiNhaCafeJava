@@ -82,8 +82,7 @@ public class LoaiDAO {
     public boolean suaLoai(int maLoai, String ten, String Mota) {
         try {
             String sql = "UPDATE loaisanpham "
-                    + "SET TenLSP=?,"
-                    + "SET Mota=?,"
+                    + "SET TenLSP=?, Mota=? "
                     + "WHERE MaLSP=" + maLoai;
             PreparedStatement pre = MyConnect.conn.prepareStatement(sql);
             pre.setString(1, ten);

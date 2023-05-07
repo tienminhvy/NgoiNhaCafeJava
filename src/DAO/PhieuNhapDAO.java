@@ -79,7 +79,7 @@ public class PhieuNhapDAO {
         boolean result = false;
         try {
             String sql = "UPDATE phieunhap "
-                    + "SET TrangThai = 0"
+                    + "SET TrangThai = 0 "
                     + "WHERE MaPN=" + maPN;
             Statement stmt = MyConnect.conn.createStatement();
             result = stmt.executeUpdate(sql) > 0;

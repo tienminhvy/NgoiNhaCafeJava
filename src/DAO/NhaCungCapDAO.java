@@ -91,7 +91,7 @@ public class NhaCungCapDAO {
         boolean result = false;
         try {
             String sql = "UPDATE nhacungcap "
-                    + "SET TrangThai = 0"
+                    + "SET TrangThai = 0 "
                     + "WHERE MaNCC=" + maNCC;
             Statement stmt = MyConnect.conn.createStatement();
             result = stmt.executeUpdate(sql) > 0;
