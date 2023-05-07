@@ -54,6 +54,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
         changLNF("Windows");
         addControlsBanHang();
         addEventsBanHang();
+        loadDataTableSanPhamBan();
     }
 
     private void addControlsBanHang() {
