@@ -71,8 +71,13 @@ public class TaiKhoanBUS {
         return flag;
     }
 
-    public void khoaTaiKhoan(String ma) {
-        int maNV = Integer.parseInt(ma);
+    public void khoaTaiKhoan(int maNV) {
+        
+        if (maNV == 0) {
+            new CustomDialog("Nhân viên chưa được cấp tài khoản!", CustomDialog.ERROR_DIALOG);
+            return;
+        }
+        
         boolean flag = taiKhoanDAO.khoaTaiKhoan(maNV);
         if (flag) {
             new CustomDialog("Khoá tài khoản thành công!", CustomDialog.SUCCESS_DIALOG);

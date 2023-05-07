@@ -576,7 +576,9 @@ public class PnQuanLyNhanVienGUI extends JPanel {
 
     private void xuLyKhoaTaiKhoan() {
         TaiKhoanBUS taiKhoanBUS = new TaiKhoanBUS();
-        taiKhoanBUS.khoaTaiKhoan(txtMaNV.getText());
+        NhanVienBUS nhanVienBUS = new NhanVienBUS();
+        int maTK = nhanVienBUS.getNhanVien(Integer.parseInt(txtMaNV.getText())).getMaTK();
+        taiKhoanBUS.khoaTaiKhoan(maTK);
         loadDataTblNhanVien(null);
     }
 
