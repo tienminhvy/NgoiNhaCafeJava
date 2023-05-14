@@ -73,11 +73,12 @@ public class DlgChonNhaCungCap extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblNhaCungCap = new Table();
+        tblNhaCungCap = new CustomFuncs.Table();
         jPanel2 = new javax.swing.JPanel();
         btnChonNCC = new javax.swing.JButton();
         btnThemNCC = new javax.swing.JButton();
         btnSuaNCC = new javax.swing.JButton();
+        btnXoaNCC = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -144,12 +145,22 @@ public class DlgChonNhaCungCap extends javax.swing.JDialog {
         });
         jPanel2.add(btnSuaNCC);
 
+        btnXoaNCC.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnXoaNCC.setText("Xoá");
+        btnXoaNCC.setPreferredSize(new java.awt.Dimension(141, 40));
+        btnXoaNCC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnXoaNCCActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnXoaNCC);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 705, Short.MAX_VALUE)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
@@ -210,10 +221,25 @@ public class DlgChonNhaCungCap extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btnSuaNCCActionPerformed
 
+    private void btnXoaNCCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaNCCActionPerformed
+        int row = tblNhaCungCap.getSelectedRow();
+        if (row < 0) {
+            new CustomDialog("Hãy chọn nhà cung cấp!", CustomDialog.ERROR_DIALOG);
+            return;
+        }
+        
+        int maNCC = Integer.parseInt(tblNhaCungCap.getValueAt(row, 0) + "");
+        
+        if (nhaCungCapBUS.xoaNhaCungCap(maNCC)) {
+            loadTableNhaCungCap();
+        }
+    }//GEN-LAST:event_btnXoaNCCActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnChonNCC;
     private javax.swing.JButton btnSuaNCC;
     private javax.swing.JButton btnThemNCC;
+    private javax.swing.JButton btnXoaNCC;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

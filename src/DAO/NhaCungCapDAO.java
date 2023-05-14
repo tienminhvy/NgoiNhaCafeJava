@@ -87,7 +87,7 @@ public class NhaCungCapDAO {
         return result;
     }
 
-    public boolean deleteNCC(int maNCC) {
+    public boolean xoaNCC(int maNCC) {
         boolean result = false;
         try {
             String sql = "UPDATE nhacungcap "

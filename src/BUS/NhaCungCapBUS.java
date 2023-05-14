@@ -45,6 +45,10 @@ public class NhaCungCapBUS {
             new CustomDialog("Hãy nhập số điện thoại!", CustomDialog.ERROR_DIALOG);
             return false;
         }
+        if (!Regex.ktraSoDienThoai(dienThoai)) {
+            new CustomDialog("Số điện thoại không hợp lệ!", CustomDialog.ERROR_DIALOG);
+            return false;
+        }
         if (fax.trim().equals("")) {
             new CustomDialog("Hãy nhập fax!", CustomDialog.ERROR_DIALOG);
             return false;
@@ -85,12 +89,15 @@ public class NhaCungCapBUS {
             new CustomDialog("Hãy nhập fax!", CustomDialog.ERROR_DIALOG);
             return false;
         }
-        Pattern pattern = Pattern.compile("^\\d{10}$");
-        if (!pattern.matcher(dienThoai).matches()) {
-            new CustomDialog("Hãy nhập số điện thoại hợp lệ!", CustomDialog.ERROR_DIALOG);
+        if (!Regex.ktraSoDienThoai(dienThoai)) {
+            new CustomDialog("Số điện thoại không hợp lệ!", CustomDialog.ERROR_DIALOG);
             return false;
         }
-
+        if (!Regex.ktraSo(fax)) {
+            new CustomDialog("Fax phải chứa ký tự số!", CustomDialog.ERROR_DIALOG);
+            return false;
+        }
+        
         int ma = Integer.parseInt(maNCC);
 
         NhaCungCap ncc = new NhaCungCap();
@@ -110,4 +117,15 @@ public class NhaCungCapBUS {
         return flag;
     }
 
+    public boolean xoaNhaCungCap(int maNCC) {
+        boolean flag = nhaCungCapDAO.xoaNCC(maNCC);
+        
+        if (flag) {
+            new CustomDialog("Xoá thành công!", CustomDialog.SUCCESS_DIALOG);
+        } else {
+            new CustomDialog("Xoá thất bại!", CustomDialog.ERROR_DIALOG);
+        }
+        
+        return flag;
+    }
 }
