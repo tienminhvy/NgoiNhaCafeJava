@@ -3,6 +3,7 @@ package BUS;
 import DAO.NhaCungCapDAO;
 import DTO.NhaCungCap;
 import CustomFuncs.CustomDialog;
+import CustomFuncs.Regex;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -32,6 +33,10 @@ public class NhaCungCapBUS {
             new CustomDialog("Hãy nhập tên nhà cung cấp!", CustomDialog.ERROR_DIALOG);
             return false;
         }
+        if (!Regex.ktraTen(tenNCC)) {
+            new CustomDialog("Tên không được chứa ký tự đặc biệt!", CustomDialog.ERROR_DIALOG);
+            return false;
+        }
         if (diaChi.trim().equals("")) {
             new CustomDialog("Hãy nhập địa chỉ!", CustomDialog.ERROR_DIALOG);
             return false;
@@ -44,9 +49,8 @@ public class NhaCungCapBUS {
             new CustomDialog("Hãy nhập fax!", CustomDialog.ERROR_DIALOG);
             return false;
         }
-        Pattern pattern = Pattern.compile("^\\d{10}$");
-        if (!pattern.matcher(dienThoai).matches()) {
-            new CustomDialog("Hãy nhập số điện thoại hợp lệ!", CustomDialog.ERROR_DIALOG);
+        if (!Regex.ktraSo(fax)) {
+            new CustomDialog("Fax phải chứa ký tự số!", CustomDialog.ERROR_DIALOG);
             return false;
         }
 

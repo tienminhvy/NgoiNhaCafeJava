@@ -236,6 +236,13 @@ public class PnQuanLyKhuyenMaiGUI extends JPanel {
                 xuLySuaKhuyenMai();
             }
         });
+        
+        btnReset.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                xuLyReset();
+            }
+        });
     }
 
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -315,5 +322,14 @@ public class PnQuanLyKhuyenMaiGUI extends JPanel {
         boolean flag = KhuyenMaiBUS.suaKhuyenMai(txtMa.getText(), txtTen.getText(), txtPhanTram.getText(), txtDieuKien.getText(), dateBD.getDate(), dateKT.getDate());
         if (flag)
             loadDataTblKhuyenMai();
+    }
+    
+    private void xuLyReset() {
+        txtMa.setText("");
+        txtTen.setText("");
+        txtPhanTram.setText("");
+        txtDieuKien.setText("");
+        dateBD.setCalendar(null);
+        dateKT.setCalendar(null);
     }
 }

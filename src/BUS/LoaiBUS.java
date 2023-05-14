@@ -3,6 +3,7 @@ package BUS;
 import DAO.LoaiDAO;
 import DTO.LoaiSP;
 import CustomFuncs.CustomDialog;
+import CustomFuncs.Regex;
 import java.util.ArrayList;
 
 public class LoaiBUS {
@@ -37,6 +38,10 @@ public class LoaiBUS {
             new CustomDialog("Không được để trống tên loại!", CustomDialog.ERROR_DIALOG);
             return false;
         }
+        if (!Regex.ktraTen(tenLoai)) {
+            new CustomDialog("Tên không được chứa ký tự đặc biệt!", CustomDialog.ERROR_DIALOG);
+            return false;
+        }
         maLoai += 1;
         LoaiSP loai = new LoaiSP(maLoai, tenLoai, MoTa);
         if (loaiDAO.themLoai(loai)) {
@@ -66,6 +71,10 @@ public class LoaiBUS {
     public boolean suaLoai(String ma, String ten, String moTa) {
         if (ten.trim().equals("")) {
             new CustomDialog("Không được để trống tên loại!", CustomDialog.ERROR_DIALOG);
+            return false;
+        }
+        if (!Regex.ktraTen(ten)) {
+            new CustomDialog("Tên không được chứa ký tự đặc biệt!", CustomDialog.ERROR_DIALOG);
             return false;
         }
         int maLoai = Integer.parseInt(ma);

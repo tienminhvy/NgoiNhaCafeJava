@@ -18,9 +18,7 @@ public class CTPhieuNhapBUS {
     }
 
     public ArrayList<CTPhieuNhap> getListPhieuNhap() {
-        if (listPhieuNhap == null) {
-            docDanhSach();
-        }
+        docDanhSach();
         return listPhieuNhap;
     }
     

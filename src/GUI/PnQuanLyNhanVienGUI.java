@@ -536,8 +536,18 @@ public class PnQuanLyNhanVienGUI extends JPanel {
             new CustomDialog("Hãy chọn nhân viên!", CustomDialog.ERROR_DIALOG);
             return;
         }
-        DlgQuyen_MatKhau dialog = new DlgQuyen_MatKhau(maNV);
-        dialog.setVisible(true);
+        try {
+            NhanVien nv = nhanVienBUS.getNhanVien(Integer.parseInt(maNV));
+            if (nv.getMaTK() == 0) {
+                new CustomDialog("Nhân viên này chưa có tài khoản!", CustomDialog.ERROR_DIALOG);
+                return;
+            }
+            DlgQuyen_MatKhau dialog = new DlgQuyen_MatKhau(nv.getMaTK()+"");
+            dialog.setVisible(true);
+        } catch (Exception e) {
+            new CustomDialog("Lỗi khi tìm nhân viên!", CustomDialog.ERROR_DIALOG);
+            System.out.println(e);
+        }
     }
 
     private void xuLyCapTaiKhoan() {

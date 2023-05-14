@@ -61,7 +61,10 @@ public class KhuyenMaiBUS {
 
             flag = khuyenMaiDAO.themKM(gg);
         } catch (Exception e) {
-            new CustomDialog("Hãy nhập số nguyên hợp lệ!", CustomDialog.ERROR_DIALOG);
+            System.out.println(e);
+            if (e instanceof NullPointerException) {
+                new CustomDialog("Ngày đã nhập không hợp lệ!", CustomDialog.ERROR_DIALOG);
+            } else new CustomDialog("Hãy nhập số nguyên hợp lệ!", CustomDialog.ERROR_DIALOG);
             return false;
         }
         if (flag) {
@@ -111,7 +114,9 @@ public class KhuyenMaiBUS {
 
             flag = khuyenMaiDAO.suaKM(gg);
         } catch (Exception e) {
-            new CustomDialog("Hãy nhập số nguyên hợp lệ!", CustomDialog.ERROR_DIALOG);
+            if (e instanceof NullPointerException) {
+                new CustomDialog("Ngày đã nhập không hợp lệ!", CustomDialog.ERROR_DIALOG);
+            } else new CustomDialog("Hãy nhập số nguyên hợp lệ!", CustomDialog.ERROR_DIALOG);
             return false;
         }
         if (flag) {

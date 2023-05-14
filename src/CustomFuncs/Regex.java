@@ -22,10 +22,32 @@ public class Regex {
         return check;
     }
     
+    public static boolean ktraSo(String st) {
+        
+        rgx = "[0-9]+";
+        
+        check = st.matches(rgx);
+        
+        return check;
+    }
+    
     public static boolean ktraTen(String st) {
+        // không chứa ký tự đặc biệt
+        rgx = "[^!@#$%^&*()\\/]+";
+        check = st.matches(rgx);
+        
+        return check;
+    }
+    
+    public static boolean ktraTenKhongChuaSo(String st) {
         rgx = "[0-9!-\\/]+";
         
+        // không chứa số
         check = !st.matches(rgx);
+        
+        // không chứa ký tự đặc biệt
+        rgx = "[^!@#$%^&*()]+";
+        check = st.matches(rgx);
         
         return check;
     }

@@ -41,7 +41,9 @@ public class PnQuanLyBanHangGUI extends JPanel {
     JTextField txtMaSPBanHang, txtTenSPBanHang, txtDonGiaBanHang;
     JSpinner spnSoLuongBanHang;
     JComboBox<String> cmbLoaiSPBanHang, cmbNhanVienBan;
-    JLabel btnThemVaoGio, lblAnhSP, btnXoaSPGioHang, btnXuatHoaDonSP;
+    JLabel lblAnhSP;
+    
+    JButton btnThemVaoGio, btnXuatHoaDonSP, btnXoaSPGioHang;
 
     JTextField txtMaHD, txtNgayLap, txtMaKH, txtMaNV, txtTongTien, txtMaKM, txtMaHDCT, txtMaSPCT, txtSoLuongCT, txtDonGiaCT, txtThanhTienCT;
     JTextField txtMinSearch, txtMaxSearch, txtMinNgayLap, txtMaxNgayLap;
@@ -230,7 +232,8 @@ public class PnQuanLyBanHangGUI extends JPanel {
         pnThongTinBanHang.add(pnNhanVienBan);
 
         JPanel pnButtonBan = new TransparentPanel();
-        btnThemVaoGio = new JLabel("Thêm vào giỏ");
+        btnThemVaoGio = new JButton("Thêm vào giỏ");
+        btnThemVaoGio.setPreferredSize(new Dimension(160, 40));
         pnButtonBan.add(btnThemVaoGio);
         pnThongTinBanHang.add(pnButtonBan);
 
@@ -257,18 +260,20 @@ public class PnQuanLyBanHangGUI extends JPanel {
         pnAnhSanPham.add(lblAnhSP);
 
         JPanel pnButtonBanHang = new TransparentPanel();
-        btnXoaSPGioHang = new JLabel("Xoá");
-        btnXuatHoaDonSP = new JLabel("Xuất hoá đơn");
+        btnXoaSPGioHang = new JButton("Xoá");
+        btnThemVaoGio.setPreferredSize(new Dimension(80, 40));
+        btnXuatHoaDonSP = new JButton("Xuất hoá đơn");
+        btnThemVaoGio.setPreferredSize(new Dimension(160, 40));
         pnButtonBanHang.setPreferredSize(new Dimension((int) pnThongTinBanHang.getPreferredSize().getWidth(), 50));
 
         //<editor-fold defaultstate="collapsed" desc="Action cho button">
-        ArrayList<JLabel> btnSPList = new ArrayList();
+        ArrayList<JButton> btnSPList = new ArrayList();
         btnSPList.add(btnThemVaoGio);
         btnSPList.add(btnXoaSPGioHang);
         btnSPList.add(btnXuatHoaDonSP);
-        for (JLabel lbl : btnSPList) {
+        for (JButton lbl : btnSPList) {
             lbl.setFont(font);
-            lbl.setForeground(Color.white);
+            lbl.setForeground(Color.black);
             lbl.setIcon(new ImageIcon("image/ManagerUI/btn-BanHang.png"));
             lbl.setHorizontalTextPosition(JLabel.CENTER);
             lbl.setVerticalTextPosition(JLabel.CENTER);
@@ -356,7 +361,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
         lblMaKM = new JLabel("Mã khuyến mãi    ");
         lblMinsearch = new JLabel("Giá từ:");
         lblMaxSearch = new JLabel("đến:");
-        lblMinNgay = new JLabel("Ngày lập từ:");
+        lblMinNgay = new JLabel("Lập từ:");
         lblMaxNgay = new JLabel("đến:");
 
         txtMaHD = new JTextField(10);
@@ -450,7 +455,7 @@ public class PnQuanLyBanHangGUI extends JPanel {
         lblMaNV.setPreferredSize(lblHoaDonSize);
         lblTongTien.setPreferredSize(lblHoaDonSize);
         lblMaKM.setPreferredSize(lblHoaDonSize);
-        lblMinsearch.setPreferredSize(lblMinNgay.getPreferredSize());
+//        lblMinsearch.setPreferredSize(lblMinNgay.getPreferredSize());
 
         txtMaHD.setEditable(false);
         txtMaKH.setEditable(false);

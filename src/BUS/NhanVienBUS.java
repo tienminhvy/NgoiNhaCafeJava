@@ -49,7 +49,7 @@ public class NhanVienBUS {
             new CustomDialog("Số điện thoại không được để trống!", CustomDialog.ERROR_DIALOG);
             return false;
         }
-        if (!Regex.ktraTen(ten)) {
+        if (!Regex.ktraTenKhongChuaSo(ten)) {
             new CustomDialog("Tên không hợp lệ!", CustomDialog.ERROR_DIALOG);
             return false;
         }
@@ -99,7 +99,7 @@ public class NhanVienBUS {
             new CustomDialog("Số điện thoại không được để trống!", CustomDialog.ERROR_DIALOG);
             return false;
         }
-        if (!Regex.ktraTen(ten)) {
+        if (!Regex.ktraTenKhongChuaSo(ten)) {
             new CustomDialog("Tên không hợp lệ!", CustomDialog.ERROR_DIALOG);
             return false;
         }

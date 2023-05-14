@@ -62,6 +62,8 @@ public class TaiKhoanBUS {
         if (flag) {
             
             new NhanVienDAO().updateTaiKhoanNV(maNV, tenDangNhap);
+            System.out.println(quyen);
+            System.out.println(new PhanQuyenDAO().getMaQuyen(quyen));
             taiKhoanDAO.themQuyen(taiKhoanDAO.getMaTK(tenDangNhap), new PhanQuyenDAO().getMaQuyen(quyen));
             
             new CustomDialog("Cấp tài khoản thành công! Mật khẩu là " + tenDangNhap, CustomDialog.SUCCESS_DIALOG);

@@ -50,7 +50,7 @@ public class KhachHangBUS {
             new CustomDialog("Không được để trống số điện thoại!", CustomDialog.ERROR_DIALOG);
             return false;
         }
-        if (!Regex.ktraTen(ten)) {
+        if (!Regex.ktraTenKhongChuaSo(ten)) {
             new CustomDialog("Tên không hợp lệ!", CustomDialog.ERROR_DIALOG);
             return false;
         }
@@ -85,7 +85,7 @@ public class KhachHangBUS {
             new CustomDialog("Không được để trống số điện thoại!", CustomDialog.ERROR_DIALOG);
             return false;
         }
-        if (!Regex.ktraTen(ten)) {
+        if (!Regex.ktraTenKhongChuaSo(ten)) {
             new CustomDialog("Tên không hợp lệ!", CustomDialog.ERROR_DIALOG);
             return false;
         }

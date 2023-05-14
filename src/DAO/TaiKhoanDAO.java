@@ -80,13 +80,14 @@ public class TaiKhoanDAO {
 
     public boolean themQuyen(int maTK, int maQuyen) {
         try {
-            String sql = "INSERT FROM quyentaikhoan(MaQuyen, MaTK) "
+            String sql = "INSERT INTO quyentaikhoan(MaQuyen, MaTK) "
                     + "VALUES (?,?)";
             PreparedStatement pre = MyConnect.conn.prepareStatement(sql);
             pre.setInt(1, maQuyen);
             pre.setInt(2, maTK);
             return pre.executeUpdate() > 0;
         } catch (Exception e) {
+            System.out.println(e);
         }
         return false;
     }

@@ -37,6 +37,7 @@ public class DlgQuyen_MatKhau extends javax.swing.JDialog {
             new CustomDialog("Nhân viên này chưa có tài khoản!", CustomDialog.ERROR_DIALOG);
             btnCapMatKhau.setEnabled(false);
             btnLuuQuyen.setEnabled(false);
+            this.dispose();
         }
         txtMatKhau_TenDangNhap.setText(tenDangNhap);
 

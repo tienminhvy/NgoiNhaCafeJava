@@ -3,6 +3,7 @@ package BUS;
 import DAO.SanPhamDAO;
 import DTO.SanPham;
 import CustomFuncs.CustomDialog;
+import CustomFuncs.Regex;
 
 import java.util.ArrayList;
 
@@ -42,6 +43,7 @@ public class SanPhamBUS {
     }
 
     public ArrayList<SanPham> getSanPhamTheoTen(String ten) {
+        System.out.println(ten);
         ArrayList<SanPham> dssp = new ArrayList<>();
         for (SanPham sp : listSanPham) {
             String tenSP = sp.getTenSP().toLowerCase();
@@ -83,9 +85,14 @@ public class SanPhamBUS {
             String soLuong,
             String anh,
             String donGia) {
-
+        
         if (ten.trim().equals("")) {
             new CustomDialog("Tên SP không được để rỗng!", CustomDialog.ERROR_DIALOG);
+            return false;
+        }
+        
+        if (!Regex.ktraTen(ten)) {
+            new CustomDialog("Tên SP không được chứa ký tự đặc biệt!", CustomDialog.ERROR_DIALOG);
             return false;
         }
 
@@ -161,6 +168,11 @@ public class SanPhamBUS {
 
             if (ten.trim().equals("")) {
                 new CustomDialog("Tên SP không được để rỗng!", CustomDialog.ERROR_DIALOG);
+                return false;
+            }
+            
+            if (!Regex.ktraTen(ten)) {
+                new CustomDialog("Tên SP không được chứa ký tự đặc biệt!", CustomDialog.ERROR_DIALOG);
                 return false;
             }
 

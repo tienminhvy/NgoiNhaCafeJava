@@ -88,7 +88,7 @@ public class PnQuanLySanPhamGUI extends JPanel {
         lblMa = new JLabel("Mã SP");
         lblTen = new JLabel("Tên SP");
         lblLoai = new JLabel("Loại");
-        lblSoLuong = new JLabel("Số lượng   ");
+        lblSoLuong = new JLabel("Số lượng     ");
         lblDonGia = new JLabel("Đơn giá");
 
         txtMa = new JTextField(15);

@@ -267,7 +267,7 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
         jLabel1.setText("Kho hàng");
         jPanel2.add(jLabel1);
 
-        btnResetKho.setIcon(new javax.swing.ImageIcon("D:\\workspace\\java\\NgoiNhaCafeJava\\image\\Refresh-icon.png")); // NOI18N
+        btnResetKho.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Refresh-icon.png"))); // NOI18N
         btnResetKho.setPreferredSize(new java.awt.Dimension(80, 40));
         btnResetKho.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1086,6 +1086,8 @@ public class PnQuanLyNhapHangGUI extends javax.swing.JPanel {
             dtmGioNhap.setRowCount(0);
             sanPhamBUS.docListSanPham();
             loadDataTableKho();
+            loadDataTablePhieuNhap();
+            loadDataTableCTPhieuNhap();
         }
     }//GEN-LAST:event_btnXacNhanActionPerformed
 
