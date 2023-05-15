@@ -46,7 +46,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
     JTextField txtMaNV, txtTen, txtNgayTao, txtSDT, txtTimNV, txtDiaChi;
     Table tblNhanVien;
     DefaultTableModel dtmNhanVien;
-    JButton btnReset, btnThemNV, btnSuaNV, btnXoaNV, btnTimNV, btnCapTaiKhoan, btnResetMatKhau, btnXoaTaiKhoan;
+    JButton btnReset, btnThemNV, btnSuaNV, btnXoaNV, btnTimNV, btnCapTaiKhoan, btnResetMatKhau, btnKhoaTaiKhoan;
 
     private void addControlsNhanVien() {
         this.setLayout(new BorderLayout());
@@ -184,16 +184,16 @@ public class PnQuanLyNhanVienGUI extends JPanel {
         JPanel pnButton2 = new TransparentPanel();
         btnCapTaiKhoan = new JButton("Cấp tài khoản");
         btnResetMatKhau = new JButton("Mật khẩu/Quyền");
-        btnXoaTaiKhoan = new JButton("Khoá tài khoản");
+        btnKhoaTaiKhoan = new JButton("Khoá tài khoản");
         btnCapTaiKhoan.setIcon(new ImageIcon("image/icons8_man_with_key_32px.png"));
         btnResetMatKhau.setIcon(new ImageIcon("image/icons8_password_reset_32px.png"));
-        btnXoaTaiKhoan.setIcon(new ImageIcon("image/icons8_denied_32px.png"));
+        btnKhoaTaiKhoan.setIcon(new ImageIcon("image/icons8_denied_32px.png"));
         btnCapTaiKhoan.setFont(fontButton);
         btnResetMatKhau.setFont(fontButton);
-        btnXoaTaiKhoan.setFont(fontButton);
+        btnKhoaTaiKhoan.setFont(fontButton);
         pnButton2.add(btnCapTaiKhoan);
         pnButton2.add(btnResetMatKhau);
-        pnButton2.add(btnXoaTaiKhoan);
+        pnButton2.add(btnKhoaTaiKhoan);
 
         pnNhanVien.add(pnTopNV);
         pnNhanVien.add(pnButton);
@@ -393,7 +393,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
             }
         });
 
-        btnXoaTaiKhoan.addActionListener(new ActionListener() {
+        btnKhoaTaiKhoan.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 xuLyKhoaTaiKhoan();
