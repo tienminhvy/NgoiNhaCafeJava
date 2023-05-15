@@ -91,7 +91,7 @@ public class TaiKhoanBUS {
     public void moKhoaTaiKhoan(String ma) {
         int maNV = Integer.parseInt(ma);
         
-        boolean flag = taiKhoanDAO.moKhoaTaiKhoan(maNV);
+        boolean flag = taiKhoanDAO.moKhoaTaiKhoan(new NhanVienDAO().getNhanVien(maNV).getMaTK());
         if (flag) {
             new CustomDialog("Mở khoá tài khoản thành công!", CustomDialog.SUCCESS_DIALOG);
         } else {

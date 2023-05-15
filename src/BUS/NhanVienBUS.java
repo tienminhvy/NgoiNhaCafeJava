@@ -31,11 +31,10 @@ public class NhanVienBUS {
         return this.listNhanVien;
     }
 
-    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-    
-    public boolean themNhanVien(String ten, String ngaySinh, String diaChi, String sdt) {
+   SimpleDateFormat   sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+    public boolean themNhanVien(String ten, Date ngaySinh, String diaChi, String sdt) {
         ten = ten.trim();
-        ngaySinh = ngaySinh.trim();
         sdt = sdt.trim();
         if (ten.equals("")) {
             new CustomDialog("Tên không được để trống!", CustomDialog.ERROR_DIALOG);
@@ -61,15 +60,17 @@ public class NhanVienBUS {
         NhanVien nv = new NhanVien();
         nv.setTen(ten);
         Date d;
-        sdf = new SimpleDateFormat("dd/MM/yyyy");
         try {
-            d = sdf.parse(ngaySinh);
-            sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            nv.setNgaySinh(sdf.format(d));
-        } catch (Exception ex) {
+            nv.setNgaySinh(sdf.format(ngaySinh));
+        } catch (Exception e) {
             d = new Date();
-            sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             nv.setNgaySinh(sdf.format(d));
+            
+            System.out.println(e);
+            if (e instanceof NullPointerException) {
+                new CustomDialog("Ngày đã nhập không hợp lệ!", CustomDialog.ERROR_DIALOG);
+            } 
+            return false;
         }
         nv.setDiaChi(diaChi);
         nv.setSdt(sdt);
@@ -82,10 +83,9 @@ public class NhanVienBUS {
         return flag;
     }
 
-    public boolean updateNhanVien(String ma, String ten, String ngaySinh, String diaChi, String sdt) {
+    public boolean updateNhanVien(String ma, String ten, Date ngaySinh, String diaChi, String sdt) {
         int maNV = Integer.parseInt(ma);
         ten = ten.trim();
-        ngaySinh = ngaySinh.trim();
         diaChi = diaChi.trim();
         if (ten.equals("")) {
             new CustomDialog("Tên không được để trống!", CustomDialog.ERROR_DIALOG);
@@ -112,17 +112,13 @@ public class NhanVienBUS {
         nv.setMaNV(maNV);
         nv.setTen(ten);
         
-        Date d;
-        sdf = new SimpleDateFormat("dd/MM/yyyy");
         try {
-            d = sdf.parse(ngaySinh);
-            sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            nv.setNgaySinh(sdf.format(d));
-        } catch (Exception ex) {
-            d = new Date();
-            sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            nv.setNgaySinh(sdf.format(d));
-        }
+            nv.setNgaySinh(sdf.format(ngaySinh));
+        } catch (Exception e) {
+              if (e instanceof NullPointerException) {
+                new CustomDialog("Ngày đã nhập không hợp lệ!", CustomDialog.ERROR_DIALOG);
+            } 
+            return false;     }
         
         nv.setDiaChi(diaChi);
         nv.setSdt(sdt);
