@@ -417,7 +417,6 @@ public class PnQuanLySanPhamGUI extends JPanel {
 
     private void xuLyThemSanPham() {
         String anh = fileAnhSP.getName();
-        System.out.println(fileAnhSP.getName());
         boolean flag = spBUS.themSanPham(txtTen.getText(),
                 cmbLoai.getSelectedItem() + "",
                 txtsoLuong.getText(),

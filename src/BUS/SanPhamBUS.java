@@ -21,9 +21,7 @@ public class SanPhamBUS {
     }
 
     public ArrayList<SanPham> getListSanPham() {
-        if (listSanPham == null) {
-            docListSanPham();
-        }
+        docListSanPham();
         return listSanPham;
     }
 
@@ -99,6 +97,7 @@ public class SanPhamBUS {
         try {
             String[] loaiTmp = loai.split(" - ");
             int maLoai = Integer.parseInt(loaiTmp[0]);
+            soLuong = soLuong.replace(",", "");
             int soLuongSP = Integer.parseInt(soLuong);
             donGia = donGia.replace(",", "");
             int donGiaSP = Integer.parseInt(donGia);
@@ -158,7 +157,9 @@ public class SanPhamBUS {
             int maSP = Integer.parseInt(ma);
             String[] loaiTmp = loai.split(" - ");
             int maLoai = Integer.parseInt(loaiTmp[0]);
+            soLuong = soLuong.replace(",", "");
             int soLuongSP = Integer.parseInt(soLuong);
+            donGia = donGia.replace(",", "");
             int donGiaSP = Integer.parseInt(donGia);
 
             if (maLoai == 0) {
