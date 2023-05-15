@@ -46,7 +46,7 @@ public class DlgKM extends JDialog {
     }
 
     private JTextField txtTuKhoa;
-    private JTable tblMaGiam;
+    private JTable tblMaKM;
     private DefaultTableModel dtmKM;
     private JButton btnChon, btnThoat;
 
@@ -60,8 +60,8 @@ public class DlgKM extends JDialog {
         txtTuKhoa = new JTextField(20);
         lblTuKhoa.setFont(font);
         txtTuKhoa.setFont(font);
-        pnTop.add(lblTuKhoa);
-        pnTop.add(txtTuKhoa);
+//        pnTop.add(lblTuKhoa);
+//        pnTop.add(txtTuKhoa);
         con.add(pnTop, BorderLayout.NORTH);
 
         JPanel pnTable = new JPanel();
@@ -74,8 +74,8 @@ public class DlgKM extends JDialog {
         dtmKM.addColumn("Bắt đầu");
         dtmKM.addColumn("Kết thúc");
         dtmKM.addColumn("Trạng thái");
-        tblMaGiam = new Table(dtmKM);
-        JScrollPane scrMaGiam = new JScrollPane(tblMaGiam);
+        tblMaKM = new Table(dtmKM);
+        JScrollPane scrMaGiam = new JScrollPane(tblMaKM);
         pnTable.add(scrMaGiam, BorderLayout.CENTER);
         con.add(pnTable, BorderLayout.CENTER);
 
@@ -88,7 +88,7 @@ public class DlgKM extends JDialog {
         pnButton.add(btnThoat);
         con.add(pnButton, BorderLayout.SOUTH);
 
-        TableColumnModel columnModelBanHang = tblMaGiam.getColumnModel();
+        TableColumnModel columnModelBanHang = tblMaKM.getColumnModel();
         columnModelBanHang.getColumn(0).setPreferredWidth(56);
         columnModelBanHang.getColumn(1).setPreferredWidth(213);
         columnModelBanHang.getColumn(2).setPreferredWidth(30);
@@ -97,8 +97,8 @@ public class DlgKM extends JDialog {
         columnModelBanHang.getColumn(5).setPreferredWidth(61);
         DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
         rightRenderer.setHorizontalAlignment(JLabel.RIGHT);
-        tblMaGiam.getColumnModel().getColumn(2).setCellRenderer(rightRenderer);
-        tblMaGiam.getColumnModel().getColumn(3).setCellRenderer(rightRenderer);
+        tblMaKM.getColumnModel().getColumn(2).setCellRenderer(rightRenderer);
+        tblMaKM.getColumnModel().getColumn(3).setCellRenderer(rightRenderer);
 
         btnChon.setPreferredSize(new Dimension(120, 40));
         btnThoat.setPreferredSize(btnChon.getPreferredSize());
@@ -130,17 +130,17 @@ public class DlgKM extends JDialog {
     }
 
     private void xuLyChonMaGiam() {
-        int row = tblMaGiam.getSelectedRow();
+        int row = tblMaKM.getSelectedRow();
         if (row > -1) {
-            if (tblMaGiam.getValueAt(row, 6).equals("Không hiệu lực")) {
+            if (tblMaKM.getValueAt(row, 6).equals("Không hiệu lực")) {
                 new CustomDialog("Khuyến mãi này đã hết hiệu lực!", CustomDialog.ERROR_DIALOG);
                 loadDataLenTable();
                 return;
             }
-            int ma = Integer.parseInt(tblMaGiam.getValueAt(row, 0) + "");
-            String ten = tblMaGiam.getValueAt(row, 1) + "";
-            int phanTram = Integer.parseInt(tblMaGiam.getValueAt(row, 2) + "");
-            String dieuKienst = tblMaGiam.getValueAt(row, 3) + "";
+            int ma = Integer.parseInt(tblMaKM.getValueAt(row, 0) + "");
+            String ten = tblMaKM.getValueAt(row, 1) + "";
+            int phanTram = Integer.parseInt(tblMaKM.getValueAt(row, 2) + "");
+            String dieuKienst = tblMaKM.getValueAt(row, 3) + "";
             dieuKienst = dieuKienst.replace(">", "");
             dieuKienst = dieuKienst.replace(",", "");
             int dieuKien = Integer.parseInt(dieuKienst);
@@ -150,8 +150,8 @@ public class DlgKM extends JDialog {
                 return;
             }
 
-            String ngayBD = tblMaGiam.getValueAt(row, 4) + "";
-            String ngayKT = tblMaGiam.getValueAt(row, 5) + "";
+            String ngayBD = tblMaKM.getValueAt(row, 4) + "";
+            String ngayKT = tblMaKM.getValueAt(row, 5) + "";
 
             kmTimDuoc = new KhuyenMai();
             kmTimDuoc.setMaKM(ma);
@@ -203,7 +203,7 @@ public class DlgKM extends JDialog {
     }
 
     private void loadDataLenTable(String tuKhoa) {
-        TableColumnModel columnModelBanHang = tblMaGiam.getColumnModel();
+        TableColumnModel columnModelBanHang = tblMaKM.getColumnModel();
 
     }
 
