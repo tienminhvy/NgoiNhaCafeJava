@@ -12,6 +12,7 @@ import BUS.PhanQuyenBUS;
 import BUS.TaiKhoanBUS;
 import DTO.NhanVien;
 import DTO.PhanQuyen;
+import com.toedter.calendar.JDateChooser;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -42,8 +43,8 @@ public class PnQuanLyNhanVienGUI extends JPanel {
 
     private PhanQuyenBUS phanQuyenBUS = new PhanQuyenBUS();
     private NhanVienBUS nhanVienBUS = new NhanVienBUS();
-
-    JTextField txtMaNV, txtTen, txtNgayTao, txtSDT, txtTimNV, txtDiaChi;
+    JDateChooser dateNgaySinh;
+    JTextField txtMaNV, txtTen, txtSDT, txtTimNV, txtDiaChi;
     Table tblNhanVien;
     DefaultTableModel dtmNhanVien;
     JButton btnReset, btnThemNV, btnSuaNV, btnXoaNV, btnTimNV, btnCapTaiKhoan, btnResetMatKhau, btnKhoaTaiKhoan;
@@ -53,8 +54,6 @@ public class PnQuanLyNhanVienGUI extends JPanel {
         int w = 1030;
         int h = 844;
         Font font = new Font("", Font.PLAIN, 20);
-
-
 
         /*
         =========================================================================
@@ -77,18 +76,20 @@ public class PnQuanLyNhanVienGUI extends JPanel {
         //==========
         JPanel pnText = new TransparentPanel();
         pnText.setLayout(new BoxLayout(pnText, BoxLayout.Y_AXIS));
-        
+
         txtMaNV = new JTextField(25);
         txtMaNV.setEditable(false);
         txtTen = new JTextField(25);
-        txtNgayTao = new JTextField(25);
-        txtNgayTao.setEditable(false);
+        dateNgaySinh = new JDateChooser();
+        dateNgaySinh.setDateFormatString("yyyy-MM-dd HH:mm:ss");
+        dateNgaySinh.getCalendarButton().setPreferredSize(new Dimension(32, 32));
+
         txtDiaChi = new JTextField(25);
         txtSDT = new JTextField(25);
 
         txtMaNV.setFont(font);
         txtTen.setFont(font);
-        txtNgayTao.setFont(font);
+        dateNgaySinh.setFont(font);
         txtDiaChi.setFont(font);
         txtSDT.setFont(font);
 
@@ -96,10 +97,10 @@ public class PnQuanLyNhanVienGUI extends JPanel {
 
         lblMa = new JLabel("Mã Nhân viên");
         lblTen = new JLabel("Tên");
-        lblNgayTao = new JLabel("Ngày tạo");
+        lblNgayTao = new JLabel("Ngày sinh");
         lblDiaChi = new JLabel("Địa chỉ");
         lblChucVu = new JLabel("SĐT");
-        
+
         lblMa.setFont(font);
         lblTen.setFont(font);
         lblNgayTao.setFont(font);
@@ -118,7 +119,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
 
         JPanel pnTen = new TransparentPanel();
         pnTen.add(lblNgayTao);
-        pnTen.add(txtNgayTao);
+        pnTen.add(dateNgaySinh);
         pnText.add(pnTen);
 
         JPanel pnGioiTinh = new TransparentPanel();
@@ -138,6 +139,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
         lblDiaChi.setPreferredSize(lblSize);
         lblChucVu.setPreferredSize(lblSize);
         txtDiaChi.setPreferredSize(txtSDT.getPreferredSize());
+        dateNgaySinh.setPreferredSize(txtSDT.getPreferredSize());
 
         pnTopNV.add(pnText);
 
@@ -209,10 +211,10 @@ public class PnQuanLyNhanVienGUI extends JPanel {
         dtmNhanVien.addColumn("SĐT");
         dtmNhanVien.addColumn("Tài khoản");
         tblNhanVien = new Table(dtmNhanVien);
-        
+
         tblNhanVien.setDefaultEditor(Object.class, null);
         tblNhanVien.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-        
+
         JScrollPane scrTblNhanVien = new JScrollPane(tblNhanVien);
         pnTableNhanVien.add(scrTblNhanVien, BorderLayout.CENTER);
         pnNhanVien.add(scrTblNhanVien);
@@ -298,13 +300,13 @@ public class PnQuanLyNhanVienGUI extends JPanel {
                                     PANEL TABBED
         =========================================================================
          */
-        JTabbedPane tp=new JTabbedPane();  
-        tp.add("Nhân viên",pnNhanVien);
-        tp.add("Quyền",pnPhanQuyen);
+        JTabbedPane tp = new JTabbedPane();
+        tp.add("Nhân viên", pnNhanVien);
+        tp.add("Quyền", pnPhanQuyen);
         tp.setFont(font);
-     
+
         loadDataTblNhanVien(null);
-        
+
         loadDataCmbQuyen();
         this.add(tp);
         this.repaint();
@@ -378,7 +380,6 @@ public class PnQuanLyNhanVienGUI extends JPanel {
             }
         });
 
-
         btnCapTaiKhoan.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -406,7 +407,8 @@ public class PnQuanLyNhanVienGUI extends JPanel {
                 loadDataTblNhanVien(null);
                 txtMaNV.setText("");
                 txtTen.setText("");
-                txtNgayTao.setText("");
+                dateNgaySinh.setCalendar(null);
+
                 txtSDT.setText("");
                 txtTimNV.setText("");
                 txtDiaChi.setText("");
@@ -542,7 +544,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
                 new CustomDialog("Nhân viên này chưa có tài khoản!", CustomDialog.ERROR_DIALOG);
                 return;
             }
-            DlgQuyen_MatKhau dialog = new DlgQuyen_MatKhau(nv.getMaTK()+"");
+            DlgQuyen_MatKhau dialog = new DlgQuyen_MatKhau(nv.getMaTK() + "");
             dialog.setVisible(true);
         } catch (Exception e) {
             new CustomDialog("Lỗi khi tìm nhân viên!", CustomDialog.ERROR_DIALOG);
@@ -584,7 +586,8 @@ public class PnQuanLyNhanVienGUI extends JPanel {
         }
         String ma = txtMaNV.getText();
         String ten = txtTen.getText();
-        String ngaySinh = txtNgayTao.getText();
+        Date ngaySinh = dateNgaySinh.getDate();
+
         String diaChi = txtDiaChi.getText();
         String sdt = txtSDT.getText();
         if (nhanVienBUS.updateNhanVien(ma, ten, ngaySinh, diaChi, sdt)) {
@@ -599,7 +602,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
             return;
         }
         String ten = txtTen.getText();
-        String ngaySinh = txtNgayTao.getText();
+        Date ngaySinh = dateNgaySinh.getDate();
         String diaChi = txtDiaChi.getText();
         String sdt = txtSDT.getText();
         if (nhanVienBUS.themNhanVien(ten, ngaySinh, diaChi, sdt)) {
@@ -615,7 +618,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
     }
 
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    
+
     private void xuLyClickTblNhanVien() {
         int row = tblNhanVien.getSelectedRow();
         if (row > -1) {
@@ -624,12 +627,9 @@ public class PnQuanLyNhanVienGUI extends JPanel {
             Date d;
             try {
                 d = sdf.parse(tblNhanVien.getValueAt(row, 2) + "");
-                sdf = new SimpleDateFormat("dd/MM/yyyy");
-                txtNgayTao.setText(sdf.format(d));
+                dateNgaySinh.setDate(d);
             } catch (Exception ex) {
-                d = new Date();
-                sdf = new SimpleDateFormat("dd/MM/yyyy");
-                txtNgayTao.setText(sdf.format(d));
+                dateNgaySinh.setDate(null);
             }
             txtSDT.setText(tblNhanVien.getValueAt(row, 4) + "");
 
@@ -639,28 +639,25 @@ public class PnQuanLyNhanVienGUI extends JPanel {
 
     private void loadDataTblNhanVien(ArrayList<NhanVien> dsnv) {
         dtmNhanVien.setRowCount(0);
-        if (dsnv == null)
+        if (dsnv == null) {
             dsnv = nhanVienBUS.getDanhSachNhanVien();
+        }
 
         for (NhanVien nv : dsnv) {
             Vector vec = new Vector();
             vec.add(nv.getMaNV());
             vec.add(nv.getTen());
-            Date d;
-            sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             try {
-                d = sdf.parse(nv.getNgaySinh());
-                sdf = new SimpleDateFormat("dd/MM/yyyy");
+                Date d = sdf.parse(nv.getNgaySinh());
                 vec.add(sdf.format(d));
             } catch (Exception ex) {
-                d = new Date();
-                sdf = new SimpleDateFormat("dd/MM/yyyy");
-                vec.add(sdf.format(d));
+
+                vec.add(null);
             }
             vec.add(nv.getDiaChi());
             vec.add(nv.getSdt());
             int trangThai = taiKhoanBUS.getTrangThai(nv.getMaTK() + "");
-            
+
             if (nv.getMaTK() == 0) {
                 vec.add("Không khả dụng");
             } else if (trangThai == 0) {
@@ -668,7 +665,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
             } else if (trangThai == 1) {
                 vec.add("Khả dụng");
             }
-            
+
             dtmNhanVien.addRow(vec);
         }
     }

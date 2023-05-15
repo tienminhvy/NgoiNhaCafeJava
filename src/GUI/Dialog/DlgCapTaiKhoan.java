@@ -2,6 +2,9 @@ package GUI.Dialog;
 
 import BUS.PhanQuyenBUS;
 import BUS.TaiKhoanBUS;
+import DAO.NhanVienDAO;
+import DAO.TaiKhoanDAO;
+import DTO.NhanVien;
 import DTO.PhanQuyen;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -9,6 +12,7 @@ import java.util.ArrayList;
 import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 
 public class DlgCapTaiKhoan extends javax.swing.JDialog {
+    private TaiKhoanDAO taiKhoanDAO = new TaiKhoanDAO();
 
     private String maNV;
 
@@ -21,7 +25,21 @@ public class DlgCapTaiKhoan extends javax.swing.JDialog {
         this.setModal(true);
         Image icon = Toolkit.getDefaultToolkit().getImage("image/ManagerUI/icon-app.png");
         this.setIconImage(icon);
+        String tenDN=null;
 
+        try {
+           int maTK=   new NhanVienDAO().getNhanVien(Integer.parseInt(maNV) ).getMaTK();
+            tenDN= taiKhoanDAO.getTenDangNhapTheoMa(maTK);
+
+        } catch (Exception e) {
+        }
+        if(tenDN!=null && tenDN.trim()!="")
+        {
+            System.out.println("hi"+tenDN + "23");
+          txtTenDangNhap.setText(tenDN);
+          txtTenDangNhap.setEditable(false);
+
+        }
         txtMaNV.setText(maNV);
         loadDataCmbQuyen();
     }
@@ -97,8 +115,8 @@ public class DlgCapTaiKhoan extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(pnInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtMaNV)
-                    .addComponent(txtTenDangNhap, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
-                    .addComponent(cmbQuyen, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cmbQuyen, 0, 278, Short.MAX_VALUE)
+                    .addComponent(txtTenDangNhap, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pnInfoLayout.setVerticalGroup(
