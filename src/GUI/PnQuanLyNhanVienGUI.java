@@ -93,17 +93,17 @@ public class PnQuanLyNhanVienGUI extends JPanel {
         txtDiaChi.setFont(font);
         txtSDT.setFont(font);
 
-        JLabel lblMa, lblTen, lblNgayTao, lblDiaChi, lblChucVu;
+        JLabel lblMa, lblTen, lblNgaySinh, lblDiaChi, lblChucVu;
 
         lblMa = new JLabel("Mã Nhân viên");
         lblTen = new JLabel("Tên");
-        lblNgayTao = new JLabel("Ngày sinh");
+        lblNgaySinh = new JLabel("Ngày sinh");
         lblDiaChi = new JLabel("Địa chỉ");
         lblChucVu = new JLabel("SĐT");
 
         lblMa.setFont(font);
         lblTen.setFont(font);
-        lblNgayTao.setFont(font);
+        lblNgaySinh.setFont(font);
         lblDiaChi.setFont(font);
         lblChucVu.setFont(font);
 
@@ -118,7 +118,7 @@ public class PnQuanLyNhanVienGUI extends JPanel {
         pnText.add(pnHo);
 
         JPanel pnTen = new TransparentPanel();
-        pnTen.add(lblNgayTao);
+        pnTen.add(lblNgaySinh);
         pnTen.add(dateNgaySinh);
         pnText.add(pnTen);
 
@@ -132,15 +132,19 @@ public class PnQuanLyNhanVienGUI extends JPanel {
         pnChucVu.add(txtSDT);
         pnText.add(pnChucVu);
 
-        Dimension lblSize = new Dimension(130, 26);
+        Dimension lblSize = new Dimension(150, 26);
         lblMa.setPreferredSize(lblSize);
         lblTen.setPreferredSize(lblSize);
-        lblNgayTao.setPreferredSize(lblSize);
+        lblNgaySinh.setPreferredSize(lblSize);
         lblDiaChi.setPreferredSize(lblSize);
         lblChucVu.setPreferredSize(lblSize);
-        txtDiaChi.setPreferredSize(txtSDT.getPreferredSize());
-        dateNgaySinh.setPreferredSize(txtSDT.getPreferredSize());
-
+        Dimension txtSize = new Dimension(400, 32);
+        txtMaNV.setPreferredSize(txtSize);
+        txtTen.setPreferredSize(txtSize);
+        txtDiaChi.setPreferredSize(txtSize);
+        dateNgaySinh.setPreferredSize(new Dimension(440, 32));
+        txtSDT.setPreferredSize(txtSize);
+        
         pnTopNV.add(pnText);
 
         //==========

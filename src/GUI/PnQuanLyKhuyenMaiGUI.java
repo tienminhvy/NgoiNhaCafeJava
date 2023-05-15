@@ -132,15 +132,15 @@ public class PnQuanLyKhuyenMaiGUI extends JPanel {
 
         pnMain.add(pnTextField);
 
-        Dimension lblSize = lblTen.getPreferredSize();
+        Dimension lblSize = new Dimension(130, 20);
         lblMa.setPreferredSize(lblSize);
         lblTen.setPreferredSize(lblSize);
         lblPhanTram.setPreferredSize(lblSize);
         lblDieuKien.setPreferredSize(lblSize);
         lblNgayBD.setPreferredSize(lblSize);
         lblNgayKT.setPreferredSize(lblSize);
-        dateBD.setPreferredSize(txtDieuKien.getPreferredSize());
-        dateKT.setPreferredSize(txtDieuKien.getPreferredSize());
+        dateBD.setPreferredSize(new Dimension(270, 25));
+        dateKT.setPreferredSize(new Dimension(270, 25));
 
         //==========BUTTON PANEL===============
         JPanel pnButton = new TransparentPanel();
