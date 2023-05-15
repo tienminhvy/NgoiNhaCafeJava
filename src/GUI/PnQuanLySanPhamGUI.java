@@ -134,7 +134,7 @@ public class PnQuanLySanPhamGUI extends JPanel {
         pnDonGia.add(txtdonGia);
         pnTextField.add(pnDonGia);
 
-        Dimension lblSize = lblSoLuong.getPreferredSize();
+        Dimension lblSize = new Dimension(130, 26);
         lblMa.setPreferredSize(lblSize);
         lblTen.setPreferredSize(lblSize);
         lblLoai.setPreferredSize(lblSize);

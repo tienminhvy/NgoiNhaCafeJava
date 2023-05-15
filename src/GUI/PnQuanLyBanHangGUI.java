@@ -448,13 +448,13 @@ public class PnQuanLyBanHangGUI extends JPanel {
         pnSearchDate.add(txtMaxNgayLap);
         pnCTHoaDonLeft.add(pnSearchDate);
 
-        Dimension lblHoaDonSize = lblMaKM.getPreferredSize();
-        lblMaHD.setPreferredSize(lblHoaDonSize);
-        lblNgayLap.setPreferredSize(lblHoaDonSize);
-        lblMaKH.setPreferredSize(lblHoaDonSize);
-        lblMaNV.setPreferredSize(lblHoaDonSize);
-        lblTongTien.setPreferredSize(lblHoaDonSize);
-        lblMaKM.setPreferredSize(lblHoaDonSize);
+        Dimension lblSize = new Dimension(160, 26);
+        lblMaHD.setPreferredSize(lblSize);
+        lblNgayLap.setPreferredSize(lblSize);
+        lblMaKH.setPreferredSize(lblSize);
+        lblMaNV.setPreferredSize(lblSize);
+        lblTongTien.setPreferredSize(lblSize);
+        lblMaKM.setPreferredSize(lblSize);
 //        lblMinsearch.setPreferredSize(lblMinNgay.getPreferredSize());
 
         txtMaHD.setEditable(false);
@@ -542,12 +542,12 @@ public class PnQuanLyBanHangGUI extends JPanel {
         pnThanhTienCT.add(txtThanhTienCT);
         pnTopCTHoaDonRight.add(pnThanhTienCT);
 
-        Dimension lblCTHDSize = lblThanhTienCT.getPreferredSize();
-        lblMaHDCT.setPreferredSize(lblCTHDSize);
-        lblMaSPCT.setPreferredSize(lblCTHDSize);
-        lblSoLuongCT.setPreferredSize(lblCTHDSize);
-        lblDonGiaCT.setPreferredSize(lblCTHDSize);
-        lblThanhTienCT.setPreferredSize(lblCTHDSize);
+        
+        lblMaHDCT.setPreferredSize(lblSize);
+        lblMaSPCT.setPreferredSize(lblSize);
+        lblSoLuongCT.setPreferredSize(lblSize);
+        lblDonGiaCT.setPreferredSize(lblSize);
+        lblThanhTienCT.setPreferredSize(lblSize);
         txtMaHDCT.setEditable(false);
         txtMaSPCT.setEditable(false);
         txtSoLuongCT.setEditable(false);

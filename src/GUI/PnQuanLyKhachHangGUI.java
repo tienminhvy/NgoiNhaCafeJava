@@ -110,7 +110,7 @@ public class PnQuanLyKhachHangGUI extends JPanel {
         pnSDT.add(txtSDT);
         pnTextField.add(pnSDT);
 
-        Dimension lblSize = lblMa.getPreferredSize();
+        Dimension lblSize = new Dimension(150, 26);
         lblMa.setPreferredSize(lblSize);
         lblTen.setPreferredSize(lblSize);
         lblDiaChi.setPreferredSize(lblSize);
