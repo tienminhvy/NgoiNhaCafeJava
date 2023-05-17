@@ -3,15 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/_Development/Java/NgoiNhaCafeNew/NgoiNhaCafeJava/src/GUI/Dialog/DlgQuyen_MatKhau.java</file>
-            <file>file:/D:/_Development/Java/NgoiNhaCafeNew/NgoiNhaCafeJava/src/GUI/Dialog/DlgKM.java</file>
-            <file>file:/D:/_Development/Java/NgoiNhaCafeNew/NgoiNhaCafeJava/src/GUI/XuatPhieuNhapGUI.java</file>
-            <file>file:/D:/_Development/Java/NgoiNhaCafeNew/NgoiNhaCafeJava/src/GUI/Dialog/DlgChonNhaCungCap.java</file>
-            <file>file:/D:/_Development/Java/NgoiNhaCafeNew/NgoiNhaCafeJava/src/GUI/Dialog/DlgDoiMatKhau.java</file>
-            <file>file:/D:/_Development/Java/NgoiNhaCafeNew/NgoiNhaCafeJava/src/GUI/Dialog/DlgThemKhachHang.java</file>
+            <file>file:/D:/_Development/Java/NgoiNhaCafeNew/NgoiNhaCafeJava/src/GUI/PnQuanLyNhanVienGUI.java</file>
+            <file>file:/D:/_Development/Java/NgoiNhaCafeNew/NgoiNhaCafeJava/src/BUS/NhanVienBUS.java</file>
             <file>file:/D:/_Development/Java/NgoiNhaCafeNew/NgoiNhaCafeJava/src/GUI/PnThongKeGUI.java</file>
-            <file>file:/D:/_Development/Java/NgoiNhaCafeNew/NgoiNhaCafeJava/src/BUS/SanPhamBUS.java</file>
-            <file>file:/D:/_Development/Java/NgoiNhaCafeNew/NgoiNhaCafeJava/src/GUI/PnQuanLyNhapHangGUI.java</file>
+            <file>file:/D:/_Development/Java/NgoiNhaCafeNew/NgoiNhaCafeJava/src/BUS/ThongKeBUS.java</file>
         </group>
     </open-files>
 </project-private>

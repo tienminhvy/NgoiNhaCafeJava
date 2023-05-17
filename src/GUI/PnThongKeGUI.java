@@ -50,11 +50,11 @@ public class PnThongKeGUI extends javax.swing.JPanel implements ActionListener {
         lb_quy4.setText(dcf.format(thongKe.getTongThuQuy(4)));
         lb_tongcong.setText(dcf.format(thongKe.getTongDoanhThu()));
         
-        
-        for(int i=0;i<thongKe.getTopSanPhamBanChay().size();i++) {
-            tb_dsbanchay.setValueAt(thongKe.getTopSanPhamBanChay().get(i).getTenSP(), i, 0);
-            tb_dsbanchay.setValueAt(thongKe.getTopSanPhamBanChay().get(i).getSoLuong(), i, 1);
-        }
+        if (thongKe.getTopSanPhamBanChay() != null)
+            for(int i=0;i<thongKe.getTopSanPhamBanChay().size();i++) {
+                tb_dsbanchay.setValueAt(thongKe.getTopSanPhamBanChay().get(i).getTenSP(), i, 0);
+                tb_dsbanchay.setValueAt(thongKe.getTopSanPhamBanChay().get(i).getSoLuong(), i, 1);
+            }
     }
 
     /**
@@ -98,15 +98,19 @@ public class PnThongKeGUI extends javax.swing.JPanel implements ActionListener {
         jLabel1.setPreferredSize(new java.awt.Dimension(129, 50));
         add(jLabel1, java.awt.BorderLayout.PAGE_START);
 
+        tk_sp.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         tk_sp.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tk_sp.setText("Số sản phẩm trên hệ thống: ");
 
+        tk_kh.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         tk_kh.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tk_kh.setText("Số lượng khách hàng: ");
 
+        tk_nv.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         tk_nv.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tk_nv.setText("Số lượng nhân viên: ");
 
+        tk_doanhthu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         tk_doanhthu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tk_doanhthu.setText("Tổng doanh thu theo năm: ");
 
@@ -128,21 +132,26 @@ public class PnThongKeGUI extends javax.swing.JPanel implements ActionListener {
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel11.setText("Doanh thu");
 
+        lb_tongcong.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lb_tongcong.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb_tongcong.setText("0");
 
+        lb_quy2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lb_quy2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb_quy2.setText("0");
 
+        lb_quy3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lb_quy3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb_quy3.setText("0");
 
+        lb_quy4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lb_quy4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb_quy4.setText("0");
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel12.setText("Tổng cộng");
 
+        lb_quy1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lb_quy1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lb_quy1.setText("0");
 
